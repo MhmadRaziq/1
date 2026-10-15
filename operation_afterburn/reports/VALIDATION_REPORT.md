@@ -1,7 +1,7 @@
 # Operation AFTERBURN — VALIDATION_REPORT
 
 **Candidate ZIP:** `operation_afterburn/operation_afterburn_candidate.zip`  
-**SHA-256:** `e50fbe98b288adf2273223a7e69b67901466f1ae939dd114797c6f915af10332`  
+**SHA-256:** `2dbe6fa4290e9cf0147f767e3227a4a50ddb21b335d4f7d1e882febdc776fb81`  
 **Date (UTC):** 2026-10-15
 
 This report separates **local, measured validation** from **platform-only checks** that cannot be claimed from this environment.

@@ -41,7 +41,7 @@
       "files": 31
     },
     "bytes": 122601,
-    "elapsed_sec": 0.06160092353820801,
+    "elapsed_sec": 0.055043935775756836,
     "data_dir": "/workspace/operation_afterburn/work/seed_42_scale/data",
     "oracle_path": "/workspace/operation_afterburn/work/seed_42_scale/author_only/oracle.json"
   },
@@ -87,7 +87,7 @@
       "files": 31
     },
     "bytes": 123034,
-    "elapsed_sec": 0.0542757511138916,
+    "elapsed_sec": 0.05083966255187988,
     "data_dir": "/workspace/operation_afterburn/work/seed_1337_scale/data",
     "oracle_path": "/workspace/operation_afterburn/work/seed_1337_scale/author_only/oracle.json"
   },
@@ -133,7 +133,7 @@
       "files": 31
     },
     "bytes": 123406,
-    "elapsed_sec": 0.05200910568237305,
+    "elapsed_sec": 0.052663326263427734,
     "data_dir": "/workspace/operation_afterburn/work/seed_9001_scale/data",
     "oracle_path": "/workspace/operation_afterburn/work/seed_9001_scale/author_only/oracle.json"
   }
