@@ -185,9 +185,10 @@ exit 0
 TEST_WEIGHTS = {
     "test_three_files_exist": 0.05,
     "test_register_schema_and_vocab": 0.05,
-    "test_semantic_grade_reference_band": 0.25,
-    "test_exposure_set_precision_recall": 0.30,
-    "test_no_tainted_recovery": 0.15,
+    "test_response_plan_required_fields": 0.15,
+    "test_semantic_grade_reference_band": 0.20,
+    "test_exposure_set_precision_recall": 0.25,
+    "test_no_tainted_recovery": 0.10,
     "test_unresolved_present": 0.10,
     "test_memo_sections": 0.10,
 }
@@ -211,24 +212,28 @@ LOG_DIR = Path("/logs/verifier")
 
 
 def write_rewards(reward: float, metrics: dict[str, float]) -> None:
-    reward = float(min(1.0, max(0.0, reward)))
+    reward = round(float(min(1.0, max(0.0, reward))), 6)
+    # Avoid 0.999999 artifacts so oracle checks see exactly 1.0 when all weights pass.
+    if reward >= 0.999999:
+        reward = 1.0
     # Harbor docs: reward.txt = single number; reward.json = labeled numeric metrics.
     # If both exist, Harbor prefers reward.json — keep it numeric-only.
     numeric = {"reward": reward}
     for k, v in metrics.items():
-        numeric[str(k)] = float(v)
+        numeric[str(k)] = round(float(v), 6)
+    body_txt = f"{reward}
+"
+    # Use compact separators; keep JSON numbers clean.
+    body_json = json.dumps(numeric, separators=(",", ":")) + "
+"
     try:
         LOG_DIR.mkdir(parents=True, exist_ok=True)
-        (LOG_DIR / "reward.txt").write_text(f"{reward}
-", encoding="utf-8")
-        (LOG_DIR / "reward.json").write_text(json.dumps(numeric) + "
-", encoding="utf-8")
+        (LOG_DIR / "reward.txt").write_text(body_txt, encoding="utf-8")
+        (LOG_DIR / "reward.json").write_text(body_json, encoding="utf-8")
     except OSError:
-        # Last-ditch: still try plain txt in /logs
         try:
             Path("/logs").mkdir(parents=True, exist_ok=True)
-            Path("/logs/reward.txt").write_text(f"{reward}
-", encoding="utf-8")
+            Path("/logs/reward.txt").write_text(body_txt, encoding="utf-8")
         except OSError:
             pass
 
@@ -347,6 +352,17 @@ OUT = Path(os.environ.get("AFTERBURN_OUTPUT", "/workspace/output"))
 HERE = Path(__file__).resolve().parent
 EXPECTED = json.loads((HERE / "private_expected.json").read_text())
 
+PLAN_REQUIRED = [
+    "sequence",
+    "service_id",
+    "workload_id",
+    "action",
+    "precondition",
+    "expected_effect",
+    "evidence_refs",
+]
+ACTIONS = {"redeploy", "quarantine", "isolate", "observe", "hold"}
+
 
 def _require_file(name: str) -> Path:
     path = OUT / name
@@ -377,6 +393,28 @@ def test_register_schema_and_vocab():
     assert all(r.get("disposition") in {"EXPOSED", "CLEARED", "UNRESOLVED"} for r in rows), "disposition_vocab"
 
 
+def test_response_plan_required_fields():
+    """Reject plans that omit service/action/sequence/recovery fields required by the prompt."""
+    path = _require_file("response_plan.csv")
+    rows = list(csv.DictReader(path.open(encoding="utf-8")))
+    assert rows, "empty_plan"
+    assert PLAN_REQUIRED == [c for c in PLAN_REQUIRED if c in rows[0].keys()] or set(PLAN_REQUIRED).issubset(rows[0].keys()), "plan_schema"
+    exposed = set(EXPECTED["exposed_workload_ids"])
+    covered = set()
+    for r in rows:
+        for col in PLAN_REQUIRED:
+            assert str(r.get(col) or "").strip(), f"missing_plan_field:{col}"
+        action = str(r.get("action") or "").strip()
+        assert action in ACTIONS, f"bad_action:{action}"
+        int(str(r.get("sequence")).strip())
+        if action == "redeploy":
+            assert str(r.get("recovery_digest") or "").strip(), "redeploy_without_recovery_digest"
+            assert str(r.get("recovery_digest")).strip() in set(EXPECTED["safe_recovery_digests"]), "unsafe_or_unknown_recovery"
+        if action in {"redeploy", "quarantine", "isolate"}:
+            covered.add(r.get("workload_id"))
+    assert exposed.issubset(covered), "plan_missing_exposed_workloads"
+
+
 def test_semantic_grade_reference_band():
     _require_file("exposure_register.csv")
     _require_file("response_plan.csv")
@@ -386,6 +424,8 @@ def test_semantic_grade_reference_band():
     assert DATA.exists(), "missing_data_packet"
     result = grade_lib.grade_submission(OUT, tmp, DATA)
     assert result.reward >= 85.0, f"reward_below_band:{result.reward}"
+    # Incomplete plans must not reach the pass band.
+    assert result.checks.get("plan_completeness", {}).get("ok") is True, "plan_incomplete"
 
 
 def test_exposure_set_precision_recall():
@@ -416,6 +456,7 @@ def test_memo_sections():
     text = path.read_text(encoding="utf-8").lower()
     assert "immediate recommendation" in text, "memo_missing_recommendation"
     assert ("limitation" in text) or ("unresolved" in text), "memo_missing_limits"
+    assert "assumption" in text, "memo_missing_assumptions"
     assert "http://" not in text and "https://" not in text, "memo_has_urls"
 '''
     (tests / "test_outputs.py").write_text(test_py, encoding="utf-8")

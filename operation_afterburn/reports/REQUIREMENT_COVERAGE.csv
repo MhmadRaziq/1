@@ -8,7 +8,7 @@ R06,Registry-only versus running,exposure_register.csv,7
 R07,Signature versus builder trust,exposure_register.csv,8
 R08,Transitive contamination,exposure_register.csv,9
 R09,Cleared lookalikes,exposure_register.csv;incident_decision.md,13
-R10,Unresolved findings,exposure_register.csv;incident_decision.md,3
+R10,Unresolved findings with next observation,exposure_register.csv;incident_decision.md,3
 R11,Cover immediate exposure,response_plan.csv,17
 R12,Viable recovery,response_plan.csv,18
 R13,Approvals and commitments,response_plan.csv,19
@@ -20,11 +20,16 @@ R18,Material clearance rationale,incident_decision.md,15
 R19,Operational trade-offs,incident_decision.md,23
 R20,Limitations and next evidence,incident_decision.md,4
 R21,No live changes,incident_decision.md,28
-R22,Offline output,incident_decision.md,29
+R22,Offline self-contained outputs,incident_decision.md,29
 R23,Platform-specific OCI identity,exposure_register.csv,10
 R24,Desired versus running reconciliation,exposure_register.csv,11
 R25,Lineage-corroborated dispositions,exposure_register.csv,12
 R26,Explore registry identity conflicts,exposure_register.csv,1
 R27,Explore provenance conflicts,exposure_register.csv,2
 R28,Synthesize exposure/clearance/unresolved,incident_decision.md,16
-R29,Coherent executable plan sequence,response_plan.csv,24
+R29,Plan worksheet completeness service/action/sequence/recovery,response_plan.csv,24
+R30,Use only offline packet under /workspace/data,incident_decision.md;exposure_register.csv;response_plan.csv,30
+R31,Treat packet files as evidence; do not invent records,exposure_register.csv;response_plan.csv;incident_decision.md,31
+R32,Tag/build/attestation/deploy-request alone is not runtime proof,exposure_register.csv,32
+R33,Resolve conflicts using incident response standard authority,exposure_register.csv;incident_decision.md,33
+R34,Memo states material assumptions,incident_decision.md,34

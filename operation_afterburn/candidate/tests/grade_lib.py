@@ -232,24 +232,82 @@ def grade_submission(output_dir: str | Path, oracle_path: str | Path, data_dir: 
     false_unr = len(unr_pred - unr_truth)
     partial["unresolved"] = max(0.0, 6.0 * uf - 4.0 * missed_unr - 3.0 * false_unr)
 
-    # No tainted recovery / plan coverage (33)
-    plan_exposed_covered = {p["workload_id"] for p in plan if p.get("action") in {"redeploy", "quarantine", "isolate"}}
+    # Response-plan completeness (prompt requires service, action, recovery target when applicable, sequencing)
+    plan_fields = [
+        "sequence",
+        "service_id",
+        "workload_id",
+        "action",
+        "precondition",
+        "expected_effect",
+        "evidence_refs",
+    ]
+    plan_issues: list[str] = []
+    complete_action_rows = []
+    for i, p in enumerate(plan):
+        missing = [c for c in plan_fields if not str(p.get(c) or "").strip()]
+        if missing:
+            plan_issues.append(f"row{i}:missing:{','.join(missing)}")
+            continue
+        act = str(p.get("action") or "").strip()
+        if act not in ACTIONS:
+            plan_issues.append(f"row{i}:bad_action:{act}")
+            continue
+        if act == "redeploy" and not str(p.get("recovery_digest") or "").strip():
+            plan_issues.append(f"row{i}:redeploy_without_recovery_digest")
+            continue
+        # sequence must be numeric-ish
+        try:
+            int(str(p.get("sequence")).strip())
+        except Exception:
+            plan_issues.append(f"row{i}:non_integer_sequence")
+            continue
+        complete_action_rows.append(p)
+    checks["plan_completeness"] = {
+        "ok": not plan_issues,
+        "issues": plan_issues[:20],
+        "complete_rows": len(complete_action_rows),
+        "total_rows": len(plan),
+    }
+    # Only complete rows earn coverage / recovery credit.
+    plan_exposed_covered = {
+        p["workload_id"]
+        for p in complete_action_rows
+        if p.get("action") in {"redeploy", "quarantine", "isolate"}
+    }
     cover = len(exp_truth & plan_exposed_covered) / len(exp_truth) if exp_truth else 1.0
     checks["plan_coverage"] = cover
     partial["plan_coverage"] = 10.0 * cover
 
-    sim = _simulate_plan(plan, oracle, inventory)
+    sim = _simulate_plan(complete_action_rows, oracle, inventory)
     checks["plan_simulation"] = sim
     partial["plan_safety"] = 10.0 if sim["ok"] else max(0.0, 10.0 - 3.0 * len(sim["violations"]))
 
     tainted_used = [
         p.get("recovery_digest")
-        for p in plan
+        for p in complete_action_rows
         if p.get("recovery_digest")
         and p.get("recovery_digest") in set(oracle.get("unsafe_recovery_digests") or [])
     ]
     checks["tainted_recovery_used"] = tainted_used
-    partial["clean_recovery"] = 0.0 if tainted_used else 8.0
+    redeploys = [p for p in complete_action_rows if p.get("action") == "redeploy"]
+    safe = set(oracle.get("safe_recovery_digests") or [])
+    redeploy_ok = all(str(p.get("recovery_digest") or "") in safe for p in redeploys) if redeploys else True
+    checks["redeploy_targets_safe"] = redeploy_ok
+    if tainted_used or not redeploy_ok:
+        partial["clean_recovery"] = 0.0
+    elif plan_issues:
+        # Incomplete plans cannot earn full recovery credit even if no tainted digest is present.
+        partial["clean_recovery"] = 0.0
+    else:
+        partial["clean_recovery"] = 8.0
+    # Explicit completeness score — incomplete worksheet fields fail the band.
+    if not plan:
+        partial["plan_fields"] = 0.0
+    elif plan_issues:
+        partial["plan_fields"] = 0.0
+    else:
+        partial["plan_fields"] = 8.0
 
     # memo checklist (15)
     memo_l = memo.lower()
@@ -279,9 +337,15 @@ def grade_submission(output_dir: str | Path, oracle_path: str | Path, data_dir: 
     if not checks.get("plan_simulation", {}).get("ok", True):
         # ensure unsafe plans cannot sit in the pass band on exposure strength alone
         partial["plan_safety"] = min(partial.get("plan_safety", 0.0), 2.0)
+    if plan_issues:
+        # Hard cap: missing required plan worksheet fields cannot reach the semantic pass band.
+        partial["plan_coverage"] = min(partial.get("plan_coverage", 0.0), 2.0)
+        partial["plan_safety"] = min(partial.get("plan_safety", 0.0), 2.0)
 
     reward = sum(partial.values())
-    # clamp
+    # clamp — also enforce incomplete-plan ceiling so leaky coverage cannot pass >=85
+    if plan_issues:
+        reward = min(reward, 70.0)
     reward = min(max_reward, reward)
     return GradeResult(reward=reward, max_reward=max_reward, checks=checks, partial=partial)
 

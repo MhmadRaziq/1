@@ -75,8 +75,8 @@ def main() -> int:
         metrics[name] = earned
         reward += earned
     write_rewards(reward, metrics)
-    # Keep stdout minimal — do not emit nested error objects.
-    print(reward)
+    shown = 1.0 if reward >= 0.999999 else round(min(1.0, max(0.0, reward)), 6)
+    print(shown)
     return 0
 
 

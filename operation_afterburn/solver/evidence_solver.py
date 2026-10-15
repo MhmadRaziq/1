@@ -509,7 +509,7 @@ Cleared examples include non-production environments, workloads not running at c
 Proposed sequence avoids simultaneous loss of edge-checkout regional capacity and rejects rollback digests inside the tainted closure. Where redeploy approval is not yet effective, quarantine/hold is recommended.
 
 ## Evidence basis and limitations
-Analysis used offline CI, builder, attestation, OCI, admission, runtime, inventory, approval, dependency, health, and rollback records. No live changes were performed. Additional host-level forensics are out of packet scope.
+Assumptions: event_time governs cutoff state; attestation authenticity is not builder trust; tags are non-authoritative. Analysis used offline CI, builder, attestation, OCI, admission, runtime, inventory, approval, dependency, health, and rollback records. No live changes were performed. Additional host-level forensics are out of packet scope.
 """
 
     with (out / "exposure_register.csv").open("w", encoding="utf-8", newline="") as f:
