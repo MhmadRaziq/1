@@ -16,11 +16,6 @@ EXPECTED = json.loads((HERE / "private_expected.json").read_text())
 
 
 def _ensure_outputs():
-    if not (OUT / "exposure_register.csv").exists():
-        # local/dev fallback
-        alt = Path("/workspace/operation_afterburn/work/seed_42_scale/output_solver")
-        if alt.exists():
-            return alt
     return OUT
 
 

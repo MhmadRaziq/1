@@ -1,61 +1,80 @@
 #!/usr/bin/env python3
-"""Weighted verifier entrypoint for Operation AFTERBURN."""
+"""Stdlib-only weighted verifier. Always writes /logs/verifier/reward.txt."""
 from __future__ import annotations
 
+import importlib.util
 import json
-import os
-import sys
 import traceback
 from pathlib import Path
 
-import pytest
-
 ROOT = Path(__file__).resolve().parent
-WEIGHTS = json.loads((ROOT / "test_weights.json").read_text(encoding="utf-8"))
+REWARD_PATHS = (
+    Path("/logs/verifier/reward.txt"),
+    Path("/logs/reward.txt"),
+)
 
 
-class _Collector:
-    def __init__(self):
-        self.passed = set()
-        self.failed = set()
+def write_reward(reward: float, details: dict | None = None) -> None:
+    reward = round(min(1.0, max(0.0, float(reward))), 6)
+    payload = json.dumps({"reward": reward, "tests": details or {}}, indent=2) + "\n"
+    text = f"{reward}\n"
+    for path in REWARD_PATHS:
+        try:
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(text, encoding="utf-8")
+            path.with_name("reward.json").write_text(payload, encoding="utf-8")
+        except OSError:
+            continue
+    # Also mirror beside tests for local debugging (not relied on by platform).
+    try:
+        local = ROOT / "logs"
+        local.mkdir(parents=True, exist_ok=True)
+        (local / "reward.txt").write_text(text, encoding="utf-8")
+        (local / "reward.json").write_text(payload, encoding="utf-8")
+    except OSError:
+        pass
 
-    def pytest_runtest_logreport(self, report):
-        if report.when != "call":
-            return
-        name = report.nodeid.split("::")[-1]
-        if report.passed:
-            self.passed.add(name)
-        elif report.failed or report.outcome == "failed":
-            self.failed.add(name)
+
+def load_weights() -> dict:
+    raw = json.loads((ROOT / "test_weights.json").read_text(encoding="utf-8"))
+    return {str(k): float(v) for k, v in raw.items()}
+
+
+def load_tests_module():
+    path = ROOT / "test_outputs.py"
+    spec = importlib.util.spec_from_file_location("afterburn_test_outputs", path)
+    if spec is None or spec.loader is None:
+        raise RuntimeError("unable to load test_outputs.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
 
 
 def main() -> int:
-    collector = _Collector()
-    code = pytest.main(["-q", str(ROOT / "test_outputs.py")], plugins=[collector])
-    reward = 0.0
+    # Guarantee a reward file exists even if later steps crash.
+    write_reward(0.0, {"status": "starting"})
+    weights = load_weights()
+    mod = load_tests_module()
     details = {}
-    for name, weight in WEIGHTS.items():
-        ok = name in collector.passed and name not in collector.failed
-        details[name] = {"weight": weight, "passed": ok}
+    reward = 0.0
+    for name, weight in weights.items():
+        fn = getattr(mod, name, None)
+        ok = False
+        err = None
+        if callable(fn):
+            try:
+                fn()
+                ok = True
+            except Exception as exc:  # noqa: BLE001 - record per-test failure
+                err = f"{type(exc).__name__}: {exc}"
+        else:
+            err = "missing_test_function"
+        details[name] = {"weight": weight, "passed": ok, "error": err}
         if ok:
-            reward += float(weight)
-    reward = round(min(1.0, max(0.0, reward)), 6)
-
-    # Common verifier output locations (platform may use either).
-    for log_dir in (Path("/logs/verifier"), Path("/logs"), ROOT / "logs"):
-        try:
-            log_dir.mkdir(parents=True, exist_ok=True)
-            (log_dir / "reward.txt").write_text(str(reward) + "\n", encoding="utf-8")
-            (log_dir / "reward.json").write_text(
-                json.dumps({"reward": reward, "tests": details}, indent=2) + "\n",
-                encoding="utf-8",
-            )
-        except OSError:
-            continue
-
-    print(json.dumps({"reward": reward, "pytest_exit": code, "tests": details}, indent=2))
-    # Nonzero pytest exit still records partial reward; fail hard only on collector crash.
-    return 0 if reward >= 0.0 else 1
+            reward += weight
+    write_reward(reward, details)
+    print(json.dumps({"reward": round(reward, 6), "tests": details}, indent=2))
+    return 0
 
 
 if __name__ == "__main__":
@@ -63,10 +82,5 @@ if __name__ == "__main__":
         raise SystemExit(main())
     except Exception:
         traceback.print_exc()
-        for log_dir in (Path("/logs/verifier"), Path("/logs")):
-            try:
-                log_dir.mkdir(parents=True, exist_ok=True)
-                (log_dir / "reward.txt").write_text("0\n", encoding="utf-8")
-            except OSError:
-                pass
-        raise SystemExit(1)
+        write_reward(0.0, {"status": "fatal", "error": "unhandled_exception"})
+        raise SystemExit(0)  # still exit 0 so platform can read reward=0
