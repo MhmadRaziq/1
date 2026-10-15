@@ -1,0 +1,9 @@
+{
+  "test_three_files_exist": 0.05,
+  "test_register_schema_and_vocab": 0.05,
+  "test_semantic_grade_reference_band": 0.25,
+  "test_exposure_set_precision_recall": 0.3,
+  "test_no_tainted_recovery": 0.15,
+  "test_unresolved_present": 0.1,
+  "test_memo_sections": 0.1
+}

@@ -1,9 +1,6 @@
 schema_version = "1.1"
 
 [metadata]
-name = "operation-afterburn-supply-chain-exposure"
-description = "Reconstruct production exposure from a compromised CI runner and propose a quorum-safe recovery plan."
-author = "afterburn-bench"
 difficulty = "hard"
 
 [environment]
