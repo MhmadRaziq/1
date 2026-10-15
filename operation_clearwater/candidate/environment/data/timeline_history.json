@@ -1,0 +1,162 @@
+[
+  {
+    "event_id": "TLH-REPAIR",
+    "child_timeline": 2,
+    "parent_timeline": 1,
+    "switchpoint_lsn": "2/C8000000",
+    "recorded_at": "2026-09-19T20:00:00Z",
+    "note": "Repair timeline forked from main after emergency checkpoint."
+  },
+  {
+    "event_id": "TLH-REPLICA",
+    "child_timeline": 3,
+    "parent_timeline": 1,
+    "switchpoint_lsn": "2/AC000000",
+    "recorded_at": "2026-09-17T20:00:00Z",
+    "note": "Lagged replica promoted independently; not a recovery ancestor for main backups taken later."
+  },
+  {
+    "event_id": "TL-IDENTITY-BRANCH",
+    "candidate_id": "IDENTITY-BRANCH",
+    "child_timeline": 2,
+    "parent_timeline": 1,
+    "switchpoint_lsn": "2/C8000000",
+    "recorded_at": "2026-09-21T06:00:00Z",
+    "note": "Repair timeline membership for this backup"
+  },
+  {
+    "event_id": "TL-SESSIONS-BRANCH",
+    "candidate_id": "SESSIONS-BRANCH",
+    "child_timeline": 2,
+    "parent_timeline": 1,
+    "switchpoint_lsn": "2/C8000000",
+    "recorded_at": "2026-09-21T06:00:00Z",
+    "note": "Repair timeline membership for this backup"
+  },
+  {
+    "event_id": "TL-PAYMENTS-BRANCH",
+    "candidate_id": "PAYMENTS-BRANCH",
+    "child_timeline": 2,
+    "parent_timeline": 1,
+    "switchpoint_lsn": "2/C8000000",
+    "recorded_at": "2026-09-21T05:00:00Z",
+    "note": "Repair timeline membership for this backup"
+  },
+  {
+    "event_id": "TL-ORDERS-BRANCH",
+    "candidate_id": "ORDERS-BRANCH",
+    "child_timeline": 2,
+    "parent_timeline": 1,
+    "switchpoint_lsn": "2/C8000000",
+    "recorded_at": "2026-09-21T07:00:00Z",
+    "note": "Repair timeline membership for this backup"
+  },
+  {
+    "event_id": "TL-INVENTORY-BRANCH",
+    "candidate_id": "INVENTORY-BRANCH",
+    "child_timeline": 3,
+    "parent_timeline": 1,
+    "switchpoint_lsn": "2/AC000000",
+    "recorded_at": "2026-09-21T17:00:00Z",
+    "note": "Replica promotion fork"
+  },
+  {
+    "event_id": "TL-CATALOG-BRANCH",
+    "candidate_id": "CATALOG-BRANCH",
+    "child_timeline": 2,
+    "parent_timeline": 1,
+    "switchpoint_lsn": "2/C8000000",
+    "recorded_at": "2026-09-21T06:00:00Z",
+    "note": "Repair timeline membership for this backup"
+  },
+  {
+    "event_id": "TL-CUSTOMERS-BRANCH",
+    "candidate_id": "CUSTOMERS-BRANCH",
+    "child_timeline": 2,
+    "parent_timeline": 1,
+    "switchpoint_lsn": "2/C8000000",
+    "recorded_at": "2026-09-21T07:00:00Z",
+    "note": "Repair timeline membership for this backup"
+  },
+  {
+    "event_id": "TL-BILLING-BRANCH",
+    "candidate_id": "BILLING-BRANCH",
+    "child_timeline": 2,
+    "parent_timeline": 1,
+    "switchpoint_lsn": "2/C8000000",
+    "recorded_at": "2026-09-21T07:00:00Z",
+    "note": "Repair timeline membership for this backup"
+  },
+  {
+    "event_id": "TL-FULFILLMENT-BRANCH",
+    "candidate_id": "FULFILLMENT-BRANCH",
+    "child_timeline": 2,
+    "parent_timeline": 1,
+    "switchpoint_lsn": "2/C8000000",
+    "recorded_at": "2026-09-21T05:00:00Z",
+    "note": "Repair timeline membership for this backup"
+  },
+  {
+    "event_id": "TL-NOTIFICATIONS-BRANCH",
+    "candidate_id": "NOTIFICATIONS-BRANCH",
+    "child_timeline": 2,
+    "parent_timeline": 1,
+    "switchpoint_lsn": "2/C8000000",
+    "recorded_at": "2026-09-21T06:00:00Z",
+    "note": "Repair timeline membership for this backup"
+  },
+  {
+    "event_id": "TL-REPORTING-BRANCH",
+    "candidate_id": "REPORTING-BRANCH",
+    "child_timeline": 2,
+    "parent_timeline": 1,
+    "switchpoint_lsn": "2/C8000000",
+    "recorded_at": "2026-09-21T05:00:00Z",
+    "note": "Repair timeline membership for this backup"
+  },
+  {
+    "event_id": "TL-SEARCH-BRANCH",
+    "candidate_id": "SEARCH-BRANCH",
+    "child_timeline": 2,
+    "parent_timeline": 1,
+    "switchpoint_lsn": "2/C8000000",
+    "recorded_at": "2026-09-21T06:00:00Z",
+    "note": "Repair timeline membership for this backup"
+  },
+  {
+    "event_id": "TL-FRAUD-BRANCH",
+    "candidate_id": "FRAUD-BRANCH",
+    "child_timeline": 2,
+    "parent_timeline": 1,
+    "switchpoint_lsn": "2/C8000000",
+    "recorded_at": "2026-09-21T07:00:00Z",
+    "note": "Repair timeline membership for this backup"
+  },
+  {
+    "event_id": "TL-PARTNERS-BRANCH",
+    "candidate_id": "PARTNERS-BRANCH",
+    "child_timeline": 2,
+    "parent_timeline": 1,
+    "switchpoint_lsn": "2/C8000000",
+    "recorded_at": "2026-09-21T05:00:00Z",
+    "note": "Repair timeline membership for this backup"
+  },
+  {
+    "event_id": "TL-WAREHOUSE-BRANCH",
+    "candidate_id": "WAREHOUSE-BRANCH",
+    "child_timeline": 2,
+    "parent_timeline": 1,
+    "switchpoint_lsn": "2/C8000000",
+    "recorded_at": "2026-09-21T07:00:00Z",
+    "note": "Repair timeline membership for this backup"
+  },
+  {
+    "event_id": "TL-AUDITLOG-BRANCH",
+    "candidate_id": "AUDITLOG-BRANCH",
+    "child_timeline": 2,
+    "parent_timeline": 1,
+    "switchpoint_lsn": "2/C8000000",
+    "recorded_at": "2026-09-21T05:00:00Z",
+    "note": "Repair timeline membership for this backup"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "test_name": "test_two_files_exist",
+    "weight": 4
+  },
+  {
+    "test_name": "test_plan_schema",
+    "weight": 4
+  },
+  {
+    "test_name": "test_semantic_grade_reference_band",
+    "weight": 40,
+    "decision": true
+  },
+  {
+    "test_name": "test_no_unsafe_sources",
+    "weight": 20,
+    "decision": true
+  },
+  {
+    "test_name": "test_within_budget_and_schema",
+    "weight": 12
+  },
+  {
+    "test_name": "test_citations_resolvable",
+    "weight": 10
+  },
+  {
+    "test_name": "test_memo_sections",
+    "weight": 10
+  }
+]

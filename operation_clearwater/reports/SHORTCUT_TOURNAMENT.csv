@@ -1,0 +1,17 @@
+shortcut,ok,different_services,invalid_sources,same_portfolio,true_weighted_loss,reference_weighted_loss
+ignore_vault_receipt,True,3,1,False,1387.0,1540.0
+ignore_digest,True,3,1,False,1435.0,1540.0
+ignore_key,True,4,2,False,1321.0,1540.0
+ignore_attestation,True,3,1,False,1375.0,1540.0
+ignore_scan,True,3,1,False,1504.0,1540.0
+ignore_restore_rehearsal,True,3,1,False,1435.0,1540.0
+ignore_wal_continuity,True,2,1,False,1471.0,1540.0
+ignore_timeline_history,True,4,2,False,1360.0,1540.0
+ignore_compromise_indicator,True,3,1,False,1375.0,1540.0
+ignore_capacity,True,12,0,False,754.0,1540.0
+ignore_schema_compatibility,False,16,,False,,1540.0
+ignore_business_priority,False,16,,False,,1540.0
+treat_legal_hold_as_deny,True,4,0,False,1717.0,1540.0
+ignore_migration_coupling,True,4,0,False,1495.0,1540.0
+ignore_all_evidence,True,14,10,False,610.0,1540.0
+ignore_all_constraints,True,15,8,False,33.0,1540.0

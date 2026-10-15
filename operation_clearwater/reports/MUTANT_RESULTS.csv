@@ -1,0 +1,16 @@
+name,reward,expect_reject,pass
+m01_missing_memo,62.0,True,True
+m02_empty,3.0,True,True
+m03_fabricated_citation,70.0,True,True
+m04_catalog_latest,58.0,True,True
+m05_overbudget_fields,100.0,False,True
+m05b_expensive_set,66.0,True,True
+m06_bad_cutover,82.0,True,True
+m07_unsafe_payments,76.0,True,True
+m08_schema_break,86.0,True,False
+m09_irreversible_migration,80.0,True,True
+m10_unnecessary_hold_denial,83.0,False,True
+m11_wal_gap_search,76.0,True,True
+m12_stale_scan,71.0,True,True
+m13_late_rehearsal,76.0,True,True
+m14_alternate_valid,100.0,False,True

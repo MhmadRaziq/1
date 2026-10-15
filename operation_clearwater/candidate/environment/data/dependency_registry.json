@@ -1,0 +1,151 @@
+[
+  {
+    "service": "identity",
+    "priority": 10,
+    "depends_on": [],
+    "rpo_hours": 48,
+    "owner_team": "team-identity"
+  },
+  {
+    "service": "sessions",
+    "priority": 8,
+    "depends_on": [
+      "identity"
+    ],
+    "rpo_hours": 48,
+    "owner_team": "team-sessions"
+  },
+  {
+    "service": "payments",
+    "priority": 10,
+    "depends_on": [
+      "identity"
+    ],
+    "rpo_hours": 48,
+    "owner_team": "team-payments"
+  },
+  {
+    "service": "orders",
+    "priority": 9,
+    "depends_on": [
+      "identity",
+      "sessions"
+    ],
+    "rpo_hours": 48,
+    "owner_team": "team-orders"
+  },
+  {
+    "service": "inventory",
+    "priority": 8,
+    "depends_on": [
+      "orders"
+    ],
+    "rpo_hours": 48,
+    "owner_team": "team-inventory"
+  },
+  {
+    "service": "catalog",
+    "priority": 6,
+    "depends_on": [
+      "inventory"
+    ],
+    "rpo_hours": 72,
+    "owner_team": "team-catalog"
+  },
+  {
+    "service": "customers",
+    "priority": 7,
+    "depends_on": [
+      "identity"
+    ],
+    "rpo_hours": 72,
+    "owner_team": "team-customers"
+  },
+  {
+    "service": "billing",
+    "priority": 8,
+    "depends_on": [
+      "payments",
+      "customers"
+    ],
+    "rpo_hours": 48,
+    "owner_team": "team-billing"
+  },
+  {
+    "service": "fulfillment",
+    "priority": 7,
+    "depends_on": [
+      "orders",
+      "inventory"
+    ],
+    "rpo_hours": 72,
+    "owner_team": "team-fulfillment"
+  },
+  {
+    "service": "notifications",
+    "priority": 4,
+    "depends_on": [
+      "customers",
+      "orders"
+    ],
+    "rpo_hours": 72,
+    "owner_team": "team-notifications"
+  },
+  {
+    "service": "reporting",
+    "priority": 3,
+    "depends_on": [
+      "payments",
+      "orders"
+    ],
+    "rpo_hours": 72,
+    "owner_team": "team-reporting"
+  },
+  {
+    "service": "search",
+    "priority": 3,
+    "depends_on": [
+      "catalog"
+    ],
+    "rpo_hours": 72,
+    "owner_team": "team-search"
+  },
+  {
+    "service": "fraud",
+    "priority": 6,
+    "depends_on": [
+      "payments",
+      "customers"
+    ],
+    "rpo_hours": 72,
+    "owner_team": "team-fraud"
+  },
+  {
+    "service": "partners",
+    "priority": 5,
+    "depends_on": [
+      "identity",
+      "catalog"
+    ],
+    "rpo_hours": 72,
+    "owner_team": "team-partners"
+  },
+  {
+    "service": "warehouse",
+    "priority": 2,
+    "depends_on": [
+      "reporting"
+    ],
+    "rpo_hours": 72,
+    "owner_team": "team-warehouse"
+  },
+  {
+    "service": "auditlog",
+    "priority": 5,
+    "depends_on": [
+      "identity"
+    ],
+    "rpo_hours": 72,
+    "owner_team": "team-auditlog"
+  }
+]

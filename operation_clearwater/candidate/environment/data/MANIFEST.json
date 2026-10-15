@@ -1,0 +1,20 @@
+{
+  "source_sha256": {
+    "case_brief.md": "9be34ae107aa6dacf1fe30cb45f258792796f991932ead2bd7f35a278c01ba8e",
+    "evidence_guide.md": "28a9b65ff4a3b3711b6c4e9eb7cd807972149ba38d4e42f028a3493a891ffd91",
+    "recovery_policy.json": "d2b76d2d1c07c8eb34b07e0be6a472ed37badabe2ce023682fff390b44d01c46",
+    "recovery_candidates.json": "969fb355295902fc632fb3a9b99ce1713d699ea5033f332364982ab959e529c4",
+    "vault_receipts.json": "b93082b8ebb8369154ab14edaacdfaad7cfc10bb37104ec3739eb0ec97995126",
+    "wal_archive.json": "8909b26105ca597d298ca978ff518f5f00e2831f828310f3e33e08da406c0961",
+    "timeline_history.json": "7367a3f1008e4071b57b3b49b11cfb1323a9486d3ce5f5bd4e6a38ace82bec15",
+    "kms_grants.json": "181d9622a800af49a6608a1cdd515accde3184011ad175ebc4c157b497daa55b",
+    "build_attestations.json": "0254f60477500ade8b722e34593c19673343ffeadf2015adc996ad28faa900dd",
+    "malware_scans.json": "04f4e52080b5de4766ca23da0e5c790c1a8d206195182225632247ebb2bc0039",
+    "restore_rehearsals.json": "7949a47a69271fb37f589d5ecbd3eca95228064b4d86b1dfffe7c5ea61c1e8f8",
+    "intrusion_indicators.json": "cf68624a6570c7fb6b662e7d4282aa0765b07da03a8bb8b3b8a65be82f9a8e0b",
+    "dependency_registry.json": "f17ed07656b4fdc7b41c3451f813120a0bd4b49d473d98ec6ff4ecfc026ae46c",
+    "report_templates/recovery_decision.md": "35b4a9f4148710f32b5046f89f9e0984a20c3dfe1c903bdbbc4adcac2bf40021",
+    "report_templates/recovery_plan.csv": "4b15f2a50cf4649d5a03ed3624e958a1ac61d5e8aaeeae7d0ea6769f52dd8bcf"
+  },
+  "seed": 42
+}

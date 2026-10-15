@@ -1,0 +1,146 @@
+[
+  {
+    "event_id": "IR-IDENTITY",
+    "service": "identity",
+    "window_start": "2026-09-21T17:00:00Z",
+    "window_end": "2026-09-21T19:30:00Z",
+    "indicator": "SUSPICIOUS-IO",
+    "confirmed": false,
+    "notes": "Unconfirmed anomalous I/O; do not treat as proven contamination."
+  },
+  {
+    "event_id": "IR-SESSIONS",
+    "service": "sessions",
+    "window_start": "2026-09-21T17:00:00Z",
+    "window_end": "2026-09-21T19:30:00Z",
+    "indicator": "SUSPICIOUS-IO",
+    "confirmed": false,
+    "notes": "Unconfirmed anomalous I/O; do not treat as proven contamination."
+  },
+  {
+    "event_id": "IR-PAYMENTS",
+    "service": "payments",
+    "window_start": "2026-09-21T15:00:00Z",
+    "window_end": "2026-09-21T19:00:00Z",
+    "indicator": "RANSOMWARE-WRITE",
+    "confirmed": true,
+    "notes": "Confirmed encrypting writes against payments primary."
+  },
+  {
+    "event_id": "IR-ORDERS",
+    "service": "orders",
+    "window_start": "2026-09-21T17:00:00Z",
+    "window_end": "2026-09-21T19:30:00Z",
+    "indicator": "SUSPICIOUS-IO",
+    "confirmed": false,
+    "notes": "Unconfirmed anomalous I/O; do not treat as proven contamination."
+  },
+  {
+    "event_id": "IR-INVENTORY",
+    "service": "inventory",
+    "window_start": "2026-09-21T17:00:00Z",
+    "window_end": "2026-09-21T19:30:00Z",
+    "indicator": "SUSPICIOUS-IO",
+    "confirmed": false,
+    "notes": "Unconfirmed anomalous I/O; do not treat as proven contamination."
+  },
+  {
+    "event_id": "IR-CATALOG",
+    "service": "catalog",
+    "window_start": "2026-09-21T17:00:00Z",
+    "window_end": "2026-09-21T19:30:00Z",
+    "indicator": "SUSPICIOUS-IO",
+    "confirmed": false,
+    "notes": "Unconfirmed anomalous I/O; do not treat as proven contamination."
+  },
+  {
+    "event_id": "IR-CUSTOMERS",
+    "service": "customers",
+    "window_start": "2026-09-21T17:00:00Z",
+    "window_end": "2026-09-21T19:30:00Z",
+    "indicator": "SUSPICIOUS-IO",
+    "confirmed": false,
+    "notes": "Unconfirmed anomalous I/O; do not treat as proven contamination."
+  },
+  {
+    "event_id": "IR-BILLING",
+    "service": "billing",
+    "window_start": "2026-09-21T17:00:00Z",
+    "window_end": "2026-09-21T19:30:00Z",
+    "indicator": "SUSPICIOUS-IO",
+    "confirmed": false,
+    "notes": "Unconfirmed anomalous I/O; do not treat as proven contamination."
+  },
+  {
+    "event_id": "IR-FULFILLMENT",
+    "service": "fulfillment",
+    "window_start": "2026-09-21T17:00:00Z",
+    "window_end": "2026-09-21T19:30:00Z",
+    "indicator": "SUSPICIOUS-IO",
+    "confirmed": false,
+    "notes": "Unconfirmed anomalous I/O; do not treat as proven contamination."
+  },
+  {
+    "event_id": "IR-NOTIFICATIONS",
+    "service": "notifications",
+    "window_start": "2026-09-21T17:00:00Z",
+    "window_end": "2026-09-21T19:30:00Z",
+    "indicator": "SUSPICIOUS-IO",
+    "confirmed": false,
+    "notes": "Unconfirmed anomalous I/O; do not treat as proven contamination."
+  },
+  {
+    "event_id": "IR-REPORTING",
+    "service": "reporting",
+    "window_start": "2026-09-21T17:00:00Z",
+    "window_end": "2026-09-21T19:30:00Z",
+    "indicator": "SUSPICIOUS-IO",
+    "confirmed": false,
+    "notes": "Unconfirmed anomalous I/O; do not treat as proven contamination."
+  },
+  {
+    "event_id": "IR-SEARCH",
+    "service": "search",
+    "window_start": "2026-09-21T17:00:00Z",
+    "window_end": "2026-09-21T19:30:00Z",
+    "indicator": "SUSPICIOUS-IO",
+    "confirmed": false,
+    "notes": "Unconfirmed anomalous I/O; do not treat as proven contamination."
+  },
+  {
+    "event_id": "IR-FRAUD",
+    "service": "fraud",
+    "window_start": "2026-09-21T17:00:00Z",
+    "window_end": "2026-09-21T19:30:00Z",
+    "indicator": "SUSPICIOUS-IO",
+    "confirmed": false,
+    "notes": "Unconfirmed anomalous I/O; do not treat as proven contamination."
+  },
+  {
+    "event_id": "IR-PARTNERS",
+    "service": "partners",
+    "window_start": "2026-09-21T17:00:00Z",
+    "window_end": "2026-09-21T19:30:00Z",
+    "indicator": "SUSPICIOUS-IO",
+    "confirmed": false,
+    "notes": "Unconfirmed anomalous I/O; do not treat as proven contamination."
+  },
+  {
+    "event_id": "IR-WAREHOUSE",
+    "service": "warehouse",
+    "window_start": "2026-09-21T17:00:00Z",
+    "window_end": "2026-09-21T19:30:00Z",
+    "indicator": "SUSPICIOUS-IO",
+    "confirmed": false,
+    "notes": "Unconfirmed anomalous I/O; do not treat as proven contamination."
+  },
+  {
+    "event_id": "IR-AUDITLOG",
+    "service": "auditlog",
+    "window_start": "2026-09-21T17:00:00Z",
+    "window_end": "2026-09-21T19:30:00Z",
+    "indicator": "SUSPICIOUS-IO",
+    "confirmed": false,
+    "notes": "Unconfirmed anomalous I/O; do not treat as proven contamination."
+  }
+]

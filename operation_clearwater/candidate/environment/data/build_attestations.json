@@ -1,0 +1,802 @@
+[
+  {
+    "event_id": "AT-IDENTITY-LATEST",
+    "candidate_id": "IDENTITY-LATEST",
+    "snapshot_digest": "e3d1dd877489f51414587a1694b30e50",
+    "signature_valid": true,
+    "signer_id": "signer-8",
+    "signer_trusted": false,
+    "signer_revoked_at": "2026-09-21T17:02:00Z",
+    "signed_at": "2026-09-21T18:02:00Z"
+  },
+  {
+    "event_id": "AT-IDENTITY-NEAR",
+    "candidate_id": "IDENTITY-NEAR",
+    "snapshot_digest": "2ae8a9dc4ced045c9ac2cc4cbb3a663d",
+    "signature_valid": true,
+    "signer_id": "signer-8",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T12:02:00Z"
+  },
+  {
+    "event_id": "AT-IDENTITY-STABLE",
+    "candidate_id": "IDENTITY-STABLE",
+    "snapshot_digest": "ab8c89ac3e91c8b70bed14107cb33cb2",
+    "signature_valid": true,
+    "signer_id": "signer-8",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T03:02:00Z"
+  },
+  {
+    "event_id": "AT-IDENTITY-BRANCH",
+    "candidate_id": "IDENTITY-BRANCH",
+    "snapshot_digest": "e779983e7fe17f136b7f2b0484f59134",
+    "signature_valid": true,
+    "signer_id": "signer-8",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T06:02:00Z"
+  },
+  {
+    "event_id": "AT-IDENTITY-ARCHIVE",
+    "candidate_id": "IDENTITY-ARCHIVE",
+    "snapshot_digest": "2b57a9b8096b2fb1fadcd6d070169171",
+    "signature_valid": true,
+    "signer_id": "signer-8",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-20T09:02:00Z"
+  },
+  {
+    "event_id": "AT-SESSIONS-LATEST",
+    "candidate_id": "SESSIONS-LATEST",
+    "snapshot_digest": "b9c6c9dfb9a6efa9d19e15e185042f8b",
+    "signature_valid": true,
+    "signer_id": "signer-2",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T18:02:00Z"
+  },
+  {
+    "event_id": "AT-SESSIONS-NEAR",
+    "candidate_id": "SESSIONS-NEAR",
+    "snapshot_digest": "cd60a876c37a7de73a31019602bc61cc",
+    "signature_valid": true,
+    "signer_id": "signer-2",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T12:02:00Z"
+  },
+  {
+    "event_id": "AT-SESSIONS-STABLE",
+    "candidate_id": "SESSIONS-STABLE",
+    "snapshot_digest": "4262dff3ff85545a7a8b333647e2af47",
+    "signature_valid": true,
+    "signer_id": "signer-2",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T03:02:00Z"
+  },
+  {
+    "event_id": "AT-SESSIONS-BRANCH",
+    "candidate_id": "SESSIONS-BRANCH",
+    "snapshot_digest": "4db4249126d89f13c587890edbf76cee",
+    "signature_valid": true,
+    "signer_id": "signer-2",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T06:02:00Z"
+  },
+  {
+    "event_id": "AT-SESSIONS-ARCHIVE",
+    "candidate_id": "SESSIONS-ARCHIVE",
+    "snapshot_digest": "d0fc07970157d27da053f988882f3c63",
+    "signature_valid": true,
+    "signer_id": "signer-2",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-20T09:02:00Z"
+  },
+  {
+    "event_id": "AT-PAYMENTS-LATEST",
+    "candidate_id": "PAYMENTS-LATEST",
+    "snapshot_digest": "2532de7c225e1988964c2d383fee2e65",
+    "signature_valid": true,
+    "signer_id": "signer-6",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T17:02:00Z"
+  },
+  {
+    "event_id": "AT-PAYMENTS-NEAR",
+    "candidate_id": "PAYMENTS-NEAR",
+    "snapshot_digest": "74c13a2e22ca24bfb23df2aff27e86e6",
+    "signature_valid": true,
+    "signer_id": "signer-6",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T11:02:00Z"
+  },
+  {
+    "event_id": "AT-PAYMENTS-STABLE",
+    "candidate_id": "PAYMENTS-STABLE",
+    "snapshot_digest": "67deae245883073236bdbc7b44f63f13",
+    "signature_valid": true,
+    "signer_id": "signer-6",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T02:02:00Z"
+  },
+  {
+    "event_id": "AT-PAYMENTS-BRANCH",
+    "candidate_id": "PAYMENTS-BRANCH",
+    "snapshot_digest": "0058f9c089861df8585c3b873cba60b4",
+    "signature_valid": true,
+    "signer_id": "signer-6",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T05:02:00Z"
+  },
+  {
+    "event_id": "AT-PAYMENTS-ARCHIVE",
+    "candidate_id": "PAYMENTS-ARCHIVE",
+    "snapshot_digest": "4fb33fbbd66ac1f34065dbac241a3539",
+    "signature_valid": true,
+    "signer_id": "signer-6",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-20T08:02:00Z"
+  },
+  {
+    "event_id": "AT-ORDERS-LATEST",
+    "candidate_id": "ORDERS-LATEST",
+    "snapshot_digest": "24f243cbbe8659222d050d4baa92c87b",
+    "signature_valid": true,
+    "signer_id": "signer-4",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T19:02:00Z"
+  },
+  {
+    "event_id": "AT-ORDERS-NEAR",
+    "candidate_id": "ORDERS-NEAR",
+    "snapshot_digest": "eb007eabb3600aa8c0b7e1d9224479c3",
+    "signature_valid": true,
+    "signer_id": "signer-4",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T13:02:00Z"
+  },
+  {
+    "event_id": "AT-ORDERS-STABLE",
+    "candidate_id": "ORDERS-STABLE",
+    "snapshot_digest": "3962402ca482c6d311a57e105d5505c2",
+    "signature_valid": true,
+    "signer_id": "signer-4",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T01:02:00Z"
+  },
+  {
+    "event_id": "AT-ORDERS-BRANCH",
+    "candidate_id": "ORDERS-BRANCH",
+    "snapshot_digest": "9f8c5bebf4f74d9d859f60574b212277",
+    "signature_valid": true,
+    "signer_id": "signer-4",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T07:02:00Z"
+  },
+  {
+    "event_id": "AT-ORDERS-ARCHIVE",
+    "candidate_id": "ORDERS-ARCHIVE",
+    "snapshot_digest": "f49c61e93a1793cfeb8c23787f6b9632",
+    "signature_valid": true,
+    "signer_id": "signer-4",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-20T07:02:00Z"
+  },
+  {
+    "event_id": "AT-INVENTORY-LATEST",
+    "candidate_id": "INVENTORY-LATEST",
+    "snapshot_digest": "695b5726bc2ee1e3be5387f2cbaa4be0",
+    "signature_valid": true,
+    "signer_id": "signer-3",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T17:02:00Z"
+  },
+  {
+    "event_id": "AT-INVENTORY-NEAR",
+    "candidate_id": "INVENTORY-NEAR",
+    "snapshot_digest": "6d79e2331fd58ff0cdee031daea0d8fd",
+    "signature_valid": true,
+    "signer_id": "signer-3",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T11:02:00Z"
+  },
+  {
+    "event_id": "AT-INVENTORY-STABLE",
+    "candidate_id": "INVENTORY-STABLE",
+    "snapshot_digest": "9e68b6e08fdfc52a836162b15c688710",
+    "signature_valid": true,
+    "signer_id": "signer-3",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T02:02:00Z"
+  },
+  {
+    "event_id": "AT-INVENTORY-BRANCH",
+    "candidate_id": "INVENTORY-BRANCH",
+    "snapshot_digest": "8acfeebd9b773aa1bd79ee038bc46d8f",
+    "signature_valid": true,
+    "signer_id": "signer-3",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T17:02:00Z"
+  },
+  {
+    "event_id": "AT-INVENTORY-ARCHIVE",
+    "candidate_id": "INVENTORY-ARCHIVE",
+    "snapshot_digest": "03a899f333d19b1bd77a3c396b5cac32",
+    "signature_valid": true,
+    "signer_id": "signer-3",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-20T08:02:00Z"
+  },
+  {
+    "event_id": "AT-CATALOG-LATEST",
+    "candidate_id": "CATALOG-LATEST",
+    "snapshot_digest": "43427ae05e031cd2031a18b3ac69e74d",
+    "signature_valid": true,
+    "signer_id": "signer-2",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T18:02:00Z"
+  },
+  {
+    "event_id": "AT-CATALOG-NEAR",
+    "candidate_id": "CATALOG-NEAR",
+    "snapshot_digest": "fcab22c6a9a1b29f24c0355a86631505",
+    "signature_valid": true,
+    "signer_id": "signer-2",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T12:02:00Z"
+  },
+  {
+    "event_id": "AT-CATALOG-STABLE",
+    "candidate_id": "CATALOG-STABLE",
+    "snapshot_digest": "dd934c6a0060d3943e666cc8ba7feef6",
+    "signature_valid": true,
+    "signer_id": "signer-2",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T03:02:00Z"
+  },
+  {
+    "event_id": "AT-CATALOG-BRANCH",
+    "candidate_id": "CATALOG-BRANCH",
+    "snapshot_digest": "9a9fbe19ffa705ba57fa254fcf373bb6",
+    "signature_valid": true,
+    "signer_id": "signer-2",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T06:02:00Z"
+  },
+  {
+    "event_id": "AT-CATALOG-ARCHIVE",
+    "candidate_id": "CATALOG-ARCHIVE",
+    "snapshot_digest": "703c29c8540beed7502a35540904ac07",
+    "signature_valid": true,
+    "signer_id": "signer-2",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-20T09:02:00Z"
+  },
+  {
+    "event_id": "AT-CUSTOMERS-LATEST",
+    "candidate_id": "CUSTOMERS-LATEST",
+    "snapshot_digest": "af05d3a867dafde37bc2ec59891dde5b",
+    "signature_valid": true,
+    "signer_id": "signer-1",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T19:02:00Z"
+  },
+  {
+    "event_id": "AT-CUSTOMERS-NEAR",
+    "candidate_id": "CUSTOMERS-NEAR",
+    "snapshot_digest": "50fe60e95e6bad6eba658f6157b52546",
+    "signature_valid": true,
+    "signer_id": "signer-1",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T13:02:00Z"
+  },
+  {
+    "event_id": "AT-CUSTOMERS-STABLE",
+    "candidate_id": "CUSTOMERS-STABLE",
+    "snapshot_digest": "28945f31c40e2d9060bbb4d60577dab2",
+    "signature_valid": true,
+    "signer_id": "signer-1",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T01:02:00Z"
+  },
+  {
+    "event_id": "AT-CUSTOMERS-BRANCH",
+    "candidate_id": "CUSTOMERS-BRANCH",
+    "snapshot_digest": "d3c490d961650bdc0b0984c725c696cc",
+    "signature_valid": true,
+    "signer_id": "signer-1",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T07:02:00Z"
+  },
+  {
+    "event_id": "AT-CUSTOMERS-ARCHIVE",
+    "candidate_id": "CUSTOMERS-ARCHIVE",
+    "snapshot_digest": "f706a6f859764680263bcdca95cb9c6a",
+    "signature_valid": true,
+    "signer_id": "signer-1",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-20T07:02:00Z"
+  },
+  {
+    "event_id": "AT-BILLING-LATEST",
+    "candidate_id": "BILLING-LATEST",
+    "snapshot_digest": "5627e68007a682c5e25b72744342f475",
+    "signature_valid": true,
+    "signer_id": "signer-7",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T19:02:00Z"
+  },
+  {
+    "event_id": "AT-BILLING-NEAR",
+    "candidate_id": "BILLING-NEAR",
+    "snapshot_digest": "a414f860a4893b065149cbec95152652",
+    "signature_valid": true,
+    "signer_id": "signer-7",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T13:02:00Z"
+  },
+  {
+    "event_id": "AT-BILLING-STABLE",
+    "candidate_id": "BILLING-STABLE",
+    "snapshot_digest": "0a238293b11fc7cc0e54915ef8e2ac3c",
+    "signature_valid": true,
+    "signer_id": "signer-7",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T01:02:00Z"
+  },
+  {
+    "event_id": "AT-BILLING-BRANCH",
+    "candidate_id": "BILLING-BRANCH",
+    "snapshot_digest": "c5beed4c177c6bdc5464d10c9bbd8d5d",
+    "signature_valid": true,
+    "signer_id": "signer-7",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T07:02:00Z"
+  },
+  {
+    "event_id": "AT-BILLING-ARCHIVE",
+    "candidate_id": "BILLING-ARCHIVE",
+    "snapshot_digest": "056cbb1ab9a124ca93ef146e7f933555",
+    "signature_valid": true,
+    "signer_id": "signer-7",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-20T07:02:00Z"
+  },
+  {
+    "event_id": "AT-FULFILLMENT-LATEST",
+    "candidate_id": "FULFILLMENT-LATEST",
+    "snapshot_digest": "3bb5b3ce85d5e87073746124b8c4f322",
+    "signature_valid": true,
+    "signer_id": "signer-3",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T17:02:00Z"
+  },
+  {
+    "event_id": "AT-FULFILLMENT-NEAR",
+    "candidate_id": "FULFILLMENT-NEAR",
+    "snapshot_digest": "a6b395cff474be6248068bcc1e75817f",
+    "signature_valid": true,
+    "signer_id": "signer-3",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T11:02:00Z"
+  },
+  {
+    "event_id": "AT-FULFILLMENT-STABLE",
+    "candidate_id": "FULFILLMENT-STABLE",
+    "snapshot_digest": "9a2d1b855998b9bc66946fbe62a3e3b9",
+    "signature_valid": true,
+    "signer_id": "signer-3",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T02:02:00Z"
+  },
+  {
+    "event_id": "AT-FULFILLMENT-BRANCH",
+    "candidate_id": "FULFILLMENT-BRANCH",
+    "snapshot_digest": "1f2b82b1d50d4c3f578327057cfd259b",
+    "signature_valid": true,
+    "signer_id": "signer-3",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T05:02:00Z"
+  },
+  {
+    "event_id": "AT-FULFILLMENT-ARCHIVE",
+    "candidate_id": "FULFILLMENT-ARCHIVE",
+    "snapshot_digest": "c260a88117b44fe04fb4c50fbb44e4c4",
+    "signature_valid": true,
+    "signer_id": "signer-3",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-20T08:02:00Z"
+  },
+  {
+    "event_id": "AT-NOTIFICATIONS-LATEST",
+    "candidate_id": "NOTIFICATIONS-LATEST",
+    "snapshot_digest": "c6f14987b5941826ee6843a3c2ecef3e",
+    "signature_valid": true,
+    "signer_id": "signer-5",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T18:02:00Z"
+  },
+  {
+    "event_id": "AT-NOTIFICATIONS-NEAR",
+    "candidate_id": "NOTIFICATIONS-NEAR",
+    "snapshot_digest": "af03a72d8ce0fbcdaec07ba5f1d60bda",
+    "signature_valid": true,
+    "signer_id": "signer-5",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T12:02:00Z"
+  },
+  {
+    "event_id": "AT-NOTIFICATIONS-STABLE",
+    "candidate_id": "NOTIFICATIONS-STABLE",
+    "snapshot_digest": "3c7a1a2c490c7e45c92b5e2449adb964",
+    "signature_valid": true,
+    "signer_id": "signer-5",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T03:02:00Z"
+  },
+  {
+    "event_id": "AT-NOTIFICATIONS-BRANCH",
+    "candidate_id": "NOTIFICATIONS-BRANCH",
+    "snapshot_digest": "762585afb4fc671098c648ce34f8610b",
+    "signature_valid": true,
+    "signer_id": "signer-5",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T06:02:00Z"
+  },
+  {
+    "event_id": "AT-NOTIFICATIONS-ARCHIVE",
+    "candidate_id": "NOTIFICATIONS-ARCHIVE",
+    "snapshot_digest": "94a06495cf651c229b454ef9e8e7a753",
+    "signature_valid": true,
+    "signer_id": "signer-5",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-20T09:02:00Z"
+  },
+  {
+    "event_id": "AT-REPORTING-LATEST",
+    "candidate_id": "REPORTING-LATEST",
+    "snapshot_digest": "0f7b056042ccb1729b134f69d387143d",
+    "signature_valid": true,
+    "signer_id": "signer-3",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T17:02:00Z"
+  },
+  {
+    "event_id": "AT-REPORTING-NEAR",
+    "candidate_id": "REPORTING-NEAR",
+    "snapshot_digest": "addc24aafbe42cee327fe1f40886ce82",
+    "signature_valid": true,
+    "signer_id": "signer-3",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T11:02:00Z"
+  },
+  {
+    "event_id": "AT-REPORTING-STABLE",
+    "candidate_id": "REPORTING-STABLE",
+    "snapshot_digest": "cde25d1dbdd04e756e4bb099d0eeaf11",
+    "signature_valid": true,
+    "signer_id": "signer-3",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T02:02:00Z"
+  },
+  {
+    "event_id": "AT-REPORTING-BRANCH",
+    "candidate_id": "REPORTING-BRANCH",
+    "snapshot_digest": "8a54724f1319f73eeff4cbec3951017d",
+    "signature_valid": true,
+    "signer_id": "signer-3",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T05:02:00Z"
+  },
+  {
+    "event_id": "AT-REPORTING-ARCHIVE",
+    "candidate_id": "REPORTING-ARCHIVE",
+    "snapshot_digest": "c09794617e4e6c377a0d7856ced90cbb",
+    "signature_valid": true,
+    "signer_id": "signer-3",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-20T08:02:00Z"
+  },
+  {
+    "event_id": "AT-SEARCH-LATEST",
+    "candidate_id": "SEARCH-LATEST",
+    "snapshot_digest": "25ad375262cfc914f86cd107ae663244",
+    "signature_valid": true,
+    "signer_id": "signer-5",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T18:02:00Z"
+  },
+  {
+    "event_id": "AT-SEARCH-NEAR",
+    "candidate_id": "SEARCH-NEAR",
+    "snapshot_digest": "da6d0a7590ef50bd875e52d79ac3cf84",
+    "signature_valid": true,
+    "signer_id": "signer-5",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T12:02:00Z"
+  },
+  {
+    "event_id": "AT-SEARCH-STABLE",
+    "candidate_id": "SEARCH-STABLE",
+    "snapshot_digest": "9585c89b88885400cfabf21c33e85202",
+    "signature_valid": true,
+    "signer_id": "signer-5",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T03:02:00Z"
+  },
+  {
+    "event_id": "AT-SEARCH-BRANCH",
+    "candidate_id": "SEARCH-BRANCH",
+    "snapshot_digest": "6ed516154be4fc41ff3e2d77ca20809f",
+    "signature_valid": true,
+    "signer_id": "signer-5",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T06:02:00Z"
+  },
+  {
+    "event_id": "AT-SEARCH-ARCHIVE",
+    "candidate_id": "SEARCH-ARCHIVE",
+    "snapshot_digest": "997413e58df30bfa32a83642964fcf29",
+    "signature_valid": true,
+    "signer_id": "signer-5",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-20T09:02:00Z"
+  },
+  {
+    "event_id": "AT-FRAUD-LATEST",
+    "candidate_id": "FRAUD-LATEST",
+    "snapshot_digest": "9b49bbf55f206ea4352b6e9979566824",
+    "signature_valid": true,
+    "signer_id": "signer-7",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T19:02:00Z"
+  },
+  {
+    "event_id": "AT-FRAUD-NEAR",
+    "candidate_id": "FRAUD-NEAR",
+    "snapshot_digest": "43f15a756827c10c5dbe4221e7c2a377",
+    "signature_valid": true,
+    "signer_id": "signer-7",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T13:02:00Z"
+  },
+  {
+    "event_id": "AT-FRAUD-STABLE",
+    "candidate_id": "FRAUD-STABLE",
+    "snapshot_digest": "de824e5b201387e0d49a29dfcb07f811",
+    "signature_valid": true,
+    "signer_id": "signer-7",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T01:02:00Z"
+  },
+  {
+    "event_id": "AT-FRAUD-BRANCH",
+    "candidate_id": "FRAUD-BRANCH",
+    "snapshot_digest": "0742bc15c1c18ff8478f4a5dcc51ebe6",
+    "signature_valid": true,
+    "signer_id": "signer-7",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T07:02:00Z"
+  },
+  {
+    "event_id": "AT-FRAUD-ARCHIVE",
+    "candidate_id": "FRAUD-ARCHIVE",
+    "snapshot_digest": "322659ce58b3cd8f36b4e542d9a54be1",
+    "signature_valid": true,
+    "signer_id": "signer-7",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-20T07:02:00Z"
+  },
+  {
+    "event_id": "AT-PARTNERS-LATEST",
+    "candidate_id": "PARTNERS-LATEST",
+    "snapshot_digest": "50342934f33647c062f57bb9c9790d90",
+    "signature_valid": true,
+    "signer_id": "signer-0",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T17:02:00Z"
+  },
+  {
+    "event_id": "AT-PARTNERS-NEAR",
+    "candidate_id": "PARTNERS-NEAR",
+    "snapshot_digest": "9d2ef161e5033b98dd577716e559264a",
+    "signature_valid": true,
+    "signer_id": "signer-0",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T11:02:00Z"
+  },
+  {
+    "event_id": "AT-PARTNERS-STABLE",
+    "candidate_id": "PARTNERS-STABLE",
+    "snapshot_digest": "8e2ba35acf269c942439cc53b31a7987",
+    "signature_valid": true,
+    "signer_id": "signer-0",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T02:02:00Z"
+  },
+  {
+    "event_id": "AT-PARTNERS-BRANCH",
+    "candidate_id": "PARTNERS-BRANCH",
+    "snapshot_digest": "ad7b2e3d7565903f1ea4ab1eef59fc63",
+    "signature_valid": true,
+    "signer_id": "signer-0",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T05:02:00Z"
+  },
+  {
+    "event_id": "AT-PARTNERS-ARCHIVE",
+    "candidate_id": "PARTNERS-ARCHIVE",
+    "snapshot_digest": "439236f5828005395b57c73ab5ea2e4c",
+    "signature_valid": true,
+    "signer_id": "signer-0",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-20T08:02:00Z"
+  },
+  {
+    "event_id": "AT-WAREHOUSE-LATEST",
+    "candidate_id": "WAREHOUSE-LATEST",
+    "snapshot_digest": "138e0bbab76d049a17c44c46949246b2",
+    "signature_valid": true,
+    "signer_id": "signer-1",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T19:02:00Z"
+  },
+  {
+    "event_id": "AT-WAREHOUSE-NEAR",
+    "candidate_id": "WAREHOUSE-NEAR",
+    "snapshot_digest": "9e4cfac1c04be365fa1af3e2ba18658b",
+    "signature_valid": true,
+    "signer_id": "signer-1",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T13:02:00Z"
+  },
+  {
+    "event_id": "AT-WAREHOUSE-STABLE",
+    "candidate_id": "WAREHOUSE-STABLE",
+    "snapshot_digest": "6c8cec81d2f1706c72a63cfed151d38b",
+    "signature_valid": true,
+    "signer_id": "signer-1",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T01:02:00Z"
+  },
+  {
+    "event_id": "AT-WAREHOUSE-BRANCH",
+    "candidate_id": "WAREHOUSE-BRANCH",
+    "snapshot_digest": "cb0d9a246fdcd9df2bcfb9feb2686fd0",
+    "signature_valid": true,
+    "signer_id": "signer-1",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T07:02:00Z"
+  },
+  {
+    "event_id": "AT-WAREHOUSE-ARCHIVE",
+    "candidate_id": "WAREHOUSE-ARCHIVE",
+    "snapshot_digest": "773e568ba26bd3d5a4eaba6f306fb86c",
+    "signature_valid": true,
+    "signer_id": "signer-1",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-20T07:02:00Z"
+  },
+  {
+    "event_id": "AT-AUDITLOG-LATEST",
+    "candidate_id": "AUDITLOG-LATEST",
+    "snapshot_digest": "355f05c47cd3909685e2ade350af9879",
+    "signature_valid": true,
+    "signer_id": "signer-6",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T17:02:00Z"
+  },
+  {
+    "event_id": "AT-AUDITLOG-NEAR",
+    "candidate_id": "AUDITLOG-NEAR",
+    "snapshot_digest": "0b22f1ac071bc63d557982acf1b3e5dd",
+    "signature_valid": true,
+    "signer_id": "signer-6",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T11:02:00Z"
+  },
+  {
+    "event_id": "AT-AUDITLOG-STABLE",
+    "candidate_id": "AUDITLOG-STABLE",
+    "snapshot_digest": "e6df456f4b7d61e0d9408499cd41e4fc",
+    "signature_valid": true,
+    "signer_id": "signer-6",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T02:02:00Z"
+  },
+  {
+    "event_id": "AT-AUDITLOG-BRANCH",
+    "candidate_id": "AUDITLOG-BRANCH",
+    "snapshot_digest": "640bd7ddeea7510f2ebb82c3862b51e8",
+    "signature_valid": true,
+    "signer_id": "signer-6",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-21T05:02:00Z"
+  },
+  {
+    "event_id": "AT-AUDITLOG-ARCHIVE",
+    "candidate_id": "AUDITLOG-ARCHIVE",
+    "snapshot_digest": "34da02172a0490b28d576788b8f36e3b",
+    "signature_valid": true,
+    "signer_id": "signer-6",
+    "signer_trusted": true,
+    "signer_revoked_at": null,
+    "signed_at": "2026-09-20T08:02:00Z"
+  }
+]

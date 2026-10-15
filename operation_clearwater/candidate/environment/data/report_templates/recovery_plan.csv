@@ -1,0 +1,1 @@
+service,action,candidate_id,recovery_target_time,recovery_target_lsn,timeline_id,effort_units,expected_data_loss_hours,depends_on_ready,validation_gate,evidence_refs,notes
