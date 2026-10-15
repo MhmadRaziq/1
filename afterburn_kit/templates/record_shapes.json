@@ -1,0 +1,70 @@
+{
+  "ci_job_event": {
+    "record_id": "CI-0181",
+    "time": "2026-10-14T02:40:12Z",
+    "invocation_id": "build-8c1",
+    "runner_identity": "runner-pool-7/slot-3",
+    "source_revision": "a1f...",
+    "result": "SUCCESS"
+  },
+  "attestation_statement": {
+    "_type": "https://in-toto.io/Statement/v1",
+    "subject": [
+      {
+        "name": "registry.internal/example",
+        "digest": {
+          "sha256": "..."
+        }
+      }
+    ],
+    "predicateType": "https://slsa.dev/provenance/v1",
+    "predicate": {
+      "buildDefinition": {
+        "buildType": "example/internal-builder-v1",
+        "externalParameters": {},
+        "resolvedDependencies": []
+      },
+      "runDetails": {
+        "builder": {
+          "id": "runner-pool-7"
+        },
+        "metadata": {
+          "invocationId": "build-8c1"
+        }
+      }
+    }
+  },
+  "registry_tag_event": {
+    "record_id": "REG-0291",
+    "time": "2026-10-14T03:08:00Z",
+    "repository": "payments-api",
+    "tag": "stable",
+    "digest": "sha256:...",
+    "event": "TAG_MOVED"
+  },
+  "oci_descriptor": {
+    "record_id": "OCI-022",
+    "index_digest": "sha256:...",
+    "platform": "linux/arm64",
+    "manifest_digest": "sha256:...",
+    "layers": [
+      "sha256:..."
+    ]
+  },
+  "runtime_observation": {
+    "record_id": "RUN-101",
+    "time": "2026-10-14T09:17:00Z",
+    "cluster": "eu-prod",
+    "namespace": "payments",
+    "pod_uid": "...",
+    "image_id": "sha256:...",
+    "status": "Running"
+  },
+  "change_record": {
+    "record_id": "CHG-008",
+    "effective_time": "2026-10-14T08:55:00Z",
+    "service": "payments",
+    "approval": "approved",
+    "restriction": "maintain_two_regions"
+  }
+}

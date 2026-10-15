@@ -1,0 +1,58 @@
+{
+  "cutoff": "2026-10-14T09:20:00Z",
+  "exposed_workload_ids": [
+    "wl-catalog-useast",
+    "wl-checkout-useast",
+    "wl-fraud-useast",
+    "wl-inventory-useast",
+    "wl-order-useast",
+    "wl-payments-useast",
+    "wl-risk-eu-arm"
+  ],
+  "cleared_workload_ids": [
+    "wl-promo-useast",
+    "wl-risk-us-amd",
+    "wl-shipping-eu",
+    "wl-storefront-stage"
+  ],
+  "unresolved_workload_ids": [
+    "wl-partner-apsouth"
+  ],
+  "safe_recovery_digests": [
+    "sha256:1f9091e97511c409f3a6c70849240dd811c8a0c80c46b4747adabb6e63c5f7b8",
+    "sha256:2b9dcc8da626e6ad34c61302c231c62a39f9acc503f4d1ec34d0f48f44150c99",
+    "sha256:7e6654dce4423003439df7c497429c7b98c74f139abe599731a99bd9e11dd620",
+    "sha256:87944d14d148174daa6f6bc5d629d4652cdb0a7e6dda9664dd8632aaa4377604",
+    "sha256:8b4a735d6278226b37cc6f6f4f887c41b3c5687b78269844a34114e83135d887",
+    "sha256:a8f3addee4bf9c00c7a0068a91614c8a80060378b323a4cd9d88cab333b6fe3c",
+    "sha256:dc1e7bb33d220044722b48f0fbe3cc95ae5d3a1519aee9bade4590d6e968b982"
+  ],
+  "unsafe_recovery_digests": [
+    "sha256:81bde7a8dcc05664f5410be27f1aa58889044883d08a229d061c50bbd2c1b6d8"
+  ],
+  "tainted_manifests": [
+    "sha256:06dcff1eecee1a3d6a5817a7b5e38a9855577b09d120437e18c7765be9f04913",
+    "sha256:074bc6579c5265fafdf2386d5d1923dd80caac163c604397e8bfafd161294816",
+    "sha256:0941febd38244e84390ecb61da7765d99703d0432b13ef6e909a6acc2e3cb737",
+    "sha256:09fae3fbb97635dc2fdffb7b3e178099793bafe3d795240514c746666e399898",
+    "sha256:21a2a0bcd8839d5408791a00ba2e9c7aa4a91443caaf46f1d9bf5870d07d8ab2",
+    "sha256:39d803e6591b8411951ae76da9d72bcac7778807be9206e758385154e25e4af4",
+    "sha256:638a2e2522d7a54fb992e58dc107435253aab7ae3428abaf14b4605e92d56310",
+    "sha256:64bb8d007d6a922f57875b11c06f4a7bd5a4933416e0b59ede34f02d570d6f9a",
+    "sha256:66c853365dc9f9c70febd49a2414857ddf319978183958c2cc2524d7795b7675",
+    "sha256:6a3dbee23dc723ea3fb4a6bb95f28a632acef8d9f67a1eba364bd0a2b082bcf9",
+    "sha256:7055264c94a7aef7d29768c6858201e26b12acadee88987248c430c9d1bd4ff5",
+    "sha256:720c0cdcace0c20a9752c84148321d742ada8451ab718c7673d2b41a00d86117",
+    "sha256:81bde7a8dcc05664f5410be27f1aa58889044883d08a229d061c50bbd2c1b6d8",
+    "sha256:8c61e7bfc628a2bd5a645af8816981e32c5e3d5bcbfe731601685d553099ad54",
+    "sha256:9418a3f12e1b143d7e990906d80e2b633049c2542214a9ddcdcc49a2deee630a",
+    "sha256:9ba2bfe776d9e7ee6e657bb7337d438cc8fcea9581a04e1239d21b49743b79e9",
+    "sha256:ae6732903e84b84a02fde14d9a4dd4c252c842ed6f43ef816f9dea3096581ab1",
+    "sha256:b2472100b7b1a5529e0847424bcd1321277eed2e20eb3fb19e23a3bce037a2c4",
+    "sha256:d001e331db57af07c574d54476010cf74bcacc926c76ca2175b13d0bb0e1f089",
+    "sha256:faf7501e4630c53933942571b7be5c77b3631ef56c7528ed7237f93825d17f3b",
+    "sha256:fc65bcde4e4c851fc96052fce5400415b9fbace0c55297da5acf23737b9c2581"
+  ],
+  "min_healthy_regions": 2,
+  "quorum_group": "edge-checkout"
+}

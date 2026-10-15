@@ -1,0 +1,17 @@
+case_id,author_only_challenge,essential_families,shortcut,decision_delta,scored_outputs,required_resolution
+F01,Mutable tag moved after clean build,registry+runtime,tag-is-digest,wrong exposed workload,"exposure,containment",tag movement vs actual running digest
+F02,OCI index selects different arm64 child,OCI+runtime,index equals manifest,false exposure in one region,"exposure,clearance",per-platform child identity
+F03,Valid attestation from tainted runner,attestation+builder,valid-signature-is-clean,miss affected workload,"exposure,action",builder trust independent of statement authenticity
+F04,Clean builder embeds tainted base layer,build+OCI layers,runner-only-direct-taint,miss transitive exposure,"exposure,action",layer materialization path
+F05,Compromised build never admitted,CI+admission+runtime,build-equals-production,over-containment,"clearance,action",failed admission
+F06,Desired rollout superseded by old running pods,rollout+runtime,desired-equals-running,wrong digest at cutoff,"exposure,action",runtime turnover
+F07,Delayed observation after cutoff describes earlier stop,runtime+ops,latest-log-is-live,over-containment,clearance,observation vs event time
+F08,Clean artifact same package name but different resolved dependency,lockfiles+attestation,name-version-is-identity,false transitive exposure,clearance,resolved content digest
+F09,Emergency rollback digest still includes tainted layer,registry+OCI+ops,previous-green-is-safe,unsafe rollback,response-plan,rollback materialization
+F10,Region replica unavailable despite approved change,ops+health+changes,approval-means-feasible,quorum outage,response-plan,actual recovery health
+F11,Two services share a quorum-protected dependency,dependencies+health,isolate-all-immediately,service outage,response-plan,intermediate step simulation
+F12,Post-cutoff exception recorded early,changes+timestamps,recorded-before-means-effective,unauthorized action,response-plan,authority timing
+F13,Vendored build output inherited across clean rebuild,source+build+runtime,only-direct-deps,miss exposure,"exposure,action",embedded output provenance
+F14,Staging namespace alias resembles production,inventory+runtime,namespace-string-prod,over-containment,clearance,effective environment identity
+F15,Conflicting admission log and missing runtime evidence,admission+runtime,assume-success,false certainty,uncertainty,dual-world ambiguity
+F16,Different clean recovery paths both feasible,ops+changes,single-golden-plan,reject valid plan,grader fairness,alternate-valid-plan acceptance

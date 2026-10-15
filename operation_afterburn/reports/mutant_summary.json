@@ -1,0 +1,5 @@
+{
+  "negative_mutants": 16,
+  "rejected": 16,
+  "pass_gate": true
+}

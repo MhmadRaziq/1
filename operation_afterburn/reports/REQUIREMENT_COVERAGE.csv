@@ -1,0 +1,30 @@
+requirement_id,atomic_requirement,graded_output_files,rubric_item_ids
+R01,Three required files,exposure_register.csv;response_plan.csv;incident_decision.md,25
+R02,Disclosed register template,exposure_register.csv,26
+R03,No duplicated material findings,exposure_register.csv,5
+R04,Packet-local source citations,exposure_register.csv;response_plan.csv,27
+R05,Investigation cutoff,exposure_register.csv,6
+R06,Registry-only versus running,exposure_register.csv,7
+R07,Signature versus builder trust,exposure_register.csv,8
+R08,Transitive contamination,exposure_register.csv,9
+R09,Cleared lookalikes,exposure_register.csv;incident_decision.md,13
+R10,Unresolved findings,exposure_register.csv;incident_decision.md,3
+R11,Cover immediate exposure,response_plan.csv,17
+R12,Viable recovery,response_plan.csv,18
+R13,Approvals and commitments,response_plan.csv,19
+R14,Intermediate quorum,response_plan.csv,20
+R15,No tainted rollback,response_plan.csv,21
+R16,Immediate recommendation,incident_decision.md,22
+R17,Principal exposure chain,incident_decision.md,14
+R18,Material clearance rationale,incident_decision.md,15
+R19,Operational trade-offs,incident_decision.md,23
+R20,Limitations and next evidence,incident_decision.md,4
+R21,No live changes,incident_decision.md,28
+R22,Offline output,incident_decision.md,29
+R23,Platform-specific OCI identity,exposure_register.csv,10
+R24,Desired versus running reconciliation,exposure_register.csv,11
+R25,Lineage-corroborated dispositions,exposure_register.csv,12
+R26,Explore registry identity conflicts,exposure_register.csv,1
+R27,Explore provenance conflicts,exposure_register.csv,2
+R28,Synthesize exposure/clearance/unresolved,incident_decision.md,16
+R29,Coherent executable plan sequence,response_plan.csv,24

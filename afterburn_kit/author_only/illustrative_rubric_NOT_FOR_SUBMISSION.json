@@ -1,0 +1,328 @@
+[
+  {
+    "item": 1,
+    "design_id": "EX-01",
+    "weight": 4,
+    "criterion": "Register identifies material discrepancies between mutable registry pointers and observed immutable workload identities.",
+    "category": "explore",
+    "verification_type": "text",
+    "grades_output_files": [
+      "exposure_register.csv"
+    ]
+  },
+  {
+    "item": 2,
+    "design_id": "EX-02",
+    "weight": 4,
+    "criterion": "Register identifies material build-provenance conflicts using corroborating evidence from distinct source families.",
+    "category": "explore",
+    "verification_type": "text",
+    "grades_output_files": [
+      "exposure_register.csv"
+    ]
+  },
+  {
+    "item": 3,
+    "design_id": "HY-01",
+    "weight": 4,
+    "criterion": "Genuinely underdetermined cases are reported as unresolved with a specific observation that would resolve each case.",
+    "category": "hypothesize",
+    "verification_type": "text",
+    "grades_output_files": [
+      "exposure_register.csv",
+      "incident_decision.md"
+    ]
+  },
+  {
+    "item": 4,
+    "design_id": "HY-02",
+    "weight": 4,
+    "criterion": "Memo names evidence limitations and explains which competing explanations remain possible.",
+    "category": "hypothesize",
+    "verification_type": "text",
+    "grades_output_files": [
+      "incident_decision.md"
+    ]
+  },
+  {
+    "item": 5,
+    "design_id": "AN-01",
+    "weight": 3,
+    "criterion": "Register contains no duplicate material workload-and-artifact findings.",
+    "category": "analyze",
+    "verification_type": "text",
+    "grades_output_files": [
+      "exposure_register.csv"
+    ]
+  },
+  {
+    "item": 6,
+    "design_id": "AN-02",
+    "weight": 3,
+    "criterion": "Exposure findings use evidence effective by the incident investigation cutoff.",
+    "category": "analyze",
+    "verification_type": "text",
+    "grades_output_files": [
+      "exposure_register.csv"
+    ]
+  },
+  {
+    "item": 7,
+    "design_id": "AN-03",
+    "weight": 4,
+    "criterion": "Register correctly separates registry-only artifacts from images actually materialized in production.",
+    "category": "analyze",
+    "verification_type": "text",
+    "grades_output_files": [
+      "exposure_register.csv"
+    ]
+  },
+  {
+    "item": 8,
+    "design_id": "AN-04",
+    "weight": 4,
+    "criterion": "Register distinguishes valid attestation signatures from the trust status of the producing builder.",
+    "category": "analyze",
+    "verification_type": "text",
+    "grades_output_files": [
+      "exposure_register.csv"
+    ]
+  },
+  {
+    "item": 9,
+    "design_id": "AN-05",
+    "weight": 4,
+    "criterion": "Register identifies affected workloads reached through transitive image layers or vendored build outputs.",
+    "category": "analyze",
+    "verification_type": "text",
+    "grades_output_files": [
+      "exposure_register.csv"
+    ]
+  },
+  {
+    "item": 10,
+    "design_id": "AN-06",
+    "weight": 4,
+    "criterion": "Register reconciles platform-specific OCI manifest identity when evaluating running workloads.",
+    "category": "analyze",
+    "verification_type": "text",
+    "grades_output_files": [
+      "exposure_register.csv"
+    ]
+  },
+  {
+    "item": 11,
+    "design_id": "AN-07",
+    "weight": 4,
+    "criterion": "Register reconciles desired rollout state with observed active workload state at cutoff.",
+    "category": "analyze",
+    "verification_type": "text",
+    "grades_output_files": [
+      "exposure_register.csv"
+    ]
+  },
+  {
+    "item": 12,
+    "design_id": "AN-08",
+    "weight": 5,
+    "criterion": "Exposure and clearance dispositions agree with independently corroborated immutable artifact lineage.",
+    "category": "analyze",
+    "verification_type": "text",
+    "grades_output_files": [
+      "exposure_register.csv"
+    ]
+  },
+  {
+    "item": 13,
+    "design_id": "SY-01",
+    "weight": 4,
+    "criterion": "Material cleared lookalikes have evidence-supported clearance explanations.",
+    "category": "synthesize",
+    "verification_type": "text",
+    "grades_output_files": [
+      "exposure_register.csv",
+      "incident_decision.md"
+    ]
+  },
+  {
+    "item": 14,
+    "design_id": "SY-02",
+    "weight": 4,
+    "criterion": "Memo accurately explains the material causal path from compromised runner to affected runtime artifacts.",
+    "category": "synthesize",
+    "verification_type": "text",
+    "grades_output_files": [
+      "incident_decision.md"
+    ]
+  },
+  {
+    "item": 15,
+    "design_id": "SY-03",
+    "weight": 3,
+    "criterion": "Memo explains at least two material false-positive mechanisms supported by the register.",
+    "category": "synthesize",
+    "verification_type": "text",
+    "grades_output_files": [
+      "incident_decision.md"
+    ]
+  },
+  {
+    "item": 16,
+    "design_id": "SY-04",
+    "weight": 3,
+    "criterion": "Memo distinguishes proven exposure, proven clearance and genuinely unresolved findings.",
+    "category": "synthesize",
+    "verification_type": "text",
+    "grades_output_files": [
+      "incident_decision.md"
+    ]
+  },
+  {
+    "item": 17,
+    "design_id": "RE-01",
+    "weight": 5,
+    "criterion": "Plan addresses every proven material production exposure with an appropriate immediate risk-reducing action.",
+    "category": "recommend",
+    "verification_type": "text",
+    "grades_output_files": [
+      "response_plan.csv"
+    ]
+  },
+  {
+    "item": 18,
+    "design_id": "RE-02",
+    "weight": 5,
+    "criterion": "Each proposed recovery target is both trusted and operationally deployable, or the plan justifies isolation.",
+    "category": "recommend",
+    "verification_type": "text",
+    "grades_output_files": [
+      "response_plan.csv"
+    ]
+  },
+  {
+    "item": 19,
+    "design_id": "RE-03",
+    "weight": 4,
+    "criterion": "Proposed actions respect effective change approvals and protected-service commitments.",
+    "category": "recommend",
+    "verification_type": "text",
+    "grades_output_files": [
+      "response_plan.csv"
+    ]
+  },
+  {
+    "item": 20,
+    "design_id": "RE-04",
+    "weight": 5,
+    "criterion": "The proposed action order preserves disclosed critical-service availability and quorum at every intermediate step.",
+    "category": "recommend",
+    "verification_type": "text",
+    "grades_output_files": [
+      "response_plan.csv"
+    ]
+  },
+  {
+    "item": 21,
+    "design_id": "RE-05",
+    "weight": 4,
+    "criterion": "No selected rollback artifact contains affected build output or otherwise violates trusted recovery conditions.",
+    "category": "recommend",
+    "verification_type": "text",
+    "grades_output_files": [
+      "response_plan.csv"
+    ]
+  },
+  {
+    "item": 22,
+    "design_id": "RE-06",
+    "weight": 4,
+    "criterion": "Memo states the immediate containment recommendation and ties it to material exposure evidence.",
+    "category": "recommend",
+    "verification_type": "text",
+    "grades_output_files": [
+      "incident_decision.md"
+    ]
+  },
+  {
+    "item": 23,
+    "design_id": "RE-07",
+    "weight": 3,
+    "criterion": "Memo explains the material risk-versus-availability trade-offs in the chosen response.",
+    "category": "recommend",
+    "verification_type": "text",
+    "grades_output_files": [
+      "incident_decision.md"
+    ]
+  },
+  {
+    "item": 24,
+    "design_id": "RE-08",
+    "weight": 3,
+    "criterion": "Plan provides a coherent, executable sequence of actions with justified prerequisites and recovery effects.",
+    "category": "recommend",
+    "verification_type": "text",
+    "grades_output_files": [
+      "response_plan.csv"
+    ]
+  },
+  {
+    "item": 25,
+    "design_id": "IF-01",
+    "weight": 2,
+    "criterion": "All three specified incident-response deliverables exist at their disclosed output paths.",
+    "category": "instruction_following",
+    "verification_type": "text",
+    "grades_output_files": [
+      "exposure_register.csv",
+      "response_plan.csv",
+      "incident_decision.md"
+    ]
+  },
+  {
+    "item": 26,
+    "design_id": "IF-02",
+    "weight": 1,
+    "criterion": "Exposure register uses the supplied worksheet schema and disclosed disposition vocabulary.",
+    "category": "instruction_following",
+    "verification_type": "text",
+    "grades_output_files": [
+      "exposure_register.csv"
+    ]
+  },
+  {
+    "item": 27,
+    "design_id": "IF-03",
+    "weight": 1,
+    "criterion": "Material findings and proposed actions include packet-local record references.",
+    "category": "instruction_following",
+    "verification_type": "text",
+    "grades_output_files": [
+      "exposure_register.csv",
+      "response_plan.csv"
+    ]
+  },
+  {
+    "item": 28,
+    "design_id": "IF-04",
+    "weight": 1,
+    "criterion": "Memo describes proposed changes as recommendations rather than claiming live changes were performed.",
+    "category": "instruction_following",
+    "verification_type": "text",
+    "grades_output_files": [
+      "incident_decision.md"
+    ]
+  },
+  {
+    "item": 29,
+    "design_id": "IF-05",
+    "weight": 1,
+    "criterion": "Deliverables are self-contained and do not require visiting external links.",
+    "category": "instruction_following",
+    "verification_type": "text",
+    "grades_output_files": [
+      "exposure_register.csv",
+      "response_plan.csv",
+      "incident_decision.md"
+    ]
+  }
+]

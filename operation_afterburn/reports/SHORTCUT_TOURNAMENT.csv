@@ -1,0 +1,16 @@
+shortcut,reward,normalized,diverges_from_reference,exposure_f1,plan_ok,notes
+all_signed_clean,54.00,0.540,yes,0.359,yes,[]
+all_runner_builds_tainted,41.14,0.411,yes,0.417,no,"[""quorum_violation:checkout-bff:3"", ""quorum_violation:payments-api:10"", ""quorum_violation:payments-api:14"", ""quorum_violation:checkout-bff:16""]"
+tag_equals_digest,29.50,0.295,yes,0.000,yes,[]
+index_equals_manifest,63.14,0.631,yes,0.857,yes,[]
+ignore_base_layers,44.00,0.440,yes,0.000,yes,[]
+desired_equals_running,51.14,0.511,yes,0.714,yes,[]
+latest_log_is_live,72.40,0.724,yes,0.933,yes,[]
+previous_green_rollback,74.57,0.746,yes,1.000,no,"[""tainted_recovery:sha256:81bde7a8dcc05664f5410be27f1aa58889044883d08a229d061c50bbd2c1b6d8"", ""tainted_recovery:sha256:81bde7a8dcc05664f5410be27f1aa58889044883d08a229d061c50bbd2c1b6d8""]"
+stop_all_immediately,82.57,0.826,yes,1.000,no,"[""simultaneous_edge_stop:1:['checkout-bff', 'payments-api']""]"
+ignore_quorum,82.57,0.826,yes,1.000,no,"[""simultaneous_edge_stop:1:['checkout-bff', 'payments-api']""]"
+ignore_approvals,74.57,0.746,yes,1.000,no,"[""tainted_recovery:sha256:81bde7a8dcc05664f5410be27f1aa58889044883d08a229d061c50bbd2c1b6d8"", ""tainted_recovery:sha256:81bde7a8dcc05664f5410be27f1aa58889044883d08a229d061c50bbd2c1b6d8""]"
+ignore_timing,72.40,0.724,yes,0.933,yes,[]
+ignore_runtime_family,32.36,0.324,yes,0.400,yes,[]
+namespace_string_prod,81.07,0.811,yes,0.933,yes,[]
+assume_admission_success,78.97,0.790,yes,0.933,yes,[]

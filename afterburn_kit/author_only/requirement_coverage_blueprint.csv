@@ -1,0 +1,23 @@
+requirement_id,atomic_requirement,graded_output_files,planned_criterion_ids
+R01,Three required files,exposure_register.csv;response_plan.csv;incident_decision.md,IF-01
+R02,Disclosed register template,exposure_register.csv,IF-02
+R03,No duplicated material findings,exposure_register.csv,AN-01
+R04,Packet-local source citations,exposure_register.csv;response_plan.csv,IF-03
+R05,Investigation cutoff,exposure_register.csv,AN-02
+R06,Registry-only versus running,exposure_register.csv,AN-03
+R07,Signature versus builder trust,exposure_register.csv,AN-04
+R08,Transitive contamination,exposure_register.csv,AN-05
+R09,Cleared lookalikes,exposure_register.csv;incident_decision.md,SY-01
+R10,Unresolved findings,exposure_register.csv;incident_decision.md,HY-01
+R11,Cover immediate exposure,response_plan.csv,RE-01
+R12,Viable recovery,response_plan.csv,RE-02
+R13,Approvals and commitments,response_plan.csv,RE-03
+R14,Intermediate quorum,response_plan.csv,RE-04
+R15,No tainted rollback,response_plan.csv,RE-05
+R16,Immediate recommendation,incident_decision.md,RE-06
+R17,Principal exposure chain,incident_decision.md,SY-02
+R18,Material clearance rationale,incident_decision.md,SY-03
+R19,Operational trade-offs,incident_decision.md,RE-07
+R20,Limitations and next evidence,incident_decision.md,HY-02
+R21,No live changes,incident_decision.md,IF-04
+R22,Offline output,incident_decision.md,IF-05

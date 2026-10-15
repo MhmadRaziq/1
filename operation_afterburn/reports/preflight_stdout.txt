@@ -1,0 +1,4 @@
+STATIC PREFLIGHT /workspace/operation_afterburn/operation_afterburn_candidate.zip
+ERRORS 0 WARNINGS 0
+PASS static shell only; private platform stages and semantic correctness unverified
+
