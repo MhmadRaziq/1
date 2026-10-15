@@ -293,15 +293,27 @@ def evaluate_candidate(
         reject("timeline_incompatible", f"TL-{cid}")
 
     ind = pkt.indicators.get(c["service"])
-    if ind and ind.get("confirmed") and ind.get("indicator") == "RANSOMWARE-WRITE":
+    rt = parse_ts(c["recovery_target_time"])
+    if ind:
         w0 = parse_ts(ind["window_start"])
         w1 = parse_ts(ind["window_end"])
-        rt = parse_ts(c["recovery_target_time"])
         if w0 and w1 and rt and w0 <= rt <= w1:
-            reject("compromised_replay", ind["event_id"])
+            # Confirmed ransomware writes are never replayable.
+            if ind.get("confirmed") and ind.get("indicator") == "RANSOMWARE-WRITE":
+                reject("compromised_replay", ind["event_id"])
+            # Hardening: for objects under legal hold, do not restore a target
+            # that lands inside any still-open indicator window (even
+            # unconfirmed) until DFIR clears it. Ordinary non-held services
+            # still treat unconfirmed windows as non-blocking.
+            elif (
+                pkt.policy.get("block_held_targets_inside_open_indicator_windows", False)
+                and r
+                and r.get("legal_hold")
+            ):
+                if "open_indicator_window" not in ignore:
+                    reject("open_indicator_window", ind["event_id"])
 
     # RPO
-    rt = parse_ts(c["recovery_target_time"])
     rpo_h = pkt.policy["service_rpo_hours"].get(c["service"], 72)
     if rt:
         loss_h = (pkt.cutoff - rt).total_seconds() / 3600.0
@@ -345,3 +357,38 @@ def cutover_order(services: list[str], dependencies: dict[str, list[str]]) -> li
         ordered.append(ready[0])
         pending.remove(ready[0])
     return ordered
+
+
+def skew_ok(
+    chosen: dict[str, "CandidateVerdict"] | dict[str, str],
+    verdicts: dict[str, CandidateVerdict],
+    dependencies: dict[str, list[str]],
+    max_skew_hours: float,
+) -> bool:
+    """Dependent recovery targets must not be more than ``max_skew_hours``
+    newer than each upstream provider's chosen target.
+
+    This blocks pure per-service freshness optimization that leaves billing /
+    orders hours ahead of their payment / identity providers.
+    """
+    # Normalize to verdict map
+    chosen_v: dict[str, CandidateVerdict] = {}
+    for svc, val in chosen.items():
+        if isinstance(val, CandidateVerdict):
+            chosen_v[svc] = val
+        else:
+            chosen_v[svc] = verdicts[val]
+    for svc, v in chosen_v.items():
+        dep_t = parse_ts(v.recovery_target_time)
+        if not dep_t:
+            return False
+        for prov in dependencies.get(svc, []):
+            if prov not in chosen_v:
+                continue
+            prov_t = parse_ts(chosen_v[prov].recovery_target_time)
+            if not prov_t:
+                return False
+            ahead_h = (dep_t - prov_t).total_seconds() / 3600.0
+            if ahead_h > max_skew_hours + 1e-9:
+                return False
+    return True

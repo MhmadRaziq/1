@@ -32,22 +32,25 @@ def run_shortcuts(data_dir: Path, ref: dict) -> list[dict]:
         "ignore_wal_continuity": {"wal_chain_not_continuous"},
         "ignore_timeline_history": {"timeline_incompatible"},
         "ignore_compromise_indicator": {"compromised_replay"},
+        "ignore_open_indicator_windows": {"open_indicator_window"},
         "ignore_capacity": {"budget"},
         "ignore_schema_compatibility": {"schema"},
         "ignore_business_priority": {"priority"},
+        "ignore_skew": {"skew"},
         "treat_legal_hold_as_deny": {"LEGAL_HOLD_SHORTCUT"},  # special-cased below
         "ignore_migration_coupling": {"migration"},
         "ignore_all_evidence": {
             "vault_unavailable", "vault_digest_mismatch", "key_unavailable",
             "attestation_untrusted", "scan_not_current", "rehearsal_not_usable",
             "wal_chain_not_continuous", "timeline_incompatible", "compromised_replay",
-            "vault_hold_blocks_copy",
+            "vault_hold_blocks_copy", "open_indicator_window",
         },
         "ignore_all_constraints": {
             "vault_unavailable", "vault_digest_mismatch", "key_unavailable",
             "attestation_untrusted", "scan_not_current", "rehearsal_not_usable",
             "wal_chain_not_continuous", "timeline_incompatible", "compromised_replay",
-            "vault_hold_blocks_copy", "budget", "schema", "priority", "migration",
+            "vault_hold_blocks_copy", "open_indicator_window", "budget", "schema",
+            "priority", "migration", "skew",
         },
     }
     rows = []

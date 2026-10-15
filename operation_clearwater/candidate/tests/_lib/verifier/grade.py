@@ -19,7 +19,7 @@ for _r in _ROOT_CANDIDATES:
     if (_r / "oracle").is_dir() and str(_r) not in sys.path:
         sys.path.insert(0, str(_r))
 
-from oracle.common import evaluate_candidate, load_packet, cutover_order  # noqa: E402
+from oracle.common import evaluate_candidate, load_packet, cutover_order, skew_ok  # noqa: E402
 from oracle import oracle_enumerate  # noqa: E402
 
 
@@ -142,6 +142,19 @@ def grade_submission(output_dir: Path, data_dir: Path, expected: dict | None = N
     mig_bad = any(cats[cid].get("migration_irreversible") for cid in portfolio.values() if cid in cats)
     checks["no_irreversible_migration"] = bool(portfolio) and checks["plan_covers_services"] and not mig_bad
 
+    # Skew coupling
+    skew_bad = False
+    if checks["plan_covers_services"] and portfolio:
+        # Build verdicts for skew_ok
+        from oracle.common import CandidateVerdict
+        vmap = {}
+        for svc, cid in portfolio.items():
+            if cid in cats:
+                vmap[cid] = evaluate_candidate(pkt, cats[cid])
+        max_skew = float(pkt.policy.get("max_dependent_skew_hours", 0))
+        skew_bad = not skew_ok(portfolio, vmap, pkt.policy["dependencies"], max_skew)
+    checks["skew_compatible"] = bool(portfolio) and checks["plan_covers_services"] and not skew_bad
+
     # Cutover order
     deps = pkt.policy["dependencies"]
     order = [r.get("service", "").strip() for r in plan_rows if r.get("service")]
@@ -218,14 +231,15 @@ def grade_submission(output_dir: Path, data_dir: Path, expected: dict | None = N
     weights = {
         "memo_exists": 3,
         "plan_exists": 3,
-        "plan_covers_services": 5,
+        "plan_covers_services": 4,
         "no_unsafe_sources": 12,
-        "within_budget": 5,
-        "schema_compatible": 5,
-        "no_irreversible_migration": 8,
-        "cutover_feasible": 8,
-        "citations_resolvable": 6,
-        "no_fabricated_citations": 8,
+        "within_budget": 4,
+        "schema_compatible": 4,
+        "no_irreversible_migration": 6,
+        "skew_compatible": 8,
+        "cutover_feasible": 6,
+        "citations_resolvable": 5,
+        "no_fabricated_citations": 7,
         "memo_mentions_vault_vs_catalog": 4,
         "memo_mentions_uncertainty": 3,
         "memo_mentions_data_loss": 4,
@@ -234,7 +248,7 @@ def grade_submission(output_dir: Path, data_dir: Path, expected: dict | None = N
         "preserves_originals": 4,
         "validation_gates_present": 4,
         "near_optimal_loss": 8,
-        "matches_reference_portfolio": 4,
+        "matches_reference_portfolio": 5,
     }
     assert sum(weights.values()) == 100
     earned = sum(w for k, w in weights.items() if checks.get(k))
@@ -244,6 +258,10 @@ def grade_submission(output_dir: Path, data_dir: Path, expected: dict | None = N
         reward = min(reward, 70.0)
     if unsafe or mig_bad:
         reward = min(reward, 80.0)
+    if skew_bad:
+        reward = min(reward, 78.0)
+    if schema_bad:
+        reward = min(reward, 82.0)
     if not checks.get("cutover_feasible"):
         reward = min(reward, 82.0)
     detail["weights"] = weights

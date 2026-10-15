@@ -2,16 +2,16 @@
   "services": 16,
   "candidates": 80,
   "dual_oracle_agree": true,
-  "shortcuts_tested": 16,
-  "shortcuts_diverging": 16,
+  "shortcuts_tested": 18,
+  "shortcuts_diverging": 17,
   "forcing_cases": 18,
   "forcing_flipped": 18,
   "source_hashes": {
-    "case_brief.md": "78e286af7e9de2eb107b96b0403c24fb2157bae6171db4481e20297504556d36",
+    "case_brief.md": "3cd894f927d47ecc7f42b5fd76007554ad8c8182fc5eeca499bdd1309661e72a",
     "evidence_guide.md": "28a9b65ff4a3b3711b6c4e9eb7cd807972149ba38d4e42f028a3493a891ffd91",
-    "recovery_policy.json": "90c656d8fbadf111666e9bf353747b286a94aa5e7ce303fbbacf5b7342cb6ae1",
-    "recovery_candidates.json": "55dd77d9da07aeaf0e0c705fd368d86567502d076b97f91f3750a3e949db7987",
-    "vault_receipts.json": "c455296850298fe33f3670bc21172fa4261f6a25fcfe8df75559a776f9b098ba",
+    "recovery_policy.json": "f5d2009034118c39f6cba4d0c3015dd4fa52e9395de0fe9d785e729cf8a112c7",
+    "recovery_candidates.json": "0a98fe6fc0ad5c6f41d5a7aaa98fbd05872416e822610ed17a24ec88d67f3430",
+    "vault_receipts.json": "df0816bfec0e5e6a0c870329c1e9b84bf3b5f221c821aca49e65a796ed91c699",
     "wal_archive.json": "32159418f526a49f8a20243d6add28bdfe3ff9bddb7cf5b890cded02635dd7c8",
     "timeline_history.json": "adfd144c1f4548438bbbe9244076183c649e03bd97d6605e3c0a4de94c88fd8d",
     "kms_grants.json": "c850a2085719f67ea7f05e6378fc51169f1317453cff3bd0edf152e11f3dc8ef",
@@ -25,7 +25,7 @@
   },
   "portfolio": {
     "identity": "IDENTITY-BRANCH",
-    "auditlog": "AUDITLOG-LATEST",
+    "auditlog": "AUDITLOG-STABLE",
     "customers": "CUSTOMERS-BRANCH",
     "payments": "PAYMENTS-BRANCH",
     "billing": "BILLING-BRANCH",
@@ -41,7 +41,7 @@
     "search": "SEARCH-STABLE",
     "warehouse": "WAREHOUSE-ARCHIVE"
   },
-  "weighted_loss": 1540.0,
+  "weighted_loss": 1615.0,
   "effort": 68,
   "go": true
 }

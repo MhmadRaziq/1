@@ -4,8 +4,12 @@
       "trial": "A",
       "model": "claude-sonnet-5-5-high",
       "status": "GRADED",
-      "reward": 100.0,
-      "checks": {},
+      "reward": 75.0,
+      "checks": {
+        "no_unsafe_sources": false,
+        "near_optimal_loss": false,
+        "matches_reference_portfolio": false
+      },
       "portfolio": {
         "identity": "IDENTITY-BRANCH",
         "sessions": "SESSIONS-BRANCH",
@@ -24,14 +28,18 @@
         "search": "SEARCH-STABLE",
         "partners": "PARTNERS-STABLE"
       },
-      "loss": 1495.0
+      "loss": null
     },
     {
       "trial": "B",
       "model": "gpt-5.6-sol-high",
       "status": "GRADED",
-      "reward": 100.0,
-      "checks": {},
+      "reward": 75.0,
+      "checks": {
+        "no_unsafe_sources": false,
+        "near_optimal_loss": false,
+        "matches_reference_portfolio": false
+      },
       "portfolio": {
         "identity": "IDENTITY-BRANCH",
         "sessions": "SESSIONS-BRANCH",
@@ -50,20 +58,43 @@
         "warehouse": "WAREHOUSE-ARCHIVE",
         "auditlog": "AUDITLOG-LATEST"
       },
-      "loss": 1495.0
+      "loss": null
     },
     {
       "trial": "C",
       "model": "claude-opus-5-5-high",
-      "status": "MISSING",
-      "reward": null,
-      "checks": {}
+      "status": "GRADED",
+      "reward": 75.0,
+      "checks": {
+        "no_unsafe_sources": false,
+        "near_optimal_loss": false,
+        "matches_reference_portfolio": false
+      },
+      "portfolio": {
+        "identity": "IDENTITY-BRANCH",
+        "payments": "PAYMENTS-BRANCH",
+        "sessions": "SESSIONS-BRANCH",
+        "customers": "CUSTOMERS-BRANCH",
+        "auditlog": "AUDITLOG-LATEST",
+        "orders": "ORDERS-BRANCH",
+        "billing": "BILLING-BRANCH",
+        "fraud": "FRAUD-BRANCH",
+        "inventory": "INVENTORY-STABLE",
+        "reporting": "REPORTING-STABLE",
+        "notifications": "NOTIFICATIONS-STABLE",
+        "fulfillment": "FULFILLMENT-BRANCH",
+        "catalog": "CATALOG-STABLE",
+        "warehouse": "WAREHOUSE-ARCHIVE",
+        "search": "SEARCH-STABLE",
+        "partners": "PARTNERS-STABLE"
+      },
+      "loss": null
     },
     {
       "trial": "D",
       "model": "composer-2.5",
       "status": "GRADED",
-      "reward": 62.0,
+      "reward": 63.0,
       "checks": {
         "no_unsafe_sources": false,
         "citations_resolvable": false,
@@ -92,5 +123,5 @@
       "loss": null
     }
   ],
-  "mean": 87.33333333333333
+  "mean": 72.0
 }

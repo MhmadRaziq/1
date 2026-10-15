@@ -9,7 +9,7 @@ from dataclasses import asdict
 from pathlib import Path
 from typing import Any
 
-from .common import CandidateVerdict, cutover_order, evaluate_candidate, load_packet
+from .common import CandidateVerdict, cutover_order, evaluate_candidate, load_packet, skew_ok
 
 
 def analyze(data_dir: str | Path, ignore: set[str] | None = None) -> dict[str, Any]:
@@ -73,6 +73,19 @@ def analyze(data_dir: str | Path, ignore: set[str] | None = None) -> dict[str, A
                 return False
         return True
 
+    max_skew = float(pkt.policy.get("max_dependent_skew_hours", 0))
+
+    def portfolio_ok(chosen: dict[str, str]) -> bool:
+        if not migration_ok(chosen):
+            return False
+        if "schema" not in ignore:
+            for cid in chosen.values():
+                if not schema_ok(chosen, verdicts[cid]):
+                    return False
+        if "skew" not in ignore and not skew_ok(chosen, verdicts, deps, max_skew):
+            return False
+        return True
+
     # Branch-and-bound over topological order
     # State: (lb_loss, loss, effort, idx, chosen)
     # Expand by increasing loss; prune by budget and optimistic bound.
@@ -112,6 +125,8 @@ def analyze(data_dir: str | Path, ignore: set[str] | None = None) -> dict[str, A
             trial[svc] = v.candidate_id
             if not migration_ok(trial):
                 continue
+            if "skew" not in ignore and not skew_ok(trial, verdicts, deps, max_skew):
+                continue
             picked = v
             break
         if picked is None:
@@ -120,7 +135,7 @@ def analyze(data_dir: str | Path, ignore: set[str] | None = None) -> dict[str, A
         greedy[svc] = picked.candidate_id
         g_effort += picked.effort
         g_loss += (1 if "priority" in ignore else pri[svc]) * picked.data_loss_hours
-    if greedy_ok:
+    if greedy_ok and portfolio_ok(greedy):
         best_sol = (g_loss, g_effort, dict(greedy))
         equal_alts = [dict(greedy)]
         feasible = 1
@@ -139,15 +154,7 @@ def analyze(data_dir: str | Path, ignore: set[str] | None = None) -> dict[str, A
         if best_sol is not None and lb > best_sol[0] + 1e-9:
             continue
         if idx == len(topo):
-            if not migration_ok(chosen):
-                continue
-            ok = True
-            if "schema" not in ignore:
-                for cid in chosen.values():
-                    if not schema_ok(chosen, verdicts[cid]):
-                        ok = False
-                        break
-            if not ok:
+            if not portfolio_ok(chosen):
                 continue
             feasible += 1
             id_tuple = tuple(sorted(chosen.items()))
@@ -177,6 +184,8 @@ def analyze(data_dir: str | Path, ignore: set[str] | None = None) -> dict[str, A
             new_chosen_items = chosen_items + ((svc, v.candidate_id),)
             new_chosen = dict(new_chosen_items)
             if not migration_ok(new_chosen):
+                continue
+            if "skew" not in ignore and not skew_ok(new_chosen, verdicts, deps, max_skew):
                 continue
             new_lb = new_loss + rem_after
             if best_sol is not None and new_lb > best_sol[0] + 1e-9:

@@ -1,10 +1,10 @@
 {
   "source_sha256": {
-    "case_brief.md": "9be34ae107aa6dacf1fe30cb45f258792796f991932ead2bd7f35a278c01ba8e",
+    "case_brief.md": "e7edc5d907fbd4112ba15e23f8ab23d6344d16d9a4ff5475e550ecee3a995ced",
     "evidence_guide.md": "28a9b65ff4a3b3711b6c4e9eb7cd807972149ba38d4e42f028a3493a891ffd91",
-    "recovery_policy.json": "d2b76d2d1c07c8eb34b07e0be6a472ed37badabe2ce023682fff390b44d01c46",
-    "recovery_candidates.json": "969fb355295902fc632fb3a9b99ce1713d699ea5033f332364982ab959e529c4",
-    "vault_receipts.json": "b93082b8ebb8369154ab14edaacdfaad7cfc10bb37104ec3739eb0ec97995126",
+    "recovery_policy.json": "3eadb740a3d03136edd70dc3bf4dac3d3a5e47c13284de4f27bface36343840e",
+    "recovery_candidates.json": "d5857745a3a940e87dbecbde291ce5953a48afa53dd457081f46f545cd09f5f3",
+    "vault_receipts.json": "afad148daa4366a5559f106038277293c37151eca4023ca621aba9cf12e44ab8",
     "wal_archive.json": "8909b26105ca597d298ca978ff518f5f00e2831f828310f3e33e08da406c0961",
     "timeline_history.json": "7367a3f1008e4071b57b3b49b11cfb1323a9486d3ce5f5bd4e6a38ace82bec15",
     "kms_grants.json": "181d9622a800af49a6608a1cdd515accde3184011ad175ebc4c157b497daa55b",

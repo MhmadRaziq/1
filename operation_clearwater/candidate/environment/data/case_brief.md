@@ -31,5 +31,17 @@ decision time cannot support this call.
   compatible timeline (see ``timeline_history.json``).
 - A catalog READY flag is not proof that an immutable vault copy completed.
 
+## Operational constraints (binding)
+- ``block_held_targets_inside_open_indicator_windows`` =
+  True: when a vault
+  object is under legal hold, do not choose a recovery target whose time falls
+  inside any still-open intrusion-indicator window for that service (confirmed
+  or unconfirmed) until DFIR clears the window.
+- ``max_dependent_skew_hours`` = 24: a
+  dependent service's ``recovery_target_time`` must not be more than this many
+  hours newer than each upstream provider's chosen target.
+- Individually freshest admissible points can still be globally infeasible
+  under these constraints; optimize the estate, not each service in isolation.
+
 ## Risk appetite
-No unverified restore sources. Preserve vault originals under any legal hold; restoring from an allowed immutable *copy* is permitted. Do not reconnect services that would replay confirmed ransomware writes.
+No unverified restore sources. Preserve vault originals under any legal hold; restoring from an allowed immutable *copy* is permitted. Do not reconnect services that would replay confirmed ransomware writes. For vault objects under legal hold, do not select a recovery target that falls inside any still-open intrusion-indicator window (confirmed or unconfirmed) until DFIR clears that window. A dependent service's recovery_target_time must not be more than max_dependent_skew_hours newer than each upstream provider's chosen target (estate time-alignment).

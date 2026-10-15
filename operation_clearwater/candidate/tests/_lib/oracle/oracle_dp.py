@@ -11,7 +11,7 @@ from dataclasses import asdict
 from pathlib import Path
 from typing import Any
 
-from .common import cutover_order, evaluate_candidate, load_packet
+from .common import cutover_order, evaluate_candidate, load_packet, skew_ok
 
 
 def analyze(data_dir: str | Path, ignore: set[str] | None = None) -> dict[str, Any]:
@@ -78,6 +78,15 @@ def analyze(data_dir: str | Path, ignore: set[str] | None = None) -> dict[str, A
                 return False
         return True
 
+    max_skew = float(pkt.policy.get("max_dependent_skew_hours", 0))
+
+    def portfolio_constraints_ok(chosen: dict) -> bool:
+        if not migration_ok(chosen):
+            return False
+        if "skew" not in ignore and not skew_ok(chosen, verdicts, deps, max_skew):
+            return False
+        return True
+
     def ready_services(chosen: dict) -> list[str]:
         rem = [s for s in services if s not in chosen]
         ready = [s for s in rem if all(d in chosen for d in deps.get(s, []))]
@@ -112,7 +121,7 @@ def analyze(data_dir: str | Path, ignore: set[str] | None = None) -> dict[str, A
                 continue
             trial = dict(chosen)
             trial[svc] = v.candidate_id
-            if not migration_ok(trial):
+            if not portfolio_constraints_ok(trial):
                 continue
             picked = v
             break
@@ -122,10 +131,18 @@ def analyze(data_dir: str | Path, ignore: set[str] | None = None) -> dict[str, A
         chosen[svc] = picked.candidate_id
         g_eff += picked.effort
         g_loss += (1 if "priority" in ignore else pri[svc]) * picked.data_loss_hours
-    if ok:
-        best_sol = (g_loss, g_eff, dict(chosen))
-        equal_alts = [dict(chosen)]
-        feasible = 1
+    if ok and portfolio_constraints_ok(chosen):
+        # also full schema
+        schema_fine = True
+        if "schema" not in ignore:
+            for cid in chosen.values():
+                if not schema_ok(chosen, verdicts[cid]):
+                    schema_fine = False
+                    break
+        if schema_fine:
+            best_sol = (g_loss, g_eff, dict(chosen))
+            equal_alts = [dict(chosen)]
+            feasible = 1
 
     # Heap state: lb, loss, effort, seq, frozenset chosen items
     seq = 0
@@ -141,7 +158,7 @@ def analyze(data_dir: str | Path, ignore: set[str] | None = None) -> dict[str, A
         if best_sol is not None and lb > best_sol[0] + 1e-9:
             continue
         if len(chosen) == len(services):
-            if not migration_ok(chosen):
+            if not portfolio_constraints_ok(chosen):
                 continue
             if "schema" not in ignore:
                 if any(not schema_ok(chosen, verdicts[cid]) for cid in chosen.values()):
@@ -176,7 +193,7 @@ def analyze(data_dir: str | Path, ignore: set[str] | None = None) -> dict[str, A
                 continue
             new_items = items + ((svc, v.candidate_id),)
             new_chosen = dict(new_items)
-            if not migration_ok(new_chosen):
+            if not portfolio_constraints_ok(new_chosen):
                 continue
             w = (1 if "priority" in ignore else pri[svc]) * v.data_loss_hours
             new_loss = loss + w

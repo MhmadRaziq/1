@@ -95,7 +95,9 @@
     ]
   },
   "clean_room": "isolated",
-  "risk_appetite": "No unverified restore sources. Preserve vault originals under any legal hold; restoring from an allowed immutable *copy* is permitted. Do not reconnect services that would replay confirmed ransomware writes.",
+  "block_held_targets_inside_open_indicator_windows": true,
+  "max_dependent_skew_hours": 24,
+  "risk_appetite": "No unverified restore sources. Preserve vault originals under any legal hold; restoring from an allowed immutable *copy* is permitted. Do not reconnect services that would replay confirmed ransomware writes. For vault objects under legal hold, do not select a recovery target that falls inside any still-open intrusion-indicator window (confirmed or unconfirmed) until DFIR clears that window. A dependent service's recovery_target_time must not be more than max_dependent_skew_hours newer than each upstream provider's chosen target (estate time-alignment).",
   "validation_required_before_reconnect": true,
   "postgresql_notes": {
     "wal_segment_size_bytes": 16777216,

@@ -4,7 +4,7 @@
   "mutants": [
     {
       "name": "m01_missing_memo",
-      "reward": 62.0,
+      "reward": 64.0,
       "expect_reject": true,
       "pass": true
     },
@@ -22,7 +22,7 @@
     },
     {
       "name": "m04_catalog_latest",
-      "reward": 58.0,
+      "reward": 61.0,
       "expect_reject": true,
       "pass": true
     },
@@ -34,7 +34,7 @@
     },
     {
       "name": "m05b_expensive_set",
-      "reward": 66.0,
+      "reward": 67.0,
       "expect_reject": true,
       "pass": true
     },
@@ -46,15 +46,15 @@
     },
     {
       "name": "m07_unsafe_payments",
-      "reward": 76.0,
+      "reward": 75.0,
       "expect_reject": true,
       "pass": true
     },
     {
       "name": "m08_schema_break",
-      "reward": 86.0,
+      "reward": 82.0,
       "expect_reject": true,
-      "pass": false
+      "pass": true
     },
     {
       "name": "m09_irreversible_migration",
@@ -70,7 +70,7 @@
     },
     {
       "name": "m11_wal_gap_search",
-      "reward": 76.0,
+      "reward": 75.0,
       "expect_reject": true,
       "pass": true
     },
@@ -82,7 +82,7 @@
     },
     {
       "name": "m13_late_rehearsal",
-      "reward": 76.0,
+      "reward": 75.0,
       "expect_reject": true,
       "pass": true
     },
@@ -93,7 +93,7 @@
       "pass": true
     }
   ],
-  "negative_rejected": 11,
+  "negative_rejected": 12,
   "negative_total": 12,
   "alternate_accepted": true,
   "go": true

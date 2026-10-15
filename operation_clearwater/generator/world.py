@@ -115,7 +115,7 @@ FORCING_CASES: list[ForcingCase] = [
                 "Recent low-priority point loses to older critical under budget", "portfolio"),
     ForcingCase("FC15", "inventory", "branch", "replica_fork",
                 "Replica lag fork appears fresher but is independent", "pitr_target"),
-    ForcingCase("FC16", "auditlog", "latest", "legal_hold_copy_ok",
+    ForcingCase("FC16", "auditlog", "stable", "legal_hold_copy_ok",
                 "Vault hold protects original but allows copy restore", "containment"),
     ForcingCase("FC17", "warehouse", "latest", "irreversible_migration",
                 "Restore requires irreversible migration of reporting dependent", "cutover_order"),
@@ -314,13 +314,18 @@ def build_world(seed: int = 42, scale_days: int = 3) -> BuiltWorld:
                 effort = 14  # identity-near burns budget
             if svc == "identity" and kind == "latest":
                 effort = 8
-            # BINDING FC16: make auditlog-latest cheap so reference selects it;
-            # treating legal hold as denial must then flip to a worse point.
+            # BINDING FC16: make the held auditlog point cheap so reference
+            # selects it; treating hold as denial must then flip to a worse point.
             if mode == "legal_hold_copy_ok":
                 effort = 3
-            # Inflate other auditlog kinds so latest wins on loss+effort
-            if svc == "auditlog" and mode != "legal_hold_copy_ok":
+            # Inflate other auditlog kinds so the held stable point wins among
+            # admissible options; keep latest cheap so ignoring the
+            # open-indicator rule would flip the portfolio (shortcut must fail).
+            if svc == "auditlog" and mode != "legal_hold_copy_ok" and kind != "latest":
                 effort = KIND_EFFORT[kind] + 3
+            if svc == "auditlog" and kind == "latest":
+                effort = 3
+
             # BINDING FC09: make notifications-latest cheap enough to fit in budget
             if mode == "late_rehearsal":
                 effort = 3
@@ -361,6 +366,11 @@ def build_world(seed: int = 42, scale_days: int = 3) -> BuiltWorld:
                 "replica_fork",
             ):
                 schema_epoch = 2
+            # AUDITLOG-LATEST is held + inside an open indicator window. Keep its
+            # schema at 2 so the open-indicator rule is the *sole* reject reason;
+            # ignoring that rule must flip the portfolio (shortcut sensitivity).
+            if svc == "auditlog" and kind == "latest":
+                schema_epoch = 2
 
             requires = {d: (3 if schema_epoch == 3 else 2) for d in deps}
             # FC11: orders-near requires identity schema 3
@@ -371,8 +381,9 @@ def build_world(seed: int = 42, scale_days: int = 3) -> BuiltWorld:
             # Irreversible migration flag on warehouse-latest
             migration_irreversible = mode == "irreversible_migration"
 
-            # Legal hold on auditlog-latest
-            legal_hold = mode == "legal_hold_copy_ok"
+            # Legal hold on the FC16 candidate; also mark auditlog-latest as held
+            # so the open-indicator hardening rule rejects the "freshest held copy".
+            legal_hold = mode == "legal_hold_copy_ok" or (svc == "auditlog" and kind == "latest")
 
             # ----- vault receipt -----
             copy_status = "QUEUED" if mode == "vault_incomplete" else "COMPLETE"
@@ -588,10 +599,22 @@ def build_world(seed: int = 42, scale_days: int = 3) -> BuiltWorld:
         "service_priorities": {s: p for s, p, _ in SERVICES},
         "dependencies": {s: deps for s, _, deps in SERVICES},
         "clean_room": "isolated",
+        # Hardening v2: disclosed constraints that defeat the prior cold-trial
+        # "min priority×loss over individually admissible points" shortcut.
+        "block_held_targets_inside_open_indicator_windows": True,
+        # Skew kept loose (24h) so local forcing cases remain binding; the
+        # held+open-indicator rule is the hardness lever against pure loss min.
+        "max_dependent_skew_hours": 24,
         "risk_appetite": (
             "No unverified restore sources. Preserve vault originals under any "
             "legal hold; restoring from an allowed immutable *copy* is permitted. "
-            "Do not reconnect services that would replay confirmed ransomware writes."
+            "Do not reconnect services that would replay confirmed ransomware writes. "
+            "For vault objects under legal hold, do not select a recovery target "
+            "that falls inside any still-open intrusion-indicator window "
+            "(confirmed or unconfirmed) until DFIR clears that window. "
+            "A dependent service's recovery_target_time must not be more than "
+            "max_dependent_skew_hours newer than each upstream provider's chosen "
+            "target (estate time-alignment)."
         ),
         "validation_required_before_reconnect": True,
         "postgresql_notes": {
@@ -704,6 +727,18 @@ decision time cannot support this call.
   continuous archived segment chain through ``recovery_target_lsn`` on a
   compatible timeline (see ``timeline_history.json``).
 - A catalog READY flag is not proof that an immutable vault copy completed.
+
+## Operational constraints (binding)
+- ``block_held_targets_inside_open_indicator_windows`` =
+  {policy.get('block_held_targets_inside_open_indicator_windows')}: when a vault
+  object is under legal hold, do not choose a recovery target whose time falls
+  inside any still-open intrusion-indicator window for that service (confirmed
+  or unconfirmed) until DFIR clears the window.
+- ``max_dependent_skew_hours`` = {policy.get('max_dependent_skew_hours')}: a
+  dependent service's ``recovery_target_time`` must not be more than this many
+  hours newer than each upstream provider's chosen target.
+- Individually freshest admissible points can still be globally infeasible
+  under these constraints; optimize the estate, not each service in isolation.
 
 ## Risk appetite
 {policy['risk_appetite']}

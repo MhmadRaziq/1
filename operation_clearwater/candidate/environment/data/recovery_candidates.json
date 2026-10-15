@@ -2513,7 +2513,7 @@
       "WAL-AUDITLOG-STABLE-3",
       "WAL-AUDITLOG-STABLE-4"
     ],
-    "effort_units": 7,
+    "effort_units": 3,
     "schema_epoch": 2,
     "requires_schema_epoch": {
       "identity": 2
