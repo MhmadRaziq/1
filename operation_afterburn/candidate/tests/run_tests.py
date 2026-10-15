@@ -17,21 +17,26 @@ LOG_DIR = Path("/logs/verifier")
 
 
 def write_rewards(reward: float, metrics: dict[str, float]) -> None:
-    reward = float(min(1.0, max(0.0, reward)))
+    reward = round(float(min(1.0, max(0.0, reward))), 6)
+    # Avoid 0.999999 artifacts so oracle checks see exactly 1.0 when all weights pass.
+    if reward >= 0.999999:
+        reward = 1.0
     # Harbor docs: reward.txt = single number; reward.json = labeled numeric metrics.
     # If both exist, Harbor prefers reward.json — keep it numeric-only.
     numeric = {"reward": reward}
     for k, v in metrics.items():
-        numeric[str(k)] = float(v)
+        numeric[str(k)] = round(float(v), 6)
+    body_txt = f"{reward}\n"
+    # Use compact separators; keep JSON numbers clean.
+    body_json = json.dumps(numeric, separators=(",", ":")) + "\n"
     try:
         LOG_DIR.mkdir(parents=True, exist_ok=True)
-        (LOG_DIR / "reward.txt").write_text(f"{reward}\n", encoding="utf-8")
-        (LOG_DIR / "reward.json").write_text(json.dumps(numeric) + "\n", encoding="utf-8")
+        (LOG_DIR / "reward.txt").write_text(body_txt, encoding="utf-8")
+        (LOG_DIR / "reward.json").write_text(body_json, encoding="utf-8")
     except OSError:
-        # Last-ditch: still try plain txt in /logs
         try:
             Path("/logs").mkdir(parents=True, exist_ok=True)
-            Path("/logs/reward.txt").write_text(f"{reward}\n", encoding="utf-8")
+            Path("/logs/reward.txt").write_text(body_txt, encoding="utf-8")
         except OSError:
             pass
 
