@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Stdlib-only weighted verifier. Always writes /logs/verifier/reward.txt."""
+"""Stdlib-only Harbor-compatible verifier.
+
+Always writes:
+  /logs/verifier/reward.txt   -> single number
+  /logs/verifier/reward.json  -> numeric metrics only (Harbor prefers this)
+"""
 from __future__ import annotations
 
 import importlib.util
@@ -8,34 +13,30 @@ import traceback
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-REWARD_PATHS = (
-    Path("/logs/verifier/reward.txt"),
-    Path("/logs/reward.txt"),
-)
+LOG_DIR = Path("/logs/verifier")
 
 
-def write_reward(reward: float, details: dict | None = None) -> None:
-    reward = round(min(1.0, max(0.0, float(reward))), 6)
-    payload = json.dumps({"reward": reward, "tests": details or {}}, indent=2) + "\n"
-    text = f"{reward}\n"
-    for path in REWARD_PATHS:
-        try:
-            path.parent.mkdir(parents=True, exist_ok=True)
-            path.write_text(text, encoding="utf-8")
-            path.with_name("reward.json").write_text(payload, encoding="utf-8")
-        except OSError:
-            continue
-    # Also mirror beside tests for local debugging (not relied on by platform).
+def write_rewards(reward: float, metrics: dict[str, float]) -> None:
+    reward = float(min(1.0, max(0.0, reward)))
+    # Harbor docs: reward.txt = single number; reward.json = labeled numeric metrics.
+    # If both exist, Harbor prefers reward.json — keep it numeric-only.
+    numeric = {"reward": reward}
+    for k, v in metrics.items():
+        numeric[str(k)] = float(v)
     try:
-        local = ROOT / "logs"
-        local.mkdir(parents=True, exist_ok=True)
-        (local / "reward.txt").write_text(text, encoding="utf-8")
-        (local / "reward.json").write_text(payload, encoding="utf-8")
+        LOG_DIR.mkdir(parents=True, exist_ok=True)
+        (LOG_DIR / "reward.txt").write_text(f"{reward}\n", encoding="utf-8")
+        (LOG_DIR / "reward.json").write_text(json.dumps(numeric) + "\n", encoding="utf-8")
     except OSError:
-        pass
+        # Last-ditch: still try plain txt in /logs
+        try:
+            Path("/logs").mkdir(parents=True, exist_ok=True)
+            Path("/logs/reward.txt").write_text(f"{reward}\n", encoding="utf-8")
+        except OSError:
+            pass
 
 
-def load_weights() -> dict:
+def load_weights() -> dict[str, float]:
     raw = json.loads((ROOT / "test_weights.json").read_text(encoding="utf-8"))
     return {str(k): float(v) for k, v in raw.items()}
 
@@ -51,29 +52,26 @@ def load_tests_module():
 
 
 def main() -> int:
-    # Guarantee a reward file exists even if later steps crash.
-    write_reward(0.0, {"status": "starting"})
+    write_rewards(0.0, {"reward": 0.0})
     weights = load_weights()
     mod = load_tests_module()
-    details = {}
+    metrics: dict[str, float] = {}
     reward = 0.0
     for name, weight in weights.items():
         fn = getattr(mod, name, None)
         ok = False
-        err = None
         if callable(fn):
             try:
                 fn()
                 ok = True
-            except Exception as exc:  # noqa: BLE001 - record per-test failure
-                err = f"{type(exc).__name__}: {exc}"
-        else:
-            err = "missing_test_function"
-        details[name] = {"weight": weight, "passed": ok, "error": err}
-        if ok:
-            reward += weight
-    write_reward(reward, details)
-    print(json.dumps({"reward": round(reward, 6), "tests": details}, indent=2))
+            except Exception:
+                ok = False
+        earned = float(weight) if ok else 0.0
+        metrics[name] = earned
+        reward += earned
+    write_rewards(reward, metrics)
+    # Keep stdout minimal — do not emit nested error objects.
+    print(reward)
     return 0
 
 
@@ -82,5 +80,6 @@ if __name__ == "__main__":
         raise SystemExit(main())
     except Exception:
         traceback.print_exc()
-        write_reward(0.0, {"status": "fatal", "error": "unhandled_exception"})
-        raise SystemExit(0)  # still exit 0 so platform can read reward=0
+        write_rewards(0.0, {"reward": 0.0})
+        print(0.0)
+        raise SystemExit(0)

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Format + semantic tests for Operation AFTERBURN."""
+"""Format + semantic tests for Operation AFTERBURN (stdlib asserts only)."""
 from __future__ import annotations
 
 import csv
@@ -15,62 +15,72 @@ HERE = Path(__file__).resolve().parent
 EXPECTED = json.loads((HERE / "private_expected.json").read_text())
 
 
-def _ensure_outputs():
-    return OUT
+def _require_file(name: str) -> Path:
+    path = OUT / name
+    assert path.is_file() and path.stat().st_size > 0, f"missing_output:{name}"
+    return path
 
 
 def test_three_files_exist():
-    out = _ensure_outputs()
     for name in ("exposure_register.csv", "response_plan.csv", "incident_decision.md"):
-        p = out / name
-        assert p.exists() and p.stat().st_size > 0, name
+        _require_file(name)
 
 
 def test_register_schema_and_vocab():
-    out = _ensure_outputs()
-    rows = list(csv.DictReader((out / "exposure_register.csv").open()))
-    assert rows
-    required = {"workload_id", "environment", "region", "observed_digest", "disposition", "exposure_path", "evidence_refs", "uncertainty_or_clearance"}
-    assert required.issubset(rows[0].keys())
-    assert all(r["disposition"] in {"EXPOSED", "CLEARED", "UNRESOLVED"} for r in rows)
+    path = _require_file("exposure_register.csv")
+    rows = list(csv.DictReader(path.open(encoding="utf-8")))
+    assert rows, "empty_register"
+    required = {
+        "workload_id",
+        "environment",
+        "region",
+        "observed_digest",
+        "disposition",
+        "exposure_path",
+        "evidence_refs",
+        "uncertainty_or_clearance",
+    }
+    assert required.issubset(rows[0].keys()), "register_schema"
+    assert all(r.get("disposition") in {"EXPOSED", "CLEARED", "UNRESOLVED"} for r in rows), "disposition_vocab"
 
 
 def test_semantic_grade_reference_band():
-    out = _ensure_outputs()
-    # Write a temp expected path compatible with grade_lib
+    _require_file("exposure_register.csv")
+    _require_file("response_plan.csv")
+    _require_file("incident_decision.md")
     tmp = HERE / "_expected_runtime.json"
     tmp.write_text(json.dumps(EXPECTED), encoding="utf-8")
-    data = DATA if DATA.exists() else Path("/workspace/operation_afterburn/work/seed_42_scale/data")
-    result = grade_lib.grade_submission(out, tmp, data)
-    assert result.reward >= 85.0, result.as_dict()
+    assert DATA.exists(), "missing_data_packet"
+    result = grade_lib.grade_submission(OUT, tmp, DATA)
+    assert result.reward >= 85.0, f"reward_below_band:{result.reward}"
 
 
 def test_exposure_set_precision_recall():
-    out = _ensure_outputs()
-    rows = list(csv.DictReader((out / "exposure_register.csv").open()))
-    pred = {r["workload_id"] for r in rows if r["disposition"] == "EXPOSED"}
+    path = _require_file("exposure_register.csv")
+    rows = list(csv.DictReader(path.open(encoding="utf-8")))
+    pred = {r["workload_id"] for r in rows if r.get("disposition") == "EXPOSED"}
     truth = set(EXPECTED["exposed_workload_ids"])
-    assert pred == truth, (sorted(pred), sorted(truth))
+    assert pred == truth, "exposure_set_mismatch"
 
 
 def test_no_tainted_recovery():
-    out = _ensure_outputs()
-    plan = list(csv.DictReader((out / "response_plan.csv").open()))
+    path = _require_file("response_plan.csv")
+    plan = list(csv.DictReader(path.open(encoding="utf-8")))
     unsafe = set(EXPECTED["unsafe_recovery_digests"])
     used = [p.get("recovery_digest") for p in plan if p.get("recovery_digest") in unsafe]
-    assert not used, used
+    assert not used, "tainted_recovery_selected"
 
 
 def test_unresolved_present():
-    out = _ensure_outputs()
-    rows = list(csv.DictReader((out / "exposure_register.csv").open()))
-    unr = {r["workload_id"] for r in rows if r["disposition"] == "UNRESOLVED"}
-    assert set(EXPECTED["unresolved_workload_ids"]).issubset(unr)
+    path = _require_file("exposure_register.csv")
+    rows = list(csv.DictReader(path.open(encoding="utf-8")))
+    unr = {r["workload_id"] for r in rows if r.get("disposition") == "UNRESOLVED"}
+    assert set(EXPECTED["unresolved_workload_ids"]).issubset(unr), "unresolved_missing"
 
 
 def test_memo_sections():
-    out = _ensure_outputs()
-    text = (out / "incident_decision.md").read_text().lower()
-    assert "immediate recommendation" in text
-    assert "limitation" in text or "unresolved" in text
-    assert "http://" not in text and "https://" not in text
+    path = _require_file("incident_decision.md")
+    text = path.read_text(encoding="utf-8").lower()
+    assert "immediate recommendation" in text, "memo_missing_recommendation"
+    assert ("limitation" in text) or ("unresolved" in text), "memo_missing_limits"
+    assert "http://" not in text and "https://" not in text, "memo_has_urls"

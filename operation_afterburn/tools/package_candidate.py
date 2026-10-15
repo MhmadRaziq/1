@@ -154,22 +154,33 @@ ROOT="$(cd "$(dirname "$0")" && pwd)"
 python3 "$ROOT/solve.py" /workspace/data /workspace/output
 """
 
-TEST_SH = """#!/usr/bin/env bash
+TEST_SH = r'''#!/usr/bin/env bash
+# Harbor verifier entrypoint: must always write /logs/verifier/reward.txt (and numeric reward.json).
 set -u
 ROOT="$(cd "$(dirname "$0")" && pwd)"
-write_zero() {
-  mkdir -p /logs/verifier /logs 2>/dev/null || true
-  printf '0\\n' > /logs/verifier/reward.txt 2>/dev/null || true
-  printf '0\\n' > /logs/reward.txt 2>/dev/null || true
-}
-write_zero
+
+mkdir -p /logs/verifier 2>/dev/null || true
+# Pre-seed a valid zero reward in case python fails to start.
+printf '0
+' > /logs/verifier/reward.txt 2>/dev/null || true
+printf '{"reward":0}
+' > /logs/verifier/reward.json 2>/dev/null || true
+
 set +e
 python3 "$ROOT/run_tests.py"
-if [[ ! -f /logs/verifier/reward.txt && ! -f /logs/reward.txt ]]; then
-  write_zero
+set +e
+
+# Guarantee files exist and are Harbor-parseable.
+if [[ ! -s /logs/verifier/reward.txt ]]; then
+  printf '0
+' > /logs/verifier/reward.txt
+fi
+if [[ ! -s /logs/verifier/reward.json ]]; then
+  printf '{"reward":0}
+' > /logs/verifier/reward.json
 fi
 exit 0
-"""
+'''
 
 TEST_WEIGHTS = {
     "test_three_files_exist": 0.05,
@@ -182,7 +193,12 @@ TEST_WEIGHTS = {
 }
 
 RUN_TESTS_PY = r'''#!/usr/bin/env python3
-"""Stdlib-only weighted verifier. Always writes /logs/verifier/reward.txt."""
+"""Stdlib-only Harbor-compatible verifier.
+
+Always writes:
+  /logs/verifier/reward.txt   -> single number
+  /logs/verifier/reward.json  -> numeric metrics only (Harbor prefers this)
+"""
 from __future__ import annotations
 
 import importlib.util
@@ -191,33 +207,33 @@ import traceback
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-REWARD_PATHS = (
-    Path("/logs/verifier/reward.txt"),
-    Path("/logs/reward.txt"),
-)
+LOG_DIR = Path("/logs/verifier")
 
 
-def write_reward(reward: float, details: dict | None = None) -> None:
-    reward = round(min(1.0, max(0.0, float(reward))), 6)
-    payload = json.dumps({"reward": reward, "tests": details or {}}, indent=2) + "\n"
-    text = f"{reward}\n"
-    for path in REWARD_PATHS:
-        try:
-            path.parent.mkdir(parents=True, exist_ok=True)
-            path.write_text(text, encoding="utf-8")
-            path.with_name("reward.json").write_text(payload, encoding="utf-8")
-        except OSError:
-            continue
+def write_rewards(reward: float, metrics: dict[str, float]) -> None:
+    reward = float(min(1.0, max(0.0, reward)))
+    # Harbor docs: reward.txt = single number; reward.json = labeled numeric metrics.
+    # If both exist, Harbor prefers reward.json — keep it numeric-only.
+    numeric = {"reward": reward}
+    for k, v in metrics.items():
+        numeric[str(k)] = float(v)
     try:
-        local = ROOT / "logs"
-        local.mkdir(parents=True, exist_ok=True)
-        (local / "reward.txt").write_text(text, encoding="utf-8")
-        (local / "reward.json").write_text(payload, encoding="utf-8")
+        LOG_DIR.mkdir(parents=True, exist_ok=True)
+        (LOG_DIR / "reward.txt").write_text(f"{reward}
+", encoding="utf-8")
+        (LOG_DIR / "reward.json").write_text(json.dumps(numeric) + "
+", encoding="utf-8")
     except OSError:
-        pass
+        # Last-ditch: still try plain txt in /logs
+        try:
+            Path("/logs").mkdir(parents=True, exist_ok=True)
+            Path("/logs/reward.txt").write_text(f"{reward}
+", encoding="utf-8")
+        except OSError:
+            pass
 
 
-def load_weights() -> dict:
+def load_weights() -> dict[str, float]:
     raw = json.loads((ROOT / "test_weights.json").read_text(encoding="utf-8"))
     return {str(k): float(v) for k, v in raw.items()}
 
@@ -233,28 +249,26 @@ def load_tests_module():
 
 
 def main() -> int:
-    write_reward(0.0, {"status": "starting"})
+    write_rewards(0.0, {"reward": 0.0})
     weights = load_weights()
     mod = load_tests_module()
-    details = {}
+    metrics: dict[str, float] = {}
     reward = 0.0
     for name, weight in weights.items():
         fn = getattr(mod, name, None)
         ok = False
-        err = None
         if callable(fn):
             try:
                 fn()
                 ok = True
-            except Exception as exc:  # noqa: BLE001
-                err = f"{type(exc).__name__}: {exc}"
-        else:
-            err = "missing_test_function"
-        details[name] = {"weight": weight, "passed": ok, "error": err}
-        if ok:
-            reward += weight
-    write_reward(reward, details)
-    print(json.dumps({"reward": round(reward, 6), "tests": details}, indent=2))
+            except Exception:
+                ok = False
+        earned = float(weight) if ok else 0.0
+        metrics[name] = earned
+        reward += earned
+    write_rewards(reward, metrics)
+    # Keep stdout minimal — do not emit nested error objects.
+    print(reward)
     return 0
 
 
@@ -263,7 +277,8 @@ if __name__ == "__main__":
         raise SystemExit(main())
     except Exception:
         traceback.print_exc()
-        write_reward(0.0, {"status": "fatal", "error": "unhandled_exception"})
+        write_rewards(0.0, {"reward": 0.0})
+        print(0.0)
         raise SystemExit(0)
 '''
 
@@ -316,8 +331,8 @@ def main() -> int:
     # Copy verifier grade into tests
     grader_src = (ROOT / "verifier" / "grade.py").read_text(encoding="utf-8")
     (tests / "grade_lib.py").write_text(grader_src, encoding="utf-8")
-    test_py = '''#!/usr/bin/env python3
-"""Format + semantic tests for Operation AFTERBURN."""
+    test_py = r'''#!/usr/bin/env python3
+"""Format + semantic tests for Operation AFTERBURN (stdlib asserts only)."""
 from __future__ import annotations
 
 import csv
@@ -333,65 +348,75 @@ HERE = Path(__file__).resolve().parent
 EXPECTED = json.loads((HERE / "private_expected.json").read_text())
 
 
-def _ensure_outputs():
-    return OUT
+def _require_file(name: str) -> Path:
+    path = OUT / name
+    assert path.is_file() and path.stat().st_size > 0, f"missing_output:{name}"
+    return path
 
 
 def test_three_files_exist():
-    out = _ensure_outputs()
     for name in ("exposure_register.csv", "response_plan.csv", "incident_decision.md"):
-        p = out / name
-        assert p.exists() and p.stat().st_size > 0, name
+        _require_file(name)
 
 
 def test_register_schema_and_vocab():
-    out = _ensure_outputs()
-    rows = list(csv.DictReader((out / "exposure_register.csv").open()))
-    assert rows
-    required = {"workload_id", "environment", "region", "observed_digest", "disposition", "exposure_path", "evidence_refs", "uncertainty_or_clearance"}
-    assert required.issubset(rows[0].keys())
-    assert all(r["disposition"] in {"EXPOSED", "CLEARED", "UNRESOLVED"} for r in rows)
+    path = _require_file("exposure_register.csv")
+    rows = list(csv.DictReader(path.open(encoding="utf-8")))
+    assert rows, "empty_register"
+    required = {
+        "workload_id",
+        "environment",
+        "region",
+        "observed_digest",
+        "disposition",
+        "exposure_path",
+        "evidence_refs",
+        "uncertainty_or_clearance",
+    }
+    assert required.issubset(rows[0].keys()), "register_schema"
+    assert all(r.get("disposition") in {"EXPOSED", "CLEARED", "UNRESOLVED"} for r in rows), "disposition_vocab"
 
 
 def test_semantic_grade_reference_band():
-    out = _ensure_outputs()
-    # Write a temp expected path compatible with grade_lib
+    _require_file("exposure_register.csv")
+    _require_file("response_plan.csv")
+    _require_file("incident_decision.md")
     tmp = HERE / "_expected_runtime.json"
     tmp.write_text(json.dumps(EXPECTED), encoding="utf-8")
-    data = DATA if DATA.exists() else Path("/workspace/operation_afterburn/work/seed_42_scale/data")
-    result = grade_lib.grade_submission(out, tmp, data)
-    assert result.reward >= 85.0, result.as_dict()
+    assert DATA.exists(), "missing_data_packet"
+    result = grade_lib.grade_submission(OUT, tmp, DATA)
+    assert result.reward >= 85.0, f"reward_below_band:{result.reward}"
 
 
 def test_exposure_set_precision_recall():
-    out = _ensure_outputs()
-    rows = list(csv.DictReader((out / "exposure_register.csv").open()))
-    pred = {r["workload_id"] for r in rows if r["disposition"] == "EXPOSED"}
+    path = _require_file("exposure_register.csv")
+    rows = list(csv.DictReader(path.open(encoding="utf-8")))
+    pred = {r["workload_id"] for r in rows if r.get("disposition") == "EXPOSED"}
     truth = set(EXPECTED["exposed_workload_ids"])
-    assert pred == truth, (sorted(pred), sorted(truth))
+    assert pred == truth, "exposure_set_mismatch"
 
 
 def test_no_tainted_recovery():
-    out = _ensure_outputs()
-    plan = list(csv.DictReader((out / "response_plan.csv").open()))
+    path = _require_file("response_plan.csv")
+    plan = list(csv.DictReader(path.open(encoding="utf-8")))
     unsafe = set(EXPECTED["unsafe_recovery_digests"])
     used = [p.get("recovery_digest") for p in plan if p.get("recovery_digest") in unsafe]
-    assert not used, used
+    assert not used, "tainted_recovery_selected"
 
 
 def test_unresolved_present():
-    out = _ensure_outputs()
-    rows = list(csv.DictReader((out / "exposure_register.csv").open()))
-    unr = {r["workload_id"] for r in rows if r["disposition"] == "UNRESOLVED"}
-    assert set(EXPECTED["unresolved_workload_ids"]).issubset(unr)
+    path = _require_file("exposure_register.csv")
+    rows = list(csv.DictReader(path.open(encoding="utf-8")))
+    unr = {r["workload_id"] for r in rows if r.get("disposition") == "UNRESOLVED"}
+    assert set(EXPECTED["unresolved_workload_ids"]).issubset(unr), "unresolved_missing"
 
 
 def test_memo_sections():
-    out = _ensure_outputs()
-    text = (out / "incident_decision.md").read_text().lower()
-    assert "immediate recommendation" in text
-    assert "limitation" in text or "unresolved" in text
-    assert "http://" not in text and "https://" not in text
+    path = _require_file("incident_decision.md")
+    text = path.read_text(encoding="utf-8").lower()
+    assert "immediate recommendation" in text, "memo_missing_recommendation"
+    assert ("limitation" in text) or ("unresolved" in text), "memo_missing_limits"
+    assert "http://" not in text and "https://" not in text, "memo_has_urls"
 '''
     (tests / "test_outputs.py").write_text(test_py, encoding="utf-8")
     (tests / "test_weights.json").write_text(json.dumps(TEST_WEIGHTS, indent=2) + "\n", encoding="utf-8")
