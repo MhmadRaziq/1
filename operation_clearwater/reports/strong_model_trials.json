@@ -3,9 +3,28 @@
     {
       "trial": "A",
       "model": "claude-sonnet-5-5-high",
-      "status": "MISSING",
-      "reward": null,
-      "checks": {}
+      "status": "GRADED",
+      "reward": 100.0,
+      "checks": {},
+      "portfolio": {
+        "identity": "IDENTITY-BRANCH",
+        "sessions": "SESSIONS-BRANCH",
+        "payments": "PAYMENTS-BRANCH",
+        "customers": "CUSTOMERS-BRANCH",
+        "auditlog": "AUDITLOG-LATEST",
+        "orders": "ORDERS-BRANCH",
+        "billing": "BILLING-BRANCH",
+        "fraud": "FRAUD-BRANCH",
+        "inventory": "INVENTORY-STABLE",
+        "reporting": "REPORTING-STABLE",
+        "catalog": "CATALOG-STABLE",
+        "fulfillment": "FULFILLMENT-BRANCH",
+        "notifications": "NOTIFICATIONS-STABLE",
+        "warehouse": "WAREHOUSE-ARCHIVE",
+        "search": "SEARCH-STABLE",
+        "partners": "PARTNERS-STABLE"
+      },
+      "loss": 1495.0
     },
     {
       "trial": "B",
@@ -73,5 +92,5 @@
       "loss": null
     }
   ],
-  "mean": 81.0
+  "mean": 87.33333333333333
 }
