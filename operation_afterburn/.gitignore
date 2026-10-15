@@ -3,4 +3,5 @@ __pycache__/
 *.pyc
 .pytest_cache/
 candidate/tests/_expected_runtime.json
+candidate/tests/logs/
 /tmp/
