@@ -1,0 +1,14 @@
+forcing_case,workload_id,correct_decision,shortcut_name,shortcut_decision,changed_output,families,scored_flip_flags
+F01,wl-payments-useast,EXPOSED,shortcut_tag_equals_digest,CLEARED,yes,registry;runtime,action_flip
+F02,wl-risk-eu-arm,EXPOSED,shortcut_index_equals_manifest,CLEARED,yes,oci;runtime,action_flip
+F03,wl-fraud-useast,EXPOSED,shortcut_valid_signature_clean,CLEARED,yes,attestation;builder,action_flip
+F04,wl-catalog-useast,EXPOSED,shortcut_runner_direct_only,CLEARED,yes,build;oci,action_flip
+F05,wl-promo-useast,CLEARED,shortcut_build_equals_production,EXPOSED,yes,ci;admission;runtime,clearance_flip
+F06,wl-inventory-useast,EXPOSED,shortcut_desired_equals_running,CLEARED,yes,rollout;runtime,action_flip
+F07,wl-shipping-eu,CLEARED,shortcut_latest_log_is_live,EXPOSED,yes,runtime;ops,clearance_flip
+F09,payments-api,redeploy_clean,shortcut_previous_green,redeploy_tainted,yes,registry;oci;ops,recovery_flip
+F11,wl-checkout-useast,EXPOSED,shortcut_stop_all,quorum_violation,yes,dependencies;health,recovery_flip
+F14,wl-storefront-stage,CLEARED,shortcut_namespace_string_prod,EXPOSED,yes,inventory;runtime,clearance_flip
+F15,wl-partner-apsouth,UNRESOLVED,shortcut_assume_success,EXPOSED,yes,admission;runtime,uncertainty_flip
+F12,payments-api,containment_only_until_effective,shortcut_recorded_means_effective,unauthorized_redeploy,yes,changes;timestamps,recovery_flip
+F13,wl-order-useast,EXPOSED,shortcut_direct_deps_only,CLEARED,yes,source;build;runtime,action_flip

@@ -1,0 +1,6 @@
+work/
+__pycache__/
+*.pyc
+.pytest_cache/
+candidate/tests/_expected_runtime.json
+/tmp/

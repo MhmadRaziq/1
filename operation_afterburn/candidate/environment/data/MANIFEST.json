@@ -1,0 +1,159 @@
+{
+  "files": [
+    {
+      "path": "build/attestations.jsonl.gz",
+      "sha256": "ff5cc8385135fe4fd523228bdd1cf0f0ff4e7c3ea8b171d5ff8bcadabde6c0bc",
+      "bytes": 5484
+    },
+    {
+      "path": "build/builder_identity_events.jsonl.gz",
+      "sha256": "4e8ae9c5086f3b001291cf9c09e4377c8b6e4717d1618c344aacba805b9f7f09",
+      "bytes": 951
+    },
+    {
+      "path": "build/ci_job_events.jsonl.gz",
+      "sha256": "0da954d02d7b63c21a94adf82d3007b92555035393383bf3949696200b2ea520",
+      "bytes": 26601
+    },
+    {
+      "path": "changes/emergency_changes/CHG-4CC8ADCB.md",
+      "sha256": "98eec42516009dcc9699dc835011d20edadece67af692c2d4b4b4123ad5f0450",
+      "bytes": 333
+    },
+    {
+      "path": "changes/emergency_changes/CHG-52D18755.md",
+      "sha256": "75ced61a085d4a52e4d9a570918eaaec7405060a0c195c2840f9f6e677db35b2",
+      "bytes": 313
+    },
+    {
+      "path": "changes/emergency_changes/CHG-52D4C4E3.md",
+      "sha256": "0ed3406c70392869d0ac2cbbb87d3ff35e62a974fb6aea42cc10b5ad5eeaa266",
+      "bytes": 315
+    },
+    {
+      "path": "changes/emergency_changes/CHG-6AE01FB3.md",
+      "sha256": "c2b9388688de33678fd6a72cc831a47eddf4cbf54238a9a3da8aa7a0aa82ddb5",
+      "bytes": 294
+    },
+    {
+      "path": "changes/emergency_changes/CHG-779080AB.md",
+      "sha256": "498aa83c54d0524193825c512b61975986632680bc9b71fbd3627893aa6cd98b",
+      "bytes": 292
+    },
+    {
+      "path": "changes/emergency_changes/CHG-CB4DA744.md",
+      "sha256": "9834e037988559571478b69b7cef9b9ec6fa905a6d7ce0f10aa406cf4adc8fda",
+      "bytes": 299
+    },
+    {
+      "path": "changes/emergency_changes/CHG-F56E5850.md",
+      "sha256": "057f90a038abd4080659b0d50cf13dcbf111f4155373ab25003918d1a510faca",
+      "bytes": 293
+    },
+    {
+      "path": "changes/emergency_changes/CHG-FC922D97.md",
+      "sha256": "9dae42e1e2212704351d37c8a3224ae209ec333910447cd71d6ee100283aaa8c",
+      "bytes": 317
+    },
+    {
+      "path": "changes/oncall_handoffs/handoff.md",
+      "sha256": "5bcad7b00bbe3f1bdd2212f311ea51399f657b690971f199f19dc54b25f41588",
+      "bytes": 243
+    },
+    {
+      "path": "incident_notice.md",
+      "sha256": "098c9250d8316920b43a49be3d2d2e68fb18ccc7a62496d3356b376cc2ea1fa4",
+      "bytes": 998
+    },
+    {
+      "path": "incident_response_standard.md",
+      "sha256": "83483a5a19d109efaf3c8be4fed4fd3c89698b0c821e52dd92652df45041cf62",
+      "bytes": 1295
+    },
+    {
+      "path": "operations/dependency_graph.jsonl.gz",
+      "sha256": "4aedf98d0c0c98d74500a8a889b76cf2a79f33d33f227061f0916f30f1056dbd",
+      "bytes": 215
+    },
+    {
+      "path": "operations/region_health.csv.gz",
+      "sha256": "ddc3ee0bf076c0f8c23abb555e4bdd09eba49d0f501b34fd7531d0384b4afbae",
+      "bytes": 166
+    },
+    {
+      "path": "operations/rollback_artifacts.jsonl.gz",
+      "sha256": "0997b34090675ee66ea5116a29ca97a5467e2da9d194f6810f07bbb480d76174",
+      "bytes": 657
+    },
+    {
+      "path": "registry/layer_inventory.jsonl.gz",
+      "sha256": "6ffb1119dc0daf83e6ba00c5a73e8cffd0556823345d1697391cc571a3f02f5f",
+      "bytes": 8326
+    },
+    {
+      "path": "registry/oci_descriptors.jsonl.gz",
+      "sha256": "8df173d0b76e905eeb737e1f2205b736aaa79ca00b7aa65e61a427ea728b3e3e",
+      "bytes": 10077
+    },
+    {
+      "path": "registry/tag_mutations.jsonl.gz",
+      "sha256": "20e55a3a2db32a2797360c4d75d4b4240dca93a7e71ad690d29252bd6612788f",
+      "bytes": 13394
+    },
+    {
+      "path": "report_templates/exposure_register.csv",
+      "sha256": "eb22e72df0e5aa394f0ddf2b1015da5afa8295e8f0e257180796a48822342e5c",
+      "bytes": 112
+    },
+    {
+      "path": "report_templates/incident_decision.md",
+      "sha256": "0c583da624fb3bd5f3e9ae757b69efe38ea1c05e1ff76a21bd97a55cea69ee3d",
+      "bytes": 242
+    },
+    {
+      "path": "report_templates/response_plan.csv",
+      "sha256": "3aabd80f88dc9b90f4da18be350e05fbe8f02666635dfa12806be7990d5b373b",
+      "bytes": 98
+    },
+    {
+      "path": "runtime/admission_audit.jsonl.gz",
+      "sha256": "8717261bacb1fbcf3d642854795f75c5a057b34f82d94912c9e6478bcf6a7e11",
+      "bytes": 2492
+    },
+    {
+      "path": "runtime/pod_runtime_observations.jsonl.gz",
+      "sha256": "3f960d1b768a37a0ec1e4bb0ed61f728413f37afece8593be32ed226ce3efac4",
+      "bytes": 33484
+    },
+    {
+      "path": "runtime/rollout_history.jsonl.gz",
+      "sha256": "b10b076ace98505f02012949c7371e6db38de85fd25a2aef4bea11f668ddeda0",
+      "bytes": 2113
+    },
+    {
+      "path": "runtime/workload_inventory.csv.gz",
+      "sha256": "7861313fd95c3b99a22c9b1e127a2c25dca0f86da76915befae3528d5053f22c",
+      "bytes": 712
+    },
+    {
+      "path": "service_recovery_commitments.md",
+      "sha256": "84f54bd301a105426e984a4051f00304805b154bbdb2b00464cc9e2c03d25908",
+      "bytes": 710
+    },
+    {
+      "path": "source/build_lockfiles.jsonl.gz",
+      "sha256": "fe7676349b84063b4dba4c36dbcb708a1e094bce3cb3451615cffd169ae58f6b",
+      "bytes": 4099
+    },
+    {
+      "path": "source/repository_release_history.jsonl.gz",
+      "sha256": "22764ca16aa046dbebfdc4ebfe40b41128813d941cce9b7e2dffce10f3b7caae",
+      "bytes": 1424
+    },
+    {
+      "path": "telemetry_dictionary.md",
+      "sha256": "075a1df562914fae21fae96b6d522e2444030eabd6346305ca9bdc5dd1b354ba",
+      "bytes": 987
+    }
+  ]
+}

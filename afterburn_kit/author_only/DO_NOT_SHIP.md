@@ -1,0 +1,2 @@
+# AUTHOR ONLY — NEVER include this folder in final agent-visible environment
+This folder contains challenge geometry, shortcut expectations and requirement mappings. Use it while implementing the generator/oracle and grading. Never put this folder under `environment/data/`, and never include it in the final task ZIP unless the platform explicitly provides a separate inaccessible authoring area for metadata.

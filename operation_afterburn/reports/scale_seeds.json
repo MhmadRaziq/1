@@ -1,0 +1,140 @@
+[
+  {
+    "seed": 42,
+    "scale": "scale",
+    "agree": true,
+    "reward": 90.57142857142857,
+    "exposed": [
+      "wl-catalog-useast",
+      "wl-checkout-useast",
+      "wl-fraud-useast",
+      "wl-inventory-useast",
+      "wl-order-useast",
+      "wl-payments-useast",
+      "wl-risk-eu-arm"
+    ],
+    "oracle_exposed": [
+      "wl-catalog-useast",
+      "wl-checkout-useast",
+      "wl-fraud-useast",
+      "wl-inventory-useast",
+      "wl-order-useast",
+      "wl-payments-useast",
+      "wl-risk-eu-arm"
+    ],
+    "stats": {
+      "ci": 357,
+      "builder": 37,
+      "att": 37,
+      "lock": 37,
+      "repo": 37,
+      "tags": 244,
+      "oci": 105,
+      "layers": 214,
+      "adm": 34,
+      "roll": 33,
+      "run": 433,
+      "inv": 33,
+      "dep": 1,
+      "health": 3,
+      "rollback": 8,
+      "files": 31
+    },
+    "bytes": 122601,
+    "elapsed_sec": 0.06160092353820801,
+    "data_dir": "/workspace/operation_afterburn/work/seed_42_scale/data",
+    "oracle_path": "/workspace/operation_afterburn/work/seed_42_scale/author_only/oracle.json"
+  },
+  {
+    "seed": 1337,
+    "scale": "scale",
+    "agree": true,
+    "reward": 90.57142857142857,
+    "exposed": [
+      "wl-catalog-useast",
+      "wl-checkout-useast",
+      "wl-fraud-useast",
+      "wl-inventory-useast",
+      "wl-order-useast",
+      "wl-payments-useast",
+      "wl-risk-eu-arm"
+    ],
+    "oracle_exposed": [
+      "wl-catalog-useast",
+      "wl-checkout-useast",
+      "wl-fraud-useast",
+      "wl-inventory-useast",
+      "wl-order-useast",
+      "wl-payments-useast",
+      "wl-risk-eu-arm"
+    ],
+    "stats": {
+      "ci": 357,
+      "builder": 37,
+      "att": 37,
+      "lock": 37,
+      "repo": 37,
+      "tags": 244,
+      "oci": 105,
+      "layers": 214,
+      "adm": 34,
+      "roll": 33,
+      "run": 433,
+      "inv": 33,
+      "dep": 1,
+      "health": 3,
+      "rollback": 8,
+      "files": 31
+    },
+    "bytes": 123034,
+    "elapsed_sec": 0.0542757511138916,
+    "data_dir": "/workspace/operation_afterburn/work/seed_1337_scale/data",
+    "oracle_path": "/workspace/operation_afterburn/work/seed_1337_scale/author_only/oracle.json"
+  },
+  {
+    "seed": 9001,
+    "scale": "scale",
+    "agree": true,
+    "reward": 90.57142857142857,
+    "exposed": [
+      "wl-catalog-useast",
+      "wl-checkout-useast",
+      "wl-fraud-useast",
+      "wl-inventory-useast",
+      "wl-order-useast",
+      "wl-payments-useast",
+      "wl-risk-eu-arm"
+    ],
+    "oracle_exposed": [
+      "wl-catalog-useast",
+      "wl-checkout-useast",
+      "wl-fraud-useast",
+      "wl-inventory-useast",
+      "wl-order-useast",
+      "wl-payments-useast",
+      "wl-risk-eu-arm"
+    ],
+    "stats": {
+      "ci": 357,
+      "builder": 37,
+      "att": 37,
+      "lock": 37,
+      "repo": 37,
+      "tags": 244,
+      "oci": 105,
+      "layers": 214,
+      "adm": 34,
+      "roll": 33,
+      "run": 433,
+      "inv": 33,
+      "dep": 1,
+      "health": 3,
+      "rollback": 8,
+      "files": 31
+    },
+    "bytes": 123406,
+    "elapsed_sec": 0.05200910568237305,
+    "data_dir": "/workspace/operation_afterburn/work/seed_9001_scale/data",
+    "oracle_path": "/workspace/operation_afterburn/work/seed_9001_scale/author_only/oracle.json"
+  }
+]
