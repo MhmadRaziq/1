@@ -135,7 +135,7 @@
     "item": 13,
     "weight": 4,
     "criterion": "Memo distinguishes backup catalog claims from independent vault receipt status.",
-    "category": "analyze",
+    "category": "explore",
     "verification_type": "text",
     "grades_output_files": [
       "recovery_decision.md"
@@ -145,7 +145,7 @@
     "item": 14,
     "weight": 4,
     "criterion": "Memo reconciles material object digest disagreements before relying on a snapshot.",
-    "category": "analyze",
+    "category": "explore",
     "verification_type": "text",
     "grades_output_files": [
       "recovery_decision.md"
@@ -155,7 +155,7 @@
     "item": 15,
     "weight": 4,
     "criterion": "Memo addresses material signer-trust conflicts affecting snapshot provenance.",
-    "category": "analyze",
+    "category": "explore",
     "verification_type": "text",
     "grades_output_files": [
       "recovery_decision.md"
@@ -225,7 +225,7 @@
     "item": 22,
     "weight": 4,
     "criterion": "Memo quantifies or clearly bounds expected data loss against objectives.",
-    "category": "analyze",
+    "category": "synthesize",
     "verification_type": "text",
     "grades_output_files": [
       "recovery_decision.md"
@@ -235,7 +235,7 @@
     "item": 23,
     "weight": 4,
     "criterion": "Material findings include citations resolving to real local source records.",
-    "category": "analyze",
+    "category": "synthesize",
     "verification_type": "text",
     "grades_output_files": [
       "recovery_decision.md",
@@ -246,7 +246,7 @@
     "item": 24,
     "weight": 4,
     "criterion": "Memo compares at least one plausible rejected alternative with the chosen option.",
-    "category": "analyze",
+    "category": "hypothesize",
     "verification_type": "text",
     "grades_output_files": [
       "recovery_decision.md"
@@ -256,7 +256,7 @@
     "item": 25,
     "weight": 4,
     "criterion": "Memo explains cross-service compatibility and critical cutover prerequisites.",
-    "category": "analyze",
+    "category": "synthesize",
     "verification_type": "text",
     "grades_output_files": [
       "recovery_decision.md"
@@ -266,7 +266,7 @@
     "item": 26,
     "weight": 4,
     "criterion": "Memo separates findings, assumptions, evidence gaps and residual risk.",
-    "category": "analyze",
+    "category": "hypothesize",
     "verification_type": "text",
     "grades_output_files": [
       "recovery_decision.md"

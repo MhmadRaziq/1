@@ -23,8 +23,8 @@ Legal hold protects originals but may still allow copy restore; unconfirmed indi
 
 ## Taxonomy tags
 - Primary objective: Anomaly Detection & Diagnostics
-- Additional objectives: Comparative Analysis & Explanation
-- Reasoning phases: Explore / Discover; Hypothesize; Analyze & Validate; Synthesize
+- Additional objectives: Comparative Analysis & Explanation; Opportunity Sizing & Decision Support
+- Reasoning phases: Explore / Discover; Hypothesize; Analyze & Validate; Synthesize; Recommend
 
 # Expected difficulty range
 High. Shortcut policies that trust a single evidence family produce different unsafe portfolios. This is a design target, not a verified platform sweep result.

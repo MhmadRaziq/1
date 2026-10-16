@@ -68,8 +68,8 @@ Legal hold protects originals but may still allow copy restore; unconfirmed indi
 
 ## Taxonomy tags
 - Primary objective: Anomaly Detection & Diagnostics
-- Additional objectives: Comparative Analysis & Explanation
-- Reasoning phases: Explore / Discover; Hypothesize; Analyze & Validate; Synthesize
+- Additional objectives: Comparative Analysis & Explanation; Opportunity Sizing & Decision Support
+- Reasoning phases: Explore / Discover; Hypothesize; Analyze & Validate; Synthesize; Recommend
 
 # Expected difficulty range
 High. Shortcut policies that trust a single evidence family produce different unsafe portfolios. This is a design target, not a verified platform sweep result.
@@ -146,6 +146,8 @@ REQ24,Avoid destructive or overbroad recovery actions,7;11
 
 
 def build_rubrics() -> list[dict]:
+    # Category names must match declared reasoning phases (see AFTERBURN / live form):
+    # explore, hypothesize, analyze, synthesize, recommend, instruction_following.
     items = [
         (1, "recommend", 3, "Recommends restore points supported by completed immutable-vault receipts, not catalog status alone.", ["recovery_decision.md", "recovery_plan.csv"]),
         (2, "recommend", 3, "Selected restore objects match independently attested manifest digests.", ["recovery_decision.md", "recovery_plan.csv"]),
@@ -159,20 +161,20 @@ def build_rubrics() -> list[dict]:
         (10, "recommend", 3, "Recovery choices justify business priority, objectives and expected data loss.", ["recovery_decision.md", "recovery_plan.csv"]),
         (11, "recommend", 3, "Plan preserves original evidence and restores in an isolated clean room.", ["recovery_decision.md", "recovery_plan.csv"]),
         (12, "recommend", 3, "Cutover sequence respects prerequisites and includes pre-reconnect validation.", ["recovery_decision.md", "recovery_plan.csv"]),
-        (13, "analyze", 4, "Memo distinguishes backup catalog claims from independent vault receipt status.", ["recovery_decision.md"]),
-        (14, "analyze", 4, "Memo reconciles material object digest disagreements before relying on a snapshot.", ["recovery_decision.md"]),
-        (15, "analyze", 4, "Memo addresses material signer-trust conflicts affecting snapshot provenance.", ["recovery_decision.md"]),
+        (13, "explore", 4, "Memo distinguishes backup catalog claims from independent vault receipt status.", ["recovery_decision.md"]),
+        (14, "explore", 4, "Memo reconciles material object digest disagreements before relying on a snapshot.", ["recovery_decision.md"]),
+        (15, "explore", 4, "Memo addresses material signer-trust conflicts affecting snapshot provenance.", ["recovery_decision.md"]),
         (16, "analyze", 4, "Memo evaluates material restore-time key or authorization limitations.", ["recovery_decision.md"]),
         (17, "analyze", 4, "Memo explains material WAL gaps or replay-integrity limitations.", ["recovery_decision.md"]),
         (18, "analyze", 4, "Memo distinguishes compatible recovery branches from incompatible timeline forks.", ["recovery_decision.md"]),
         (19, "analyze", 4, "Memo identifies when a clean scan fails to cover the proposed replay target.", ["recovery_decision.md"]),
         (20, "analyze", 4, "Memo distinguishes timely usable restore rehearsals from late or failed results.", ["recovery_decision.md"]),
         (21, "analyze", 4, "Memo evaluates whether replay could reintroduce confirmed malicious changes.", ["recovery_decision.md"]),
-        (22, "analyze", 4, "Memo quantifies or clearly bounds expected data loss against objectives.", ["recovery_decision.md"]),
-        (23, "analyze", 4, "Material findings include citations resolving to real local source records.", ["recovery_decision.md", "recovery_plan.csv"]),
-        (24, "analyze", 4, "Memo compares at least one plausible rejected alternative with the chosen option.", ["recovery_decision.md"]),
-        (25, "analyze", 4, "Memo explains cross-service compatibility and critical cutover prerequisites.", ["recovery_decision.md"]),
-        (26, "analyze", 4, "Memo separates findings, assumptions, evidence gaps and residual risk.", ["recovery_decision.md"]),
+        (22, "synthesize", 4, "Memo quantifies or clearly bounds expected data loss against objectives.", ["recovery_decision.md"]),
+        (23, "synthesize", 4, "Material findings include citations resolving to real local source records.", ["recovery_decision.md", "recovery_plan.csv"]),
+        (24, "hypothesize", 4, "Memo compares at least one plausible rejected alternative with the chosen option.", ["recovery_decision.md"]),
+        (25, "synthesize", 4, "Memo explains cross-service compatibility and critical cutover prerequisites.", ["recovery_decision.md"]),
+        (26, "hypothesize", 4, "Memo separates findings, assumptions, evidence gaps and residual risk.", ["recovery_decision.md"]),
         (27, "instruction_following", 2, "A readable decision memo is delivered to the agreed output location.", ["recovery_decision.md"]),
         (28, "instruction_following", 2, "An actionable service-by-service recovery plan is delivered in a permitted format.", ["recovery_plan.csv"]),
         (29, "instruction_following", 2, "Evidence citations use resolvable local source-record identifiers.", ["recovery_decision.md", "recovery_plan.csv"]),
@@ -193,6 +195,9 @@ def build_rubrics() -> list[dict]:
     assert sum(r["weight"] for r in rub if r["category"] == "recommend") >= 30
     iff = sum(r["weight"] for r in rub if r["category"] == "instruction_following")
     assert 1 <= iff <= 10
+    required_phases = {"explore", "hypothesize", "analyze", "synthesize", "recommend"}
+    present = {r["category"] for r in rub}
+    assert required_phases <= present, present
     return rub
 
 
