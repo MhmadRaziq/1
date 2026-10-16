@@ -1,0 +1,60 @@
+{
+  "portfolio": {
+    "identity": "IDENTITY-BRANCH",
+    "auditlog": "AUDITLOG-STABLE",
+    "customers": "CUSTOMERS-BRANCH",
+    "payments": "PAYMENTS-BRANCH",
+    "billing": "BILLING-BRANCH",
+    "fraud": "FRAUD-BRANCH",
+    "sessions": "SESSIONS-BRANCH",
+    "orders": "ORDERS-BRANCH",
+    "inventory": "INVENTORY-STABLE",
+    "catalog": "CATALOG-STABLE",
+    "fulfillment": "FULFILLMENT-BRANCH",
+    "notifications": "NOTIFICATIONS-STABLE",
+    "partners": "PARTNERS-STABLE",
+    "reporting": "REPORTING-STABLE",
+    "search": "SEARCH-STABLE",
+    "warehouse": "WAREHOUSE-ARCHIVE"
+  },
+  "cutover": [
+    "identity",
+    "auditlog",
+    "customers",
+    "payments",
+    "billing",
+    "fraud",
+    "sessions",
+    "orders",
+    "inventory",
+    "catalog",
+    "fulfillment",
+    "notifications",
+    "partners",
+    "reporting",
+    "search",
+    "warehouse"
+  ],
+  "weighted_loss": 1570.0,
+  "effort": 70,
+  "alternate_portfolios": [
+    {
+      "identity": "IDENTITY-BRANCH",
+      "auditlog": "AUDITLOG-STABLE",
+      "customers": "CUSTOMERS-BRANCH",
+      "payments": "PAYMENTS-BRANCH",
+      "billing": "BILLING-BRANCH",
+      "fraud": "FRAUD-BRANCH",
+      "sessions": "SESSIONS-BRANCH",
+      "orders": "ORDERS-BRANCH",
+      "inventory": "INVENTORY-STABLE",
+      "catalog": "CATALOG-STABLE",
+      "fulfillment": "FULFILLMENT-BRANCH",
+      "notifications": "NOTIFICATIONS-STABLE",
+      "partners": "PARTNERS-STABLE",
+      "reporting": "REPORTING-STABLE",
+      "search": "SEARCH-STABLE",
+      "warehouse": "WAREHOUSE-ARCHIVE"
+    }
+  ]
+}

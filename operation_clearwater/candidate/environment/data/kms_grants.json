@@ -1,0 +1,752 @@
+[
+  {
+    "event_id": "KEY-IDENTITY-LATEST",
+    "candidate_id": "IDENTITY-LATEST",
+    "key_arn": "key:identity:latest",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T18:03:00Z",
+    "observed_at": "2026-09-21T18:03:00Z"
+  },
+  {
+    "event_id": "KEY-IDENTITY-NEAR",
+    "candidate_id": "IDENTITY-NEAR",
+    "key_arn": "key:identity:near",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T12:03:00Z",
+    "observed_at": "2026-09-21T12:03:00Z"
+  },
+  {
+    "event_id": "KEY-IDENTITY-STABLE",
+    "candidate_id": "IDENTITY-STABLE",
+    "key_arn": "key:identity:stable",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T03:03:00Z",
+    "observed_at": "2026-09-21T03:03:00Z"
+  },
+  {
+    "event_id": "KEY-IDENTITY-BRANCH",
+    "candidate_id": "IDENTITY-BRANCH",
+    "key_arn": "key:identity:branch",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T06:03:00Z",
+    "observed_at": "2026-09-21T06:03:00Z"
+  },
+  {
+    "event_id": "KEY-IDENTITY-ARCHIVE",
+    "candidate_id": "IDENTITY-ARCHIVE",
+    "key_arn": "key:identity:archive",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-20T09:03:00Z",
+    "observed_at": "2026-09-20T09:03:00Z"
+  },
+  {
+    "event_id": "KEY-SESSIONS-LATEST",
+    "candidate_id": "SESSIONS-LATEST",
+    "key_arn": "key:sessions:latest",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T18:03:00Z",
+    "observed_at": "2026-09-21T18:03:00Z"
+  },
+  {
+    "event_id": "KEY-SESSIONS-NEAR",
+    "candidate_id": "SESSIONS-NEAR",
+    "key_arn": "key:sessions:near",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T12:03:00Z",
+    "observed_at": "2026-09-21T12:03:00Z"
+  },
+  {
+    "event_id": "KEY-SESSIONS-STABLE",
+    "candidate_id": "SESSIONS-STABLE",
+    "key_arn": "key:sessions:stable",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T03:03:00Z",
+    "observed_at": "2026-09-21T03:03:00Z"
+  },
+  {
+    "event_id": "KEY-SESSIONS-BRANCH",
+    "candidate_id": "SESSIONS-BRANCH",
+    "key_arn": "key:sessions:branch",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T06:03:00Z",
+    "observed_at": "2026-09-21T06:03:00Z"
+  },
+  {
+    "event_id": "KEY-SESSIONS-ARCHIVE",
+    "candidate_id": "SESSIONS-ARCHIVE",
+    "key_arn": "key:sessions:archive",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-20T09:03:00Z",
+    "observed_at": "2026-09-20T09:03:00Z"
+  },
+  {
+    "event_id": "KEY-PAYMENTS-LATEST",
+    "candidate_id": "PAYMENTS-LATEST",
+    "key_arn": "key:payments:latest",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T17:03:00Z",
+    "observed_at": "2026-09-21T17:03:00Z"
+  },
+  {
+    "event_id": "KEY-PAYMENTS-NEAR",
+    "candidate_id": "PAYMENTS-NEAR",
+    "key_arn": "key:payments:near",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T11:03:00Z",
+    "observed_at": "2026-09-21T11:03:00Z"
+  },
+  {
+    "event_id": "KEY-PAYMENTS-STABLE",
+    "candidate_id": "PAYMENTS-STABLE",
+    "key_arn": "key:payments:stable",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T02:03:00Z",
+    "observed_at": "2026-09-21T02:03:00Z"
+  },
+  {
+    "event_id": "KEY-PAYMENTS-BRANCH",
+    "candidate_id": "PAYMENTS-BRANCH",
+    "key_arn": "key:payments:branch",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T05:03:00Z",
+    "observed_at": "2026-09-21T05:03:00Z"
+  },
+  {
+    "event_id": "KEY-PAYMENTS-ARCHIVE",
+    "candidate_id": "PAYMENTS-ARCHIVE",
+    "key_arn": "key:payments:archive",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-20T08:03:00Z",
+    "observed_at": "2026-09-20T08:03:00Z"
+  },
+  {
+    "event_id": "KEY-ORDERS-LATEST",
+    "candidate_id": "ORDERS-LATEST",
+    "key_arn": "key:orders:latest",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T19:03:00Z",
+    "observed_at": "2026-09-21T19:03:00Z"
+  },
+  {
+    "event_id": "KEY-ORDERS-NEAR",
+    "candidate_id": "ORDERS-NEAR",
+    "key_arn": "key:orders:near",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T13:03:00Z",
+    "observed_at": "2026-09-21T13:03:00Z"
+  },
+  {
+    "event_id": "KEY-ORDERS-STABLE",
+    "candidate_id": "ORDERS-STABLE",
+    "key_arn": "key:orders:stable",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T01:03:00Z",
+    "observed_at": "2026-09-21T01:03:00Z"
+  },
+  {
+    "event_id": "KEY-ORDERS-BRANCH",
+    "candidate_id": "ORDERS-BRANCH",
+    "key_arn": "key:orders:branch",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T07:03:00Z",
+    "observed_at": "2026-09-21T07:03:00Z"
+  },
+  {
+    "event_id": "KEY-ORDERS-ARCHIVE",
+    "candidate_id": "ORDERS-ARCHIVE",
+    "key_arn": "key:orders:archive",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-20T07:03:00Z",
+    "observed_at": "2026-09-20T07:03:00Z"
+  },
+  {
+    "event_id": "KEY-INVENTORY-LATEST",
+    "candidate_id": "INVENTORY-LATEST",
+    "key_arn": "key:inventory:latest",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T17:03:00Z",
+    "observed_at": "2026-09-21T17:03:00Z"
+  },
+  {
+    "event_id": "KEY-INVENTORY-NEAR",
+    "candidate_id": "INVENTORY-NEAR",
+    "key_arn": "key:inventory:near",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T11:03:00Z",
+    "observed_at": "2026-09-21T11:03:00Z"
+  },
+  {
+    "event_id": "KEY-INVENTORY-STABLE",
+    "candidate_id": "INVENTORY-STABLE",
+    "key_arn": "key:inventory:stable",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T02:03:00Z",
+    "observed_at": "2026-09-21T02:03:00Z"
+  },
+  {
+    "event_id": "KEY-INVENTORY-BRANCH",
+    "candidate_id": "INVENTORY-BRANCH",
+    "key_arn": "key:inventory:branch",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T17:03:00Z",
+    "observed_at": "2026-09-21T17:03:00Z"
+  },
+  {
+    "event_id": "KEY-INVENTORY-ARCHIVE",
+    "candidate_id": "INVENTORY-ARCHIVE",
+    "key_arn": "key:inventory:archive",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-20T08:03:00Z",
+    "observed_at": "2026-09-20T08:03:00Z"
+  },
+  {
+    "event_id": "KEY-CATALOG-LATEST",
+    "candidate_id": "CATALOG-LATEST",
+    "key_arn": "key:catalog:latest",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T18:03:00Z",
+    "observed_at": "2026-09-21T18:03:00Z"
+  },
+  {
+    "event_id": "KEY-CATALOG-NEAR",
+    "candidate_id": "CATALOG-NEAR",
+    "key_arn": "key:catalog:near",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T12:03:00Z",
+    "observed_at": "2026-09-21T12:03:00Z"
+  },
+  {
+    "event_id": "KEY-CATALOG-STABLE",
+    "candidate_id": "CATALOG-STABLE",
+    "key_arn": "key:catalog:stable",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T03:03:00Z",
+    "observed_at": "2026-09-21T03:03:00Z"
+  },
+  {
+    "event_id": "KEY-CATALOG-BRANCH",
+    "candidate_id": "CATALOG-BRANCH",
+    "key_arn": "key:catalog:branch",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T06:03:00Z",
+    "observed_at": "2026-09-21T06:03:00Z"
+  },
+  {
+    "event_id": "KEY-CATALOG-ARCHIVE",
+    "candidate_id": "CATALOG-ARCHIVE",
+    "key_arn": "key:catalog:archive",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-20T09:03:00Z",
+    "observed_at": "2026-09-20T09:03:00Z"
+  },
+  {
+    "event_id": "KEY-CUSTOMERS-LATEST",
+    "candidate_id": "CUSTOMERS-LATEST",
+    "key_arn": "key:customers:latest",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T19:03:00Z",
+    "observed_at": "2026-09-21T19:03:00Z"
+  },
+  {
+    "event_id": "KEY-CUSTOMERS-NEAR",
+    "candidate_id": "CUSTOMERS-NEAR",
+    "key_arn": "key:customers:near",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T13:03:00Z",
+    "observed_at": "2026-09-21T13:03:00Z"
+  },
+  {
+    "event_id": "KEY-CUSTOMERS-STABLE",
+    "candidate_id": "CUSTOMERS-STABLE",
+    "key_arn": "key:customers:stable",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T01:03:00Z",
+    "observed_at": "2026-09-21T01:03:00Z"
+  },
+  {
+    "event_id": "KEY-CUSTOMERS-BRANCH",
+    "candidate_id": "CUSTOMERS-BRANCH",
+    "key_arn": "key:customers:branch",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T07:03:00Z",
+    "observed_at": "2026-09-21T07:03:00Z"
+  },
+  {
+    "event_id": "KEY-CUSTOMERS-ARCHIVE",
+    "candidate_id": "CUSTOMERS-ARCHIVE",
+    "key_arn": "key:customers:archive",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-20T07:03:00Z",
+    "observed_at": "2026-09-20T07:03:00Z"
+  },
+  {
+    "event_id": "KEY-BILLING-LATEST",
+    "candidate_id": "BILLING-LATEST",
+    "key_arn": "key:billing:latest",
+    "restore_grant": "DENIED",
+    "key_state": "DISABLED",
+    "grant_effective_at": "2026-09-21T19:03:00Z",
+    "observed_at": "2026-09-21T19:03:00Z"
+  },
+  {
+    "event_id": "KEY-BILLING-NEAR",
+    "candidate_id": "BILLING-NEAR",
+    "key_arn": "key:billing:near",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T13:03:00Z",
+    "observed_at": "2026-09-21T13:03:00Z"
+  },
+  {
+    "event_id": "KEY-BILLING-STABLE",
+    "candidate_id": "BILLING-STABLE",
+    "key_arn": "key:billing:stable",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T01:03:00Z",
+    "observed_at": "2026-09-21T01:03:00Z"
+  },
+  {
+    "event_id": "KEY-BILLING-BRANCH",
+    "candidate_id": "BILLING-BRANCH",
+    "key_arn": "key:billing:branch",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T07:03:00Z",
+    "observed_at": "2026-09-21T07:03:00Z"
+  },
+  {
+    "event_id": "KEY-BILLING-ARCHIVE",
+    "candidate_id": "BILLING-ARCHIVE",
+    "key_arn": "key:billing:archive",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-20T07:03:00Z",
+    "observed_at": "2026-09-20T07:03:00Z"
+  },
+  {
+    "event_id": "KEY-FULFILLMENT-LATEST",
+    "candidate_id": "FULFILLMENT-LATEST",
+    "key_arn": "key:fulfillment:latest",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T17:03:00Z",
+    "observed_at": "2026-09-21T17:03:00Z"
+  },
+  {
+    "event_id": "KEY-FULFILLMENT-NEAR",
+    "candidate_id": "FULFILLMENT-NEAR",
+    "key_arn": "key:fulfillment:near",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T22:00:00Z",
+    "observed_at": "2026-09-21T22:00:00Z"
+  },
+  {
+    "event_id": "KEY-FULFILLMENT-STABLE",
+    "candidate_id": "FULFILLMENT-STABLE",
+    "key_arn": "key:fulfillment:stable",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T02:03:00Z",
+    "observed_at": "2026-09-21T02:03:00Z"
+  },
+  {
+    "event_id": "KEY-FULFILLMENT-BRANCH",
+    "candidate_id": "FULFILLMENT-BRANCH",
+    "key_arn": "key:fulfillment:branch",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T05:03:00Z",
+    "observed_at": "2026-09-21T05:03:00Z"
+  },
+  {
+    "event_id": "KEY-FULFILLMENT-ARCHIVE",
+    "candidate_id": "FULFILLMENT-ARCHIVE",
+    "key_arn": "key:fulfillment:archive",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-20T08:03:00Z",
+    "observed_at": "2026-09-20T08:03:00Z"
+  },
+  {
+    "event_id": "KEY-NOTIFICATIONS-LATEST",
+    "candidate_id": "NOTIFICATIONS-LATEST",
+    "key_arn": "key:notifications:latest",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T18:03:00Z",
+    "observed_at": "2026-09-21T18:03:00Z"
+  },
+  {
+    "event_id": "KEY-NOTIFICATIONS-NEAR",
+    "candidate_id": "NOTIFICATIONS-NEAR",
+    "key_arn": "key:notifications:near",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T12:03:00Z",
+    "observed_at": "2026-09-21T12:03:00Z"
+  },
+  {
+    "event_id": "KEY-NOTIFICATIONS-STABLE",
+    "candidate_id": "NOTIFICATIONS-STABLE",
+    "key_arn": "key:notifications:stable",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T03:03:00Z",
+    "observed_at": "2026-09-21T03:03:00Z"
+  },
+  {
+    "event_id": "KEY-NOTIFICATIONS-BRANCH",
+    "candidate_id": "NOTIFICATIONS-BRANCH",
+    "key_arn": "key:notifications:branch",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T06:03:00Z",
+    "observed_at": "2026-09-21T06:03:00Z"
+  },
+  {
+    "event_id": "KEY-NOTIFICATIONS-ARCHIVE",
+    "candidate_id": "NOTIFICATIONS-ARCHIVE",
+    "key_arn": "key:notifications:archive",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-20T09:03:00Z",
+    "observed_at": "2026-09-20T09:03:00Z"
+  },
+  {
+    "event_id": "KEY-REPORTING-LATEST",
+    "candidate_id": "REPORTING-LATEST",
+    "key_arn": "key:reporting:latest",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T17:03:00Z",
+    "observed_at": "2026-09-21T17:03:00Z"
+  },
+  {
+    "event_id": "KEY-REPORTING-NEAR",
+    "candidate_id": "REPORTING-NEAR",
+    "key_arn": "key:reporting:near",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T11:03:00Z",
+    "observed_at": "2026-09-21T11:03:00Z"
+  },
+  {
+    "event_id": "KEY-REPORTING-STABLE",
+    "candidate_id": "REPORTING-STABLE",
+    "key_arn": "key:reporting:stable",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T02:03:00Z",
+    "observed_at": "2026-09-21T02:03:00Z"
+  },
+  {
+    "event_id": "KEY-REPORTING-BRANCH",
+    "candidate_id": "REPORTING-BRANCH",
+    "key_arn": "key:reporting:branch",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T05:03:00Z",
+    "observed_at": "2026-09-21T05:03:00Z"
+  },
+  {
+    "event_id": "KEY-REPORTING-ARCHIVE",
+    "candidate_id": "REPORTING-ARCHIVE",
+    "key_arn": "key:reporting:archive",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-20T08:03:00Z",
+    "observed_at": "2026-09-20T08:03:00Z"
+  },
+  {
+    "event_id": "KEY-SEARCH-LATEST",
+    "candidate_id": "SEARCH-LATEST",
+    "key_arn": "key:search:latest",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T18:03:00Z",
+    "observed_at": "2026-09-21T18:03:00Z"
+  },
+  {
+    "event_id": "KEY-SEARCH-NEAR",
+    "candidate_id": "SEARCH-NEAR",
+    "key_arn": "key:search:near",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T12:03:00Z",
+    "observed_at": "2026-09-21T12:03:00Z"
+  },
+  {
+    "event_id": "KEY-SEARCH-STABLE",
+    "candidate_id": "SEARCH-STABLE",
+    "key_arn": "key:search:stable",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T03:03:00Z",
+    "observed_at": "2026-09-21T03:03:00Z"
+  },
+  {
+    "event_id": "KEY-SEARCH-BRANCH",
+    "candidate_id": "SEARCH-BRANCH",
+    "key_arn": "key:search:branch",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T06:03:00Z",
+    "observed_at": "2026-09-21T06:03:00Z"
+  },
+  {
+    "event_id": "KEY-SEARCH-ARCHIVE",
+    "candidate_id": "SEARCH-ARCHIVE",
+    "key_arn": "key:search:archive",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-20T09:03:00Z",
+    "observed_at": "2026-09-20T09:03:00Z"
+  },
+  {
+    "event_id": "KEY-FRAUD-LATEST",
+    "candidate_id": "FRAUD-LATEST",
+    "key_arn": "key:fraud:latest",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T19:03:00Z",
+    "observed_at": "2026-09-21T19:03:00Z"
+  },
+  {
+    "event_id": "KEY-FRAUD-NEAR",
+    "candidate_id": "FRAUD-NEAR",
+    "key_arn": "key:fraud:near",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T13:03:00Z",
+    "observed_at": "2026-09-21T13:03:00Z"
+  },
+  {
+    "event_id": "KEY-FRAUD-STABLE",
+    "candidate_id": "FRAUD-STABLE",
+    "key_arn": "key:fraud:stable",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T01:03:00Z",
+    "observed_at": "2026-09-21T01:03:00Z"
+  },
+  {
+    "event_id": "KEY-FRAUD-BRANCH",
+    "candidate_id": "FRAUD-BRANCH",
+    "key_arn": "key:fraud:branch",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T07:03:00Z",
+    "observed_at": "2026-09-21T07:03:00Z"
+  },
+  {
+    "event_id": "KEY-FRAUD-ARCHIVE",
+    "candidate_id": "FRAUD-ARCHIVE",
+    "key_arn": "key:fraud:archive",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-20T07:03:00Z",
+    "observed_at": "2026-09-20T07:03:00Z"
+  },
+  {
+    "event_id": "KEY-PARTNERS-LATEST",
+    "candidate_id": "PARTNERS-LATEST",
+    "key_arn": "key:partners:latest",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T17:03:00Z",
+    "observed_at": "2026-09-21T17:03:00Z"
+  },
+  {
+    "event_id": "KEY-PARTNERS-NEAR",
+    "candidate_id": "PARTNERS-NEAR",
+    "key_arn": "key:partners:near",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T11:03:00Z",
+    "observed_at": "2026-09-21T11:03:00Z"
+  },
+  {
+    "event_id": "KEY-PARTNERS-STABLE",
+    "candidate_id": "PARTNERS-STABLE",
+    "key_arn": "key:partners:stable",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T02:03:00Z",
+    "observed_at": "2026-09-21T02:03:00Z"
+  },
+  {
+    "event_id": "KEY-PARTNERS-BRANCH",
+    "candidate_id": "PARTNERS-BRANCH",
+    "key_arn": "key:partners:branch",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T05:03:00Z",
+    "observed_at": "2026-09-21T05:03:00Z"
+  },
+  {
+    "event_id": "KEY-PARTNERS-ARCHIVE",
+    "candidate_id": "PARTNERS-ARCHIVE",
+    "key_arn": "key:partners:archive",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-20T08:03:00Z",
+    "observed_at": "2026-09-20T08:03:00Z"
+  },
+  {
+    "event_id": "KEY-WAREHOUSE-LATEST",
+    "candidate_id": "WAREHOUSE-LATEST",
+    "key_arn": "key:warehouse:latest",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T19:03:00Z",
+    "observed_at": "2026-09-21T19:03:00Z"
+  },
+  {
+    "event_id": "KEY-WAREHOUSE-NEAR",
+    "candidate_id": "WAREHOUSE-NEAR",
+    "key_arn": "key:warehouse:near",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T13:03:00Z",
+    "observed_at": "2026-09-21T13:03:00Z"
+  },
+  {
+    "event_id": "KEY-WAREHOUSE-STABLE",
+    "candidate_id": "WAREHOUSE-STABLE",
+    "key_arn": "key:warehouse:stable",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T01:03:00Z",
+    "observed_at": "2026-09-21T01:03:00Z"
+  },
+  {
+    "event_id": "KEY-WAREHOUSE-BRANCH",
+    "candidate_id": "WAREHOUSE-BRANCH",
+    "key_arn": "key:warehouse:branch",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T07:03:00Z",
+    "observed_at": "2026-09-21T07:03:00Z"
+  },
+  {
+    "event_id": "KEY-WAREHOUSE-ARCHIVE",
+    "candidate_id": "WAREHOUSE-ARCHIVE",
+    "key_arn": "key:warehouse:archive",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-20T07:03:00Z",
+    "observed_at": "2026-09-20T07:03:00Z"
+  },
+  {
+    "event_id": "KEY-AUDITLOG-LATEST",
+    "candidate_id": "AUDITLOG-LATEST",
+    "key_arn": "key:auditlog:latest",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T17:03:00Z",
+    "observed_at": "2026-09-21T17:03:00Z"
+  },
+  {
+    "event_id": "KEY-AUDITLOG-NEAR",
+    "candidate_id": "AUDITLOG-NEAR",
+    "key_arn": "key:auditlog:near",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T11:03:00Z",
+    "observed_at": "2026-09-21T11:03:00Z"
+  },
+  {
+    "event_id": "KEY-AUDITLOG-STABLE",
+    "candidate_id": "AUDITLOG-STABLE",
+    "key_arn": "key:auditlog:stable",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T02:03:00Z",
+    "observed_at": "2026-09-21T02:03:00Z"
+  },
+  {
+    "event_id": "KEY-AUDITLOG-BRANCH",
+    "candidate_id": "AUDITLOG-BRANCH",
+    "key_arn": "key:auditlog:branch",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-21T05:03:00Z",
+    "observed_at": "2026-09-21T05:03:00Z"
+  },
+  {
+    "event_id": "KEY-AUDITLOG-ARCHIVE",
+    "candidate_id": "AUDITLOG-ARCHIVE",
+    "key_arn": "key:auditlog:archive",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-20T08:03:00Z",
+    "observed_at": "2026-09-20T08:03:00Z"
+  },
+  {
+    "event_id": "KEY-AUX-DAY0",
+    "candidate_id": null,
+    "key_arn": "key:estate:rotation",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-20T20:00:00Z",
+    "observed_at": "2026-09-20T20:00:00Z",
+    "notes": "Routine estate key rotation; not candidate-specific."
+  },
+  {
+    "event_id": "KEY-AUX-DAY1",
+    "candidate_id": null,
+    "key_arn": "key:estate:rotation",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-19T20:00:00Z",
+    "observed_at": "2026-09-19T20:00:00Z",
+    "notes": "Routine estate key rotation; not candidate-specific."
+  },
+  {
+    "event_id": "KEY-AUX-DAY2",
+    "candidate_id": null,
+    "key_arn": "key:estate:rotation",
+    "restore_grant": "APPROVED",
+    "key_state": "ENABLED",
+    "grant_effective_at": "2026-09-18T20:00:00Z",
+    "observed_at": "2026-09-18T20:00:00Z",
+    "notes": "Routine estate key rotation; not candidate-specific."
+  }
+]

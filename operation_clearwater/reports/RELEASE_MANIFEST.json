@@ -1,0 +1,27 @@
+{
+  "zip": "operation_clearwater_candidate.zip",
+  "sha256": "4d97cc81860614c305105ccaf8dcb6ecb9df0ef7a7fcbd8b2d3889e947bfb541",
+  "portfolio": {
+    "identity": "IDENTITY-BRANCH",
+    "auditlog": "AUDITLOG-STABLE",
+    "customers": "CUSTOMERS-BRANCH",
+    "payments": "PAYMENTS-BRANCH",
+    "billing": "BILLING-BRANCH",
+    "fraud": "FRAUD-BRANCH",
+    "sessions": "SESSIONS-BRANCH",
+    "orders": "ORDERS-BRANCH",
+    "inventory": "INVENTORY-STABLE",
+    "catalog": "CATALOG-STABLE",
+    "fulfillment": "FULFILLMENT-BRANCH",
+    "notifications": "NOTIFICATIONS-STABLE",
+    "partners": "PARTNERS-STABLE",
+    "reporting": "REPORTING-STABLE",
+    "search": "SEARCH-STABLE",
+    "warehouse": "WAREHOUSE-ARCHIVE"
+  },
+  "weighted_loss": 1570.0,
+  "effort": 70,
+  "rubric_points": 100,
+  "recommend_points": 36,
+  "instruction_following_points": 8
+}

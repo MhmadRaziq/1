@@ -1,0 +1,22 @@
+# Task configuration.
+# Only allowlisted keys are honored at ingest. Do not add undocumented keys
+# (historically metadata.source was rejected).
+schema_version = "1.1"
+
+[task]
+name = "baby-carrot/operation-clearwater"
+
+[metadata]
+difficulty = "hard"
+category = "analytics"
+tags = ["dfir", "ransomware-recovery", "postgresql-pitr", "incident-response"]
+
+[agent]
+max_turns = 120
+timeout_sec = 5400
+
+[environment]
+cpus = 4
+memory_mb = 8192
+storage_mb = 10240
+allow_internet = false

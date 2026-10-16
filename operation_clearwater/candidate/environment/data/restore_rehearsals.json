@@ -1,0 +1,722 @@
+[
+  {
+    "event_id": "RT-IDENTITY-LATEST",
+    "candidate_id": "IDENTITY-LATEST",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T19:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-IDENTITY-NEAR",
+    "candidate_id": "IDENTITY-NEAR",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T13:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-IDENTITY-STABLE",
+    "candidate_id": "IDENTITY-STABLE",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T04:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-IDENTITY-BRANCH",
+    "candidate_id": "IDENTITY-BRANCH",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T07:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-IDENTITY-ARCHIVE",
+    "candidate_id": "IDENTITY-ARCHIVE",
+    "result": "PASS",
+    "recorded_at": "2026-09-20T10:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-SESSIONS-LATEST",
+    "candidate_id": "SESSIONS-LATEST",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T19:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-SESSIONS-NEAR",
+    "candidate_id": "SESSIONS-NEAR",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T13:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-SESSIONS-STABLE",
+    "candidate_id": "SESSIONS-STABLE",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T04:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-SESSIONS-BRANCH",
+    "candidate_id": "SESSIONS-BRANCH",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T07:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-SESSIONS-ARCHIVE",
+    "candidate_id": "SESSIONS-ARCHIVE",
+    "result": "PASS",
+    "recorded_at": "2026-09-20T10:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-PAYMENTS-LATEST",
+    "candidate_id": "PAYMENTS-LATEST",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T18:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-PAYMENTS-NEAR",
+    "candidate_id": "PAYMENTS-NEAR",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T12:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-PAYMENTS-STABLE",
+    "candidate_id": "PAYMENTS-STABLE",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T03:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-PAYMENTS-BRANCH",
+    "candidate_id": "PAYMENTS-BRANCH",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T06:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-PAYMENTS-ARCHIVE",
+    "candidate_id": "PAYMENTS-ARCHIVE",
+    "result": "PASS",
+    "recorded_at": "2026-09-20T09:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-ORDERS-LATEST",
+    "candidate_id": "ORDERS-LATEST",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T20:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-ORDERS-NEAR",
+    "candidate_id": "ORDERS-NEAR",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T14:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-ORDERS-STABLE",
+    "candidate_id": "ORDERS-STABLE",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T02:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-ORDERS-BRANCH",
+    "candidate_id": "ORDERS-BRANCH",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T08:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-ORDERS-ARCHIVE",
+    "candidate_id": "ORDERS-ARCHIVE",
+    "result": "PASS",
+    "recorded_at": "2026-09-20T08:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-INVENTORY-LATEST",
+    "candidate_id": "INVENTORY-LATEST",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T18:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-INVENTORY-NEAR",
+    "candidate_id": "INVENTORY-NEAR",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T12:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-INVENTORY-STABLE",
+    "candidate_id": "INVENTORY-STABLE",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T03:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-INVENTORY-BRANCH",
+    "candidate_id": "INVENTORY-BRANCH",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T18:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-INVENTORY-ARCHIVE",
+    "candidate_id": "INVENTORY-ARCHIVE",
+    "result": "PASS",
+    "recorded_at": "2026-09-20T09:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-CATALOG-LATEST",
+    "candidate_id": "CATALOG-LATEST",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T19:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-CATALOG-NEAR",
+    "candidate_id": "CATALOG-NEAR",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T13:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-CATALOG-STABLE",
+    "candidate_id": "CATALOG-STABLE",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T04:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-CATALOG-BRANCH",
+    "candidate_id": "CATALOG-BRANCH",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T07:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-CATALOG-ARCHIVE",
+    "candidate_id": "CATALOG-ARCHIVE",
+    "result": "PASS",
+    "recorded_at": "2026-09-20T10:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-CUSTOMERS-LATEST",
+    "candidate_id": "CUSTOMERS-LATEST",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T20:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-CUSTOMERS-NEAR",
+    "candidate_id": "CUSTOMERS-NEAR",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T14:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-CUSTOMERS-STABLE",
+    "candidate_id": "CUSTOMERS-STABLE",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T02:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-CUSTOMERS-BRANCH",
+    "candidate_id": "CUSTOMERS-BRANCH",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T08:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-CUSTOMERS-ARCHIVE",
+    "candidate_id": "CUSTOMERS-ARCHIVE",
+    "result": "PASS",
+    "recorded_at": "2026-09-20T08:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-BILLING-LATEST",
+    "candidate_id": "BILLING-LATEST",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T20:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-BILLING-NEAR",
+    "candidate_id": "BILLING-NEAR",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T14:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-BILLING-STABLE",
+    "candidate_id": "BILLING-STABLE",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T02:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-BILLING-BRANCH",
+    "candidate_id": "BILLING-BRANCH",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T08:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-BILLING-ARCHIVE",
+    "candidate_id": "BILLING-ARCHIVE",
+    "result": "PASS",
+    "recorded_at": "2026-09-20T08:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-FULFILLMENT-LATEST",
+    "candidate_id": "FULFILLMENT-LATEST",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T18:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-FULFILLMENT-NEAR",
+    "candidate_id": "FULFILLMENT-NEAR",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T12:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-FULFILLMENT-STABLE",
+    "candidate_id": "FULFILLMENT-STABLE",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T03:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-FULFILLMENT-BRANCH",
+    "candidate_id": "FULFILLMENT-BRANCH",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T06:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-FULFILLMENT-ARCHIVE",
+    "candidate_id": "FULFILLMENT-ARCHIVE",
+    "result": "PASS",
+    "recorded_at": "2026-09-20T09:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-NOTIFICATIONS-LATEST",
+    "candidate_id": "NOTIFICATIONS-LATEST",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T23:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": "Post-cutoff rehearsal must not support earlier decision."
+  },
+  {
+    "event_id": "RT-NOTIFICATIONS-NEAR",
+    "candidate_id": "NOTIFICATIONS-NEAR",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T13:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-NOTIFICATIONS-STABLE",
+    "candidate_id": "NOTIFICATIONS-STABLE",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T04:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-NOTIFICATIONS-BRANCH",
+    "candidate_id": "NOTIFICATIONS-BRANCH",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T07:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-NOTIFICATIONS-ARCHIVE",
+    "candidate_id": "NOTIFICATIONS-ARCHIVE",
+    "result": "PASS",
+    "recorded_at": "2026-09-20T10:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-REPORTING-LATEST",
+    "candidate_id": "REPORTING-LATEST",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T18:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-REPORTING-NEAR",
+    "candidate_id": "REPORTING-NEAR",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T12:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-REPORTING-STABLE",
+    "candidate_id": "REPORTING-STABLE",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T03:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-REPORTING-BRANCH",
+    "candidate_id": "REPORTING-BRANCH",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T06:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-REPORTING-ARCHIVE",
+    "candidate_id": "REPORTING-ARCHIVE",
+    "result": "PASS",
+    "recorded_at": "2026-09-20T09:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-SEARCH-LATEST",
+    "candidate_id": "SEARCH-LATEST",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T19:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-SEARCH-NEAR",
+    "candidate_id": "SEARCH-NEAR",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T13:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-SEARCH-STABLE",
+    "candidate_id": "SEARCH-STABLE",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T04:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-SEARCH-BRANCH",
+    "candidate_id": "SEARCH-BRANCH",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T07:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-SEARCH-ARCHIVE",
+    "candidate_id": "SEARCH-ARCHIVE",
+    "result": "PASS",
+    "recorded_at": "2026-09-20T10:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-FRAUD-LATEST",
+    "candidate_id": "FRAUD-LATEST",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T20:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-FRAUD-NEAR",
+    "candidate_id": "FRAUD-NEAR",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T14:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-FRAUD-STABLE",
+    "candidate_id": "FRAUD-STABLE",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T02:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-FRAUD-BRANCH",
+    "candidate_id": "FRAUD-BRANCH",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T08:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-FRAUD-ARCHIVE",
+    "candidate_id": "FRAUD-ARCHIVE",
+    "result": "PASS",
+    "recorded_at": "2026-09-20T08:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-PARTNERS-LATEST",
+    "candidate_id": "PARTNERS-LATEST",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T18:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-PARTNERS-NEAR",
+    "candidate_id": "PARTNERS-NEAR",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T12:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-PARTNERS-STABLE",
+    "candidate_id": "PARTNERS-STABLE",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T03:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-PARTNERS-BRANCH",
+    "candidate_id": "PARTNERS-BRANCH",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T06:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-PARTNERS-ARCHIVE",
+    "candidate_id": "PARTNERS-ARCHIVE",
+    "result": "PASS",
+    "recorded_at": "2026-09-20T09:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-WAREHOUSE-LATEST",
+    "candidate_id": "WAREHOUSE-LATEST",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T20:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-WAREHOUSE-NEAR",
+    "candidate_id": "WAREHOUSE-NEAR",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T14:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-WAREHOUSE-STABLE",
+    "candidate_id": "WAREHOUSE-STABLE",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T02:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-WAREHOUSE-BRANCH",
+    "candidate_id": "WAREHOUSE-BRANCH",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T08:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-WAREHOUSE-ARCHIVE",
+    "candidate_id": "WAREHOUSE-ARCHIVE",
+    "result": "PASS",
+    "recorded_at": "2026-09-20T08:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-AUDITLOG-LATEST",
+    "candidate_id": "AUDITLOG-LATEST",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T18:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-AUDITLOG-NEAR",
+    "candidate_id": "AUDITLOG-NEAR",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T12:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-AUDITLOG-STABLE",
+    "candidate_id": "AUDITLOG-STABLE",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T03:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-AUDITLOG-BRANCH",
+    "candidate_id": "AUDITLOG-BRANCH",
+    "result": "PASS",
+    "recorded_at": "2026-09-21T06:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  },
+  {
+    "event_id": "RT-AUDITLOG-ARCHIVE",
+    "candidate_id": "AUDITLOG-ARCHIVE",
+    "result": "PASS",
+    "recorded_at": "2026-09-20T09:00:00Z",
+    "data_checks": "PASS",
+    "app_smoke": "PASS",
+    "notes": ""
+  }
+]

@@ -1,0 +1,108 @@
+{
+  "incident_id": "CLEARWATER-42",
+  "incident_cutoff": "2026-09-21T20:00:00Z",
+  "decision_time": "2026-09-21T20:00:00Z",
+  "max_restore_effort_units": 70,
+  "service_rpo_hours": {
+    "identity": 48,
+    "sessions": 48,
+    "payments": 48,
+    "orders": 48,
+    "inventory": 48,
+    "catalog": 72,
+    "customers": 72,
+    "billing": 48,
+    "fulfillment": 72,
+    "notifications": 72,
+    "reporting": 72,
+    "search": 72,
+    "fraud": 72,
+    "partners": 72,
+    "warehouse": 72,
+    "auditlog": 72
+  },
+  "service_priorities": {
+    "identity": 10,
+    "sessions": 8,
+    "payments": 10,
+    "orders": 9,
+    "inventory": 8,
+    "catalog": 6,
+    "customers": 7,
+    "billing": 8,
+    "fulfillment": 7,
+    "notifications": 4,
+    "reporting": 3,
+    "search": 3,
+    "fraud": 6,
+    "partners": 5,
+    "warehouse": 2,
+    "auditlog": 5
+  },
+  "dependencies": {
+    "identity": [],
+    "sessions": [
+      "identity"
+    ],
+    "payments": [
+      "identity"
+    ],
+    "orders": [
+      "identity",
+      "sessions"
+    ],
+    "inventory": [
+      "orders"
+    ],
+    "catalog": [
+      "inventory"
+    ],
+    "customers": [
+      "identity"
+    ],
+    "billing": [
+      "payments",
+      "customers"
+    ],
+    "fulfillment": [
+      "orders",
+      "inventory"
+    ],
+    "notifications": [
+      "customers",
+      "orders"
+    ],
+    "reporting": [
+      "payments",
+      "orders"
+    ],
+    "search": [
+      "catalog"
+    ],
+    "fraud": [
+      "payments",
+      "customers"
+    ],
+    "partners": [
+      "identity",
+      "catalog"
+    ],
+    "warehouse": [
+      "reporting"
+    ],
+    "auditlog": [
+      "identity"
+    ]
+  },
+  "clean_room": "isolated",
+  "block_held_targets_inside_open_indicator_windows": true,
+  "max_dependent_skew_hours": 24,
+  "risk_appetite": "No unverified restore sources. Preserve vault originals under any legal hold; restoring from an allowed immutable *copy* is permitted. Do not reconnect services that would replay confirmed ransomware writes. For vault objects under legal hold, do not select a recovery target that falls inside any still-open intrusion-indicator window (confirmed or unconfirmed) until DFIR clears that window. A dependent service's recovery_target_time must not be more than max_dependent_skew_hours newer than each upstream provider's chosen target (estate time-alignment).",
+  "validation_required_before_reconnect": true,
+  "postgresql_notes": {
+    "wal_segment_size_bytes": 16777216,
+    "lsn_format": "HEX/HEX byte offset",
+    "timeline_history": "child timeline requires switchpoint ancestry from backup timeline",
+    "base_backup_stop_lsn": "recovery replay begins at backup_stop_lsn"
+  }
+}

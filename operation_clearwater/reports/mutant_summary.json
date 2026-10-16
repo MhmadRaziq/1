@@ -1,0 +1,100 @@
+{
+  "reference_reward": 100.0,
+  "noop_reward": 0.0,
+  "mutants": [
+    {
+      "name": "m01_missing_memo",
+      "reward": 64.0,
+      "expect_reject": true,
+      "pass": true
+    },
+    {
+      "name": "m02_empty",
+      "reward": 3.0,
+      "expect_reject": true,
+      "pass": true
+    },
+    {
+      "name": "m03_fabricated_citation",
+      "reward": 70.0,
+      "expect_reject": true,
+      "pass": true
+    },
+    {
+      "name": "m04_catalog_latest",
+      "reward": 61.0,
+      "expect_reject": true,
+      "pass": true
+    },
+    {
+      "name": "m05_overbudget_fields",
+      "reward": 100.0,
+      "expect_reject": false,
+      "pass": true
+    },
+    {
+      "name": "m05b_expensive_set",
+      "reward": 67.0,
+      "expect_reject": true,
+      "pass": true
+    },
+    {
+      "name": "m06_bad_cutover",
+      "reward": 82.0,
+      "expect_reject": true,
+      "pass": true
+    },
+    {
+      "name": "m07_unsafe_payments",
+      "reward": 75.0,
+      "expect_reject": true,
+      "pass": true
+    },
+    {
+      "name": "m08_schema_break",
+      "reward": 82.0,
+      "expect_reject": true,
+      "pass": true
+    },
+    {
+      "name": "m09_irreversible_migration",
+      "reward": 80.0,
+      "expect_reject": true,
+      "pass": true
+    },
+    {
+      "name": "m10_unnecessary_hold_denial",
+      "reward": 83.0,
+      "expect_reject": false,
+      "pass": true
+    },
+    {
+      "name": "m11_wal_gap_search",
+      "reward": 75.0,
+      "expect_reject": true,
+      "pass": true
+    },
+    {
+      "name": "m12_stale_scan",
+      "reward": 71.0,
+      "expect_reject": true,
+      "pass": true
+    },
+    {
+      "name": "m13_late_rehearsal",
+      "reward": 75.0,
+      "expect_reject": true,
+      "pass": true
+    },
+    {
+      "name": "m14_alternate_valid",
+      "reward": 100.0,
+      "expect_reject": false,
+      "pass": true
+    }
+  ],
+  "negative_rejected": 12,
+  "negative_total": 12,
+  "alternate_accepted": true,
+  "go": true
+}

@@ -1,0 +1,317 @@
+[
+  {
+    "item": 1,
+    "weight": 3,
+    "criterion": "Recommends restore points supported by completed immutable-vault receipts, not catalog status alone.",
+    "category": "recommend",
+    "verification_type": "text",
+    "grades_output_files": [
+      "recovery_decision.md",
+      "recovery_plan.csv"
+    ]
+  },
+  {
+    "item": 2,
+    "weight": 3,
+    "criterion": "Selected restore objects match independently attested manifest digests.",
+    "category": "recommend",
+    "verification_type": "text",
+    "grades_output_files": [
+      "recovery_decision.md",
+      "recovery_plan.csv"
+    ]
+  },
+  {
+    "item": 3,
+    "weight": 3,
+    "criterion": "Selected restore points have trustworthy attestations at decision time.",
+    "category": "recommend",
+    "verification_type": "text",
+    "grades_output_files": [
+      "recovery_decision.md",
+      "recovery_plan.csv"
+    ]
+  },
+  {
+    "item": 4,
+    "weight": 3,
+    "criterion": "Selected restore points have usable keys and authorized restore access.",
+    "category": "recommend",
+    "verification_type": "text",
+    "grades_output_files": [
+      "recovery_decision.md",
+      "recovery_plan.csv"
+    ]
+  },
+  {
+    "item": 5,
+    "weight": 3,
+    "criterion": "Proposed PITR targets have continuous WAL and compatible timeline ancestry.",
+    "category": "recommend",
+    "verification_type": "text",
+    "grades_output_files": [
+      "recovery_decision.md",
+      "recovery_plan.csv"
+    ]
+  },
+  {
+    "item": 6,
+    "weight": 3,
+    "criterion": "Proposed targets have sufficient clean-room scan coverage and usable rehearsals.",
+    "category": "recommend",
+    "verification_type": "text",
+    "grades_output_files": [
+      "recovery_decision.md",
+      "recovery_plan.csv"
+    ]
+  },
+  {
+    "item": 7,
+    "weight": 3,
+    "criterion": "Recovery choices avoid replaying confirmed malicious writes.",
+    "category": "recommend",
+    "verification_type": "text",
+    "grades_output_files": [
+      "recovery_decision.md",
+      "recovery_plan.csv"
+    ]
+  },
+  {
+    "item": 8,
+    "weight": 3,
+    "criterion": "Proposed restore portfolio stays within documented clean-room resource limits.",
+    "category": "recommend",
+    "verification_type": "text",
+    "grades_output_files": [
+      "recovery_decision.md",
+      "recovery_plan.csv"
+    ]
+  },
+  {
+    "item": 9,
+    "weight": 3,
+    "criterion": "Restored services satisfy provider schema and dependency requirements.",
+    "category": "recommend",
+    "verification_type": "text",
+    "grades_output_files": [
+      "recovery_decision.md",
+      "recovery_plan.csv"
+    ]
+  },
+  {
+    "item": 10,
+    "weight": 3,
+    "criterion": "Recovery choices justify business priority, objectives and expected data loss.",
+    "category": "recommend",
+    "verification_type": "text",
+    "grades_output_files": [
+      "recovery_decision.md",
+      "recovery_plan.csv"
+    ]
+  },
+  {
+    "item": 11,
+    "weight": 3,
+    "criterion": "Plan preserves original evidence and restores in an isolated clean room.",
+    "category": "recommend",
+    "verification_type": "text",
+    "grades_output_files": [
+      "recovery_decision.md",
+      "recovery_plan.csv"
+    ]
+  },
+  {
+    "item": 12,
+    "weight": 3,
+    "criterion": "Cutover sequence respects prerequisites and includes pre-reconnect validation.",
+    "category": "recommend",
+    "verification_type": "text",
+    "grades_output_files": [
+      "recovery_decision.md",
+      "recovery_plan.csv"
+    ]
+  },
+  {
+    "item": 13,
+    "weight": 4,
+    "criterion": "Memo distinguishes backup catalog claims from independent vault receipt status.",
+    "category": "explore",
+    "verification_type": "text",
+    "grades_output_files": [
+      "recovery_decision.md"
+    ]
+  },
+  {
+    "item": 14,
+    "weight": 4,
+    "criterion": "Memo reconciles material object digest disagreements before relying on a snapshot.",
+    "category": "explore",
+    "verification_type": "text",
+    "grades_output_files": [
+      "recovery_decision.md"
+    ]
+  },
+  {
+    "item": 15,
+    "weight": 4,
+    "criterion": "Memo addresses material signer-trust conflicts affecting snapshot provenance.",
+    "category": "explore",
+    "verification_type": "text",
+    "grades_output_files": [
+      "recovery_decision.md"
+    ]
+  },
+  {
+    "item": 16,
+    "weight": 4,
+    "criterion": "Memo evaluates material restore-time key or authorization limitations.",
+    "category": "analyze",
+    "verification_type": "text",
+    "grades_output_files": [
+      "recovery_decision.md"
+    ]
+  },
+  {
+    "item": 17,
+    "weight": 4,
+    "criterion": "Memo explains material WAL gaps or replay-integrity limitations.",
+    "category": "analyze",
+    "verification_type": "text",
+    "grades_output_files": [
+      "recovery_decision.md"
+    ]
+  },
+  {
+    "item": 18,
+    "weight": 4,
+    "criterion": "Memo distinguishes compatible recovery branches from incompatible timeline forks.",
+    "category": "analyze",
+    "verification_type": "text",
+    "grades_output_files": [
+      "recovery_decision.md"
+    ]
+  },
+  {
+    "item": 19,
+    "weight": 4,
+    "criterion": "Memo identifies when a clean scan fails to cover the proposed replay target.",
+    "category": "analyze",
+    "verification_type": "text",
+    "grades_output_files": [
+      "recovery_decision.md"
+    ]
+  },
+  {
+    "item": 20,
+    "weight": 4,
+    "criterion": "Memo distinguishes timely usable restore rehearsals from late or failed results.",
+    "category": "analyze",
+    "verification_type": "text",
+    "grades_output_files": [
+      "recovery_decision.md"
+    ]
+  },
+  {
+    "item": 21,
+    "weight": 4,
+    "criterion": "Memo evaluates whether replay could reintroduce confirmed malicious changes.",
+    "category": "analyze",
+    "verification_type": "text",
+    "grades_output_files": [
+      "recovery_decision.md"
+    ]
+  },
+  {
+    "item": 22,
+    "weight": 4,
+    "criterion": "Memo quantifies or clearly bounds expected data loss against objectives.",
+    "category": "synthesize",
+    "verification_type": "text",
+    "grades_output_files": [
+      "recovery_decision.md"
+    ]
+  },
+  {
+    "item": 23,
+    "weight": 4,
+    "criterion": "Material findings include citations resolving to real local source records.",
+    "category": "synthesize",
+    "verification_type": "text",
+    "grades_output_files": [
+      "recovery_decision.md",
+      "recovery_plan.csv"
+    ]
+  },
+  {
+    "item": 24,
+    "weight": 4,
+    "criterion": "Memo compares at least one plausible rejected alternative with the chosen option.",
+    "category": "hypothesize",
+    "verification_type": "text",
+    "grades_output_files": [
+      "recovery_decision.md"
+    ]
+  },
+  {
+    "item": 25,
+    "weight": 4,
+    "criterion": "Memo explains cross-service compatibility and critical cutover prerequisites.",
+    "category": "synthesize",
+    "verification_type": "text",
+    "grades_output_files": [
+      "recovery_decision.md"
+    ]
+  },
+  {
+    "item": 26,
+    "weight": 4,
+    "criterion": "Memo separates findings, assumptions, evidence gaps and residual risk.",
+    "category": "hypothesize",
+    "verification_type": "text",
+    "grades_output_files": [
+      "recovery_decision.md"
+    ]
+  },
+  {
+    "item": 27,
+    "weight": 2,
+    "criterion": "A readable decision memo is delivered to the agreed output location.",
+    "category": "instruction_following",
+    "verification_type": "text",
+    "grades_output_files": [
+      "recovery_decision.md"
+    ]
+  },
+  {
+    "item": 28,
+    "weight": 2,
+    "criterion": "An actionable service-by-service recovery plan is delivered in a permitted format.",
+    "category": "instruction_following",
+    "verification_type": "text",
+    "grades_output_files": [
+      "recovery_plan.csv"
+    ]
+  },
+  {
+    "item": 29,
+    "weight": 2,
+    "criterion": "Evidence citations use resolvable local source-record identifiers.",
+    "category": "instruction_following",
+    "verification_type": "text",
+    "grades_output_files": [
+      "recovery_decision.md",
+      "recovery_plan.csv"
+    ]
+  },
+  {
+    "item": 30,
+    "weight": 2,
+    "criterion": "Deliverables rely on the supplied offline case packet rather than external data.",
+    "category": "instruction_following",
+    "verification_type": "text",
+    "grades_output_files": [
+      "recovery_decision.md",
+      "recovery_plan.csv"
+    ]
+  }
+]

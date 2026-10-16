@@ -1,0 +1,25 @@
+requirement_id,atomic_instruction,rubric_criteria
+REQ01,Submit a recovery decision memo,27
+REQ02,Submit an actionable service recovery plan,28
+REQ03,Identify defensible recovery state for each service,1;2;3;4
+REQ04,Identify unsafe/unsubstantiated alternatives,13;14;15;16;17;18;19;20;21;24
+REQ05,Cite local evidence for material conclusions,23;29
+REQ06,Assess immutable receipt completeness,1;13
+REQ07,Reconcile receipt/manifest digest,2;14
+REQ08,Assess attestation trust,3;15
+REQ09,Assess restore-time key authorization,4;16
+REQ10,Assess WAL continuity,5;17
+REQ11,Assess timeline ancestry,5;18
+REQ12,Assess scan coverage,6;19
+REQ13,Assess usable restore rehearsal,6;20
+REQ14,Assess contamination and replay,7;21
+REQ15,Respect business recovery objectives and priorities,10;22
+REQ16,Respect clean-room capacity,8
+REQ17,Respect dependency/schema compatibility,9;25
+REQ18,Preserve originals and isolate restoration,11
+REQ19,Specify feasible cutover order,12;25
+REQ20,Specify pre-reconnect validation gates,12
+REQ21,Distinguish assumptions and uncertainty,24;26
+REQ22,Explain expected data loss,10;22
+REQ23,Use only supplied local data,30
+REQ24,Avoid destructive or overbroad recovery actions,7;11

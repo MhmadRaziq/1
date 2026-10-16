@@ -1,0 +1,9 @@
+family,still_ok,decision_changed,error,loss
+vault_receipts,False,True,"No feasible restore candidate for ['identity', 'auditlog', 'customers', 'payments', 'billing', 'fraud', 'sessions', 'orders', 'inventory', 'catalog', 'fulfillment', 'notifications', 'partners', 'reporting', 'search', 'warehouse']",
+attestations,False,True,"No feasible restore candidate for ['identity', 'auditlog', 'customers', 'payments', 'billing', 'fraud', 'sessions', 'orders', 'inventory', 'catalog', 'fulfillment', 'notifications', 'partners', 'reporting', 'search', 'warehouse']",
+kms_grants,False,True,"No feasible restore candidate for ['identity', 'auditlog', 'customers', 'payments', 'billing', 'fraud', 'sessions', 'orders', 'inventory', 'catalog', 'fulfillment', 'notifications', 'partners', 'reporting', 'search', 'warehouse']",
+wal_archive,False,True,"No feasible restore candidate for ['identity', 'auditlog', 'customers', 'payments', 'billing', 'fraud', 'sessions', 'orders', 'inventory', 'catalog', 'fulfillment', 'notifications', 'partners', 'reporting', 'search', 'warehouse']",
+timeline_history,True,True,,1717.0
+malware_scans,False,True,"No feasible restore candidate for ['identity', 'auditlog', 'customers', 'payments', 'billing', 'fraud', 'sessions', 'orders', 'inventory', 'catalog', 'fulfillment', 'notifications', 'partners', 'reporting', 'search', 'warehouse']",
+restore_rehearsals,False,True,"No feasible restore candidate for ['identity', 'auditlog', 'customers', 'payments', 'billing', 'fraud', 'sessions', 'orders', 'inventory', 'catalog', 'fulfillment', 'notifications', 'partners', 'reporting', 'search', 'warehouse']",
+intrusion_indicators,True,True,,1339.0
