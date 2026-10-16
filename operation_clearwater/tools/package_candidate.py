@@ -288,25 +288,8 @@ def main() -> int:
         {"test_name": "test_memo_sections", "weight": 10},
     ], indent=2) + "\n")
     tlib = tests / "_lib"
-    # Independent grader oracle (priority/ready-set DP) — different package name
-    # and algorithm from solution/ref_oracle (enumerate BnB).
-    grade_oracle = tlib / "grade_oracle"
-    grade_oracle.mkdir(parents=True)
-    (grade_oracle / "__init__.py").write_text(
-        '"""Independent grader-side oracle (DP / ready-set), not the reference solver."""\n'
-    )
-    (grade_oracle / "common.py").write_text(
-        _retag_module(
-            ROOT / "oracle" / "common.py",
-            "Grader-side evidence evaluation helpers. Independent of solution/ref_oracle.",
-        )
-    )
-    (grade_oracle / "oracle_dp.py").write_text(
-        _retag_module(
-            ROOT / "oracle" / "oracle_dp.py",
-            "Grader-side ready-set / priority DP oracle. Independent of solution enumerate BnB.",
-        )
-    )
+    # Grader is output-only: verifier/grade.py checks plans against evidence +
+    # private_expected.json. Do NOT ship solution oracle modules under tests/.
     shutil.copytree(ROOT / "verifier", tlib / "verifier", ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
 
     for script in (sol / "solve.sh", tests / "test.sh"):

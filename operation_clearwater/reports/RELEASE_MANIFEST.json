@@ -1,6 +1,6 @@
 {
   "zip": "operation_clearwater_candidate.zip",
-  "sha256": "96abc99998a91204611c5c601f905a98c5f508746f1b642cfbadd3e6ca94937e",
+  "sha256": "c37a5c02e6dcbcdbb16a0a38f79dbf64023b11e386433ebc65ad4077df9c754b",
   "portfolio": {
     "identity": "IDENTITY-BRANCH",
     "auditlog": "AUDITLOG-STABLE",

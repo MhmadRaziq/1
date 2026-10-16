@@ -45,13 +45,20 @@ def main() -> int:
     OUT.mkdir(parents=True)
 
     ref_out = OUT / "reference"
-    solve(data, ref_out)
-    ref_grade = grade_submission(ref_out, data)
+    ref_result = solve(data, ref_out)
+    expected = {
+        "portfolio": ref_result["portfolio"],
+        "cutover": ref_result["cutover"],
+        "weighted_loss": ref_result["weighted_loss"],
+        "effort": ref_result["effort"],
+        "alternate_portfolios": ref_result.get("alternate_portfolios", []),
+    }
+    ref_grade = grade_submission(ref_out, data, expected=expected)
     print("REFERENCE", ref_grade.reward)
 
     noop = OUT / "noop"
     noop.mkdir()
-    noop_grade = grade_submission(noop, data)
+    noop_grade = grade_submission(noop, data, expected=expected)
     print("NOOP", noop_grade.reward)
 
     rows = base_rows(ref_out)
@@ -70,7 +77,7 @@ def main() -> int:
         plan = [dict(r) for r in rows]
         mutator(plan, d)
         write_plan(d / "recovery_plan.csv", plan)
-        g = grade_submission(d, data)
+        g = grade_submission(d, data, expected=expected)
         ok = (g.reward < 85) if expect_reject else (g.reward >= 85)
         mutants.append({"name": name, "reward": g.reward, "expect_reject": expect_reject, "pass": ok})
         print(f"MUT {name}: reward={g.reward:.1f} expect_reject={expect_reject} pass={ok}")

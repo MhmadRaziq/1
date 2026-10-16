@@ -13,6 +13,7 @@ from verifier.grade import grade_submission
 
 COLD = Path("/tmp/clearwater_cold")
 DATA = COLD / "data"
+EXPECTED = json.loads((ROOT / "candidate" / "tests" / "private_expected.json").read_text())
 OUT_MD = ROOT / "reports" / "STRONG_MODEL_TRIALS.md"
 
 TRIALS = [
@@ -30,7 +31,7 @@ def main() -> int:
         if not (out / "recovery_decision.md").exists() or not (out / "recovery_plan.csv").exists():
             rows.append({"trial": tid, "model": model, "status": "MISSING", "reward": None, "checks": {}})
             continue
-        g = grade_submission(out, DATA)
+        g = grade_submission(out, DATA, expected=EXPECTED)
         rows.append({
             "trial": tid,
             "model": model,

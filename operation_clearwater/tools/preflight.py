@@ -67,20 +67,27 @@ def check_zip(path: Path) -> list[str]:
         for n in names:
             if n.startswith("environment/") and any(x in n for x in ("expected", "answer", "oracle.json", "modes.json")):
                 errors.append(f"answer-like file in environment: {n}")
-        # Format rejects byte-identical relative paths under tests/ and solution/
-        from collections import defaultdict
-        by_rel: dict[str, list[str]] = defaultdict(list)
+        # Format rejects grader modules that re-run / duplicate the solution oracle.
+        sol_files = {n: z.read(n) for n in names if n.startswith("solution/_lib/")}
         for n in names:
-            if n.startswith("tests/") and "/_lib/" in n:
-                by_rel[n[len("tests/"):]].append(n)
-            if n.startswith("solution/") and "/_lib/" in n:
-                by_rel[n[len("solution/"):]].append(n)
-        for rel, paths in by_rel.items():
-            test_p = f"tests/{rel}"
-            sol_p = f"solution/{rel}"
-            if test_p in names and sol_p in names:
-                if z.read(test_p) == z.read(sol_p):
-                    errors.append(f"byte-identical grader/solution module: {test_p} == {sol_p}")
+            if not n.startswith("tests/"):
+                continue
+            if "/oracle" in n or n.endswith("oracle_dp.py") or n.endswith("oracle_enumerate.py"):
+                errors.append(f"tests must not ship solver/oracle modules: {n}")
+            body = z.read(n)
+            for sn, sb in sol_files.items():
+                if n.rsplit("/", 1)[-1] != sn.rsplit("/", 1)[-1]:
+                    continue
+                if not n.endswith(".py") or not sn.endswith(".py"):
+                    continue
+                # crude similarity: shared line ratio
+                ta = set(body.decode("utf-8", errors="ignore").splitlines())
+                tb = set(sb.decode("utf-8", errors="ignore").splitlines())
+                if not ta or not tb:
+                    continue
+                overlap = len(ta & tb) / max(len(ta), len(tb))
+                if overlap >= 0.90:
+                    errors.append(f"tests module too similar to solution ({overlap:.0%}): {n} ~ {sn}")
     return errors
 
 
