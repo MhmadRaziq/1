@@ -1,4 +1,5 @@
-"""Shared evidence loading and candidate admissibility (no generator imports)."""
+"""Reference-solution evidence helpers (enumerate path). Not the grader oracle."""
+
 from __future__ import annotations
 
 import json

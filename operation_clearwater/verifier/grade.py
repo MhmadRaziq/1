@@ -14,13 +14,34 @@ import sys
 _ROOT_CANDIDATES = [
     Path(__file__).resolve().parents[1],
     Path(__file__).resolve().parents[2],
+    Path(__file__).resolve().parents[3],
 ]
 for _r in _ROOT_CANDIDATES:
-    if (_r / "oracle").is_dir() and str(_r) not in sys.path:
+    if (
+        (_r / "grade_oracle").is_dir()
+        or (_r / "oracle").is_dir()
+        or (_r / "ref_oracle").is_dir()
+    ) and str(_r) not in sys.path:
         sys.path.insert(0, str(_r))
 
-from oracle.common import evaluate_candidate, load_packet, cutover_order, skew_ok  # noqa: E402
-from oracle import oracle_enumerate  # noqa: E402
+# Packaged grader uses grade_oracle (DP oracle). Local authoring uses oracle/.
+# Never share byte-identical modules with solution/_lib — Format rejects that.
+try:
+    from grade_oracle.common import (  # noqa: E402
+        evaluate_candidate,
+        load_packet,
+        cutover_order,
+        skew_ok,
+    )
+    from grade_oracle import oracle_dp as _ref_oracle  # noqa: E402
+except ImportError:  # pragma: no cover - local authoring tree
+    from oracle.common import (  # noqa: E402
+        evaluate_candidate,
+        load_packet,
+        cutover_order,
+        skew_ok,
+    )
+    from oracle import oracle_dp as _ref_oracle  # noqa: E402
 
 
 ID_RE = re.compile(r"\b(?:VR|WAL|KEY|AT|SC|RT|IR|TL|TLH)-[A-Z0-9\-]+\b")
@@ -79,7 +100,7 @@ def grade_submission(output_dir: Path, data_dir: Path, expected: dict | None = N
     memo = memo_path.read_text(encoding="utf-8") if checks["memo_exists"] else ""
     plan_rows = _load_plan(plan_path) if checks["plan_exists"] else []
 
-    ref = oracle_enumerate.analyze(data_dir)
+    ref = _ref_oracle.analyze(data_dir)
     pkt = load_packet(data_dir)
     cats = {c["candidate_id"]: c for c in pkt.candidates}
     known_ids = set()
@@ -146,7 +167,6 @@ def grade_submission(output_dir: Path, data_dir: Path, expected: dict | None = N
     skew_bad = False
     if checks["plan_covers_services"] and portfolio:
         # Build verdicts for skew_ok
-        from oracle.common import CandidateVerdict
         vmap = {}
         for svc, cid in portfolio.items():
             if cid in cats:

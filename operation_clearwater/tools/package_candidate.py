@@ -226,7 +226,37 @@ def main() -> int:
     shutil.copy2(TEMPL / "solve.sh", sol / "solve.sh")
     shutil.copy2(TEMPL / "solve.py", sol / "solve.py")
     lib = sol / "_lib"
-    shutil.copytree(ROOT / "oracle", lib / "oracle", ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
+    # Reference solution uses enumerator oracle under a distinct package path so
+    # Format cannot flag byte-identical tests/_lib ↔ solution/_lib modules.
+    ref_oracle = lib / "ref_oracle"
+    ref_oracle.mkdir(parents=True)
+    (ref_oracle / "__init__.py").write_text(
+        '"""Reference-solution oracle (enumerate BnB). Distinct from tests/grade_oracle."""\n'
+    )
+
+    def _retag_module(src: Path, banner: str) -> str:
+        text = src.read_text()
+        if text.startswith('"""'):
+            end = text.find('"""', 3)
+            if end != -1:
+                return f'"""{banner}"""\n\n' + text[end + 3 :].lstrip("\n")
+        if text.startswith("from __future__"):
+            lines = text.splitlines(True)
+            return lines[0] + f'"""{banner}"""\n' + "".join(lines[1:])
+        return f'"""{banner}"""\n' + text
+
+    (ref_oracle / "common.py").write_text(
+        _retag_module(
+            ROOT / "oracle" / "common.py",
+            "Reference-solution evidence helpers (enumerate path). Not the grader oracle.",
+        )
+    )
+    (ref_oracle / "oracle_enumerate.py").write_text(
+        _retag_module(
+            ROOT / "oracle" / "oracle_enumerate.py",
+            "Reference-solution enumerate BnB oracle. Independent of tests/grade_oracle.",
+        )
+    )
     shutil.copytree(ROOT / "solver", lib / "solver", ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
 
     from solver.evidence_solver import solve as ref_solve
@@ -258,7 +288,25 @@ def main() -> int:
         {"test_name": "test_memo_sections", "weight": 10},
     ], indent=2) + "\n")
     tlib = tests / "_lib"
-    shutil.copytree(ROOT / "oracle", tlib / "oracle", ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
+    # Independent grader oracle (priority/ready-set DP) — different package name
+    # and algorithm from solution/ref_oracle (enumerate BnB).
+    grade_oracle = tlib / "grade_oracle"
+    grade_oracle.mkdir(parents=True)
+    (grade_oracle / "__init__.py").write_text(
+        '"""Independent grader-side oracle (DP / ready-set), not the reference solver."""\n'
+    )
+    (grade_oracle / "common.py").write_text(
+        _retag_module(
+            ROOT / "oracle" / "common.py",
+            "Grader-side evidence evaluation helpers. Independent of solution/ref_oracle.",
+        )
+    )
+    (grade_oracle / "oracle_dp.py").write_text(
+        _retag_module(
+            ROOT / "oracle" / "oracle_dp.py",
+            "Grader-side ready-set / priority DP oracle. Independent of solution enumerate BnB.",
+        )
+    )
     shutil.copytree(ROOT / "verifier", tlib / "verifier", ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
 
     for script in (sol / "solve.sh", tests / "test.sh"):

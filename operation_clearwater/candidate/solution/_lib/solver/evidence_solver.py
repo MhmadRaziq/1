@@ -11,7 +11,10 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from oracle import oracle_enumerate
+try:
+    from ref_oracle import oracle_enumerate  # packaged solution path
+except ImportError:  # pragma: no cover - local authoring tree
+    from oracle import oracle_enumerate
 
 
 def solve(data_dir: str | Path, output_dir: str | Path) -> dict:

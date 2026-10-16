@@ -1,8 +1,5 @@
-"""Oracle A — evidence-only branch-and-bound portfolio solver.
+"""Reference-solution enumerate BnB oracle. Independent of tests/grade_oracle."""
 
-Independent of oracle_dp: uses reverse-priority service order, exact
-dominance pruning, and a different beam policy. Never imports generator labels.
-"""
 from __future__ import annotations
 
 from dataclasses import asdict

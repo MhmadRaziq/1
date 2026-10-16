@@ -1,4 +1,5 @@
-"""Shared evidence loading and candidate admissibility (no generator imports)."""
+"""Grader-side evidence evaluation helpers. Independent of solution/ref_oracle."""
+
 from __future__ import annotations
 
 import json
